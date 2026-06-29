@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import logoImg from '../assets/image/techlite-logo.png';
 import { servicesData } from '../data/servicesData';
 import Footer from './Footer';
-import ScrollToTopButton from './ScrollToTopButton';
 
 export default function Layout() {
     const location = useLocation();
@@ -211,7 +210,6 @@ export default function Layout() {
             </div>
 
             <Footer />
-            <ScrollToTopButton />
         </div>
     );
 }
