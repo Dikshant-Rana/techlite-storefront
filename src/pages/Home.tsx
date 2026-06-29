@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Download, Cpu, PhoneCall, MapPin, Quote, ChevronLeft, ChevronRight, Search, FileText, CheckCircle2, CheckCircle, Wrench, Phone, Activity, Tv, Wifi, Camera, Monitor, Briefcase } from 'lucide-react';
+import { ArrowRight, Download, Cpu, PhoneCall, Quote, ChevronLeft, ChevronRight, Search, FileText, CheckCircle2, Wrench, Phone, Activity, Tv, Wifi, Camera, Monitor, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 // 1. IMPORT YOUR DATA HERE
@@ -637,60 +637,100 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              name: "Sushil Karki",
+              name: "Sushil Gautam",
               role: "Head Technician",
-              experience: "8+ Years",
+              experience: "10+ Years",
               img: sushil,
-              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Server Rack Installation", "Data Cabling", "On-Site Technical Support"]
+              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Server Rack Installation", "Data Cabling", "On-Site Technical Support"],
+              socials: {
+                fb: "https://www.facebook.com/sushil.gautam.731",
+                insta: "https://www.instagram.com/sushil3899/",
+                whatsapp: "https://wa.me/9779845290944"
+              }
             },
             {
               name: "Saajan Rai",
               role: "Technician",
-              experience: "5+ Years",
+              experience: "9+ Years",
               img: sajaan,
-              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Data Cabling", "Printer Repair", "Printer Maintenance", "System Maintenance", "On-Site Technical Support"]
+              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Data Cabling", "Printer Repair", "Printer Maintenance", "System Maintenance", "On-Site Technical Support"],
+              socials: {
+                fb: "https://www.facebook.com/saajan.rai.7798",
+                insta: "#",
+                whatsapp: "https://wa.me/9779821280031"
+              }
             },
             {
               name: "Bibek Rai",
               role: "Technician",
-              experience: "5+ Years",
+              experience: "8+ Years",
               img: bibek,
-              tags: ["Router Setup", "Network wiring", "Internet Configuration", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "CCTV Maintenance", "On-Site Technical Support"]
+              tags: ["Router Setup", "Network wiring", "Internet Configuration", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "CCTV Maintenance", "On-Site Technical Support"],
+              socials: {
+                fb: "https://www.facebook.com/raee.tmg",
+                insta: "https://www.instagram.com/b_bibek_raii10/",
+                whatsapp: "https://wa.me/9779801944840"
+              }
             },
             {
               name: "Ashish Gautam",
               role: "Printer Repair Technician",
               experience: "4+ Years",
               img: ashish,
-              tags: ["Printer Repair", "Printer Installation & Setup", "Maintenance & Servicing", "Ink & Toner Services", "Networking & Connectivity", "On-Site Support", "Sales & Spare Parts"]
+              tags: ["Printer Repair", "Printer Installation & Setup", "Maintenance & Servicing", "Ink & Toner Services", "Networking & Connectivity", "On-Site Support", "Sales & Spare Parts"],
+              socials: {
+                fb: "https://www.facebook.com/asisa.gautama.942751",
+                insta: "https://www.instagram.com/aashish_gautam_7/",
+                whatsapp: "https://wa.me/9779802499727"
+              }
             },
             {
               name: "Paurakh Subedi",
               role: "Printer Repair Technician",
-              experience: "4+ Years",
+              experience: "3+ Years",
               img: paurakhi,
-              tags: ["Printer Repair", "Installation & Setup", "Maintenance & Cleaning", "Ink & Toner Services", "Network Configuration", "On-Site Support", "Printer Parts & Supplies"]
+              tags: ["Printer Repair", "Installation & Setup", "Maintenance & Cleaning", "Ink & Toner Services", "Network Configuration", "On-Site Support", "Printer Parts & Supplies"],
+              socials: {
+                fb: "https://www.facebook.com/paurakh.subedi.3",
+                insta: "https://www.instagram.com/paurakh.subedi/",
+                whatsapp: "https://wa.me/9779706238009"
+              }
             },
             {
               name: "Rupak Rai",
               role: "Computer Service Technician",
-              experience: "2+ Years",
+              experience: "3+ Years",
               img: rupak,
-              tags: ["Laptop & Desktop Repair/Servicing",  "Computer Hardware Upgrades(RAM/SSD/HDD & more)", "Office Package Installation", "OS & Drivers Installation", "Data Recovery"]
+              tags: ["Laptop & Desktop Repair/Servicing",  "Computer Hardware Upgrades(RAM/SSD/HDD & more)", "Office Package Installation", "OS & Drivers Installation", "Data Recovery"],
+              socials: {
+                fb: "https://www.facebook.com/rupaka.ra.i.926983",
+                insta: "https://www.instagram.com/putet_98/",
+                whatsapp: "https://wa.me/9779801982808"
+              }
             },
             {
               name: "Manik Neupane",
               role: "Head Accountant",
-              experience: "6+ Years",
+              experience: "8+ Years",
               img: manik,
-              tags: ["Accounting", "Financial Management", "Budget Planning", "Reporting", "Business Operations"]
+              tags: ["Accounting", "Financial Management", "Budget Planning", "Reporting", "Business Operations"],
+              socials: {
+                fb: "https://www.facebook.com/Manikneupane7",
+                insta: "https://www.instagram.com/zero_manik_07/",
+                whatsapp: "https://wa.me/9779801944803"
+              }
             },
             {
               name: "Kushal Gautam",
               role: "Assistant Accountant",
-              experience: "3+ Years",
+              experience: "2+ Years",
               img: kushal,
-              tags: ["Bookkeeping", "Financial Records", "Transaction Management", "Reporting", "Administrative Support"]
+              tags: ["Bookkeeping", "Financial Records", "Transaction Management", "Reporting", "Administrative Support"],
+              socials: {
+                fb: "https://www.facebook.com/gautam.kushal.16",
+                insta: "https://www.instagram.com/gautam.kushal.16/",
+                whatsapp: "https://wa.me/9779742559021"
+              }
             }
           ].map((member, idx) => (
             <div key={idx} className="bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between text-left">
@@ -723,9 +763,9 @@ export default function Home() {
 
               {/* Social Footnote Anchors */}
               <div className="px-5 pb-5 pt-3 border-t border-slate-50 flex items-center gap-3 text-slate-400">
-                <a href="#" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-4 h-4" /></a>
-                <a href="#" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-4 h-4" /></a>
-                <a href="#" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-4 h-4" /></a>
+                <a href={member.socials.fb} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-4 h-4" /></a>
+                <a href={member.socials.insta} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-4 h-4" /></a>
+                <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-4 h-4" /></a>
               </div>
             </div>
           ))}

@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Target,
   Eye,
-
   ShieldCheck,
   Wrench,
   MessageSquare,
@@ -59,81 +57,129 @@ interface TeamMember {
   img: string;
   experience?: string;
   tags: string[];
+  socials: {
+    fb: string;
+    insta: string;
+    whatsapp: string;
+  };
 }
 
 export default function About() {
   const team: TeamMember[] = [
     {
-      name: "Sushil Karki",
+      name: "Sushil Gautam",
       role: "Head Technician",
-      experience: "8+ Years",
-      description: "8+ years of expertise in network setup, wiring, CCTV installation, advanced computer troubleshooting, and system diagnostics. Oversees all technical operations.",
-      imageAlt: "Sushil Karki - Head Technician",
+      experience: "10+ Years",
+      description: "10+ years of expertise in network setup, wiring, CCTV installation, advanced computer troubleshooting, and system diagnostics. Oversees all technical operations.",
+      imageAlt: "Sushil Gautam - Head Technician",
       img: sushil,
-      tags: ["Router Configuration", "Network Infrastructure", "CCTV Systems", "Technical Supervision"]
-    },
-    {
-      name: "Bibek Rai",
-      role: "Senior Technician",
-      experience: "5+ Years",
-      description: "Skilled in network cabling, CCTV camera setups, computer troubleshooting, and providing dependable technical support for homes and businesses.",
-      imageAlt: "Bibek Rai - Technician",
-      img: bibek,
-      tags: ["Laptop Repair", "Desktop Repair", "Hardware Upgrades", "Technical Support"]
+      tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Server Rack Installation", "Data Cabling", "On-Site Technical Support"],
+      socials: {
+        fb: "https://www.facebook.com/sushil.gautam.731",
+        insta: "https://www.instagram.com/sushil3899/",
+        whatsapp: "https://wa.me/9779845290944"
+      }
     },
     {
       name: "Saajan Rai",
-      role: "Senior Technician",
-      experience: "4+ Years",
-      description: "Specializes in network wiring, CCTV installations, hardware diagnostics, and regular system maintenance to keep client operations running smoothly.",
+      role: "Technician",
+      experience: "9+ Years",
+      description: "9+ years of expertise in network wiring, CCTV installations, hardware diagnostics, and regular system maintenance.",
       imageAlt: "Saajan Rai - Technician",
       img: sajaan,
-      tags: ["Laptop Repair", "Desktop Repair", "Hardware Upgrades", "Operating Systems"]
+      tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Data Cabling", "Printer Repair", "Printer Maintenance", "System Maintenance", "On-Site Technical Support"],
+      socials: {
+        fb: "https://www.facebook.com/saajan.rai.7798",
+        insta: "#",
+        whatsapp: "https://wa.me/9779821280031"
+      }
+    },
+    {
+      name: "Bibek Rai",
+      role: "Technician",
+      experience: "8+ Years",
+      description: "8+ years of expertise in network cabling, CCTV camera setups, computer troubleshooting, and providing dependable technical support.",
+      imageAlt: "Bibek Rai - Technician",
+      img: bibek,
+      tags: ["Router Setup", "Network wiring", "Internet Configuration", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "CCTV Maintenance", "On-Site Technical Support"],
+      socials: {
+        fb: "https://www.facebook.com/raee.tmg",
+        insta: "https://www.instagram.com/b_bibek_raii10/",
+        whatsapp: "https://wa.me/9779801944840"
+      }
     },
     {
       name: "Ashish Gautam",
-      role: "Printer Repair Specialist",
-      experience: "5+ Years",
+      role: "Printer Repair Technician",
+      experience: "4+ Years",
       description: "Printer repair specialist handling diagnostics, servicing, maintenance, and complex repairs for inkjet, laser, and multifunction printers.",
       imageAlt: "Ashish Gautam - Printer Repair Technician",
       img: ashish,
-      tags: ["Laser Printers", "Inkjet Servicing", "Diagnostics", "Maintenance Support"]
+      tags: ["Printer Repair", "Printer Installation & Setup", "Maintenance & Servicing", "Ink & Toner Services", "Networking & Connectivity", "On-Site Support", "Sales & Spare Parts"],
+      socials: {
+        fb: "https://www.facebook.com/asisa.gautama.942751",
+        insta: "https://www.instagram.com/aashish_gautam_7/",
+        whatsapp: "https://wa.me/9779802499727"
+      }
     },
     {
       name: "Paurakh Subedi",
       role: "Printer Repair Technician",
       experience: "3+ Years",
-      description: "Dedicated to printer troubleshooting, routine maintenance, and repair solutions across various mainstream printer brands and models.",
+      description: "Dedicated printer repair technician with 3+ years of experience in troubleshooting, routine maintenance, and repair solutions.",
       imageAlt: "Paurakh Subedi - Printer Repair Technician",
       img: paurakhi,
-      tags: ["Hardware Diagnostics", "Brand Maintenance", "Troubleshooting"]
+      tags: ["Printer Repair", "Installation & Setup", "Maintenance & Cleaning", "Ink & Toner Services", "Network Configuration", "On-Site Support", "Printer Parts & Supplies"],
+      socials: {
+        fb: "https://www.facebook.com/paurakh.subedi.3",
+        insta: "https://www.instagram.com/paurakh.subedi/",
+        whatsapp: "https://wa.me/9779706238009"
+      }
     },
     {
       name: "Rupak Rai",
       role: "Computer Service Technician",
-      experience: "4+ Years",
+      experience: "3+ Years",
       description: "Expert in desktop and laptop repairs, operating system installations, hardware upgrades (RAM/SSD), data recovery, and performance optimization.",
       imageAlt: "Rupak Rai - Computer Service Technician",
       img: rupak,
-      tags: ["OS Installation", "Data Recovery", "RAM/SSD Upgrades", "Performance Tuning"]
+      tags: ["Laptop & Desktop Repair/Servicing", "Computer Hardware Upgrades(RAM/SSD/HDD & more)", "Office Package Installation", "OS & Drivers Installation", "Data Recovery"],
+      socials: {
+        fb: "https://www.facebook.com/rupaka.ra.i.926983",
+        insta: "https://www.instagram.com/putet_98/",
+        whatsapp: "https://wa.me/9779801982808"
+      }
     },
     {
       name: "Manik Neupane",
       role: "Head Accountant",
+      experience: "8+ Years",
       description: "Manages financial operations, budgeting, financial reporting, and keeps our organization’s business accounts organized and precise.",
       imageAlt: "Manik Neupane - Head Accountant",
       img: manik,
-      tags: ["Financial Operations", "Budgeting", "Corporate Accounting"]
+      tags: ["Accounting", "Financial Management", "Budget Planning", "Reporting", "Business Operations"],
+      socials: {
+        fb: "https://www.facebook.com/Manikneupane7",
+        insta: "https://www.instagram.com/zero_manik_07/",
+        whatsapp: "https://wa.me/9779801944803"
+      }
     },
     {
       name: "Kushal Gautam",
       role: "Assistant Accountant",
+      experience: "2+ Years",
       description: "Supports daily financial tracking, transaction processing, reporting, and smooth administrative financial operations.",
       imageAlt: "Kushal Gautam - Assistant Accountant",
       img: kushal,
-      tags: ["Transaction Tracking", "Reporting", "Financial Admin"]
+      tags: ["Bookkeeping", "Financial Records", "Transaction Management", "Reporting", "Administrative Support"],
+      socials: {
+        fb: "https://www.facebook.com/gautam.kushal.16",
+        insta: "https://www.instagram.com/gautam.kushal.16/",
+        whatsapp: "https://wa.me/9779742559021"
+      }
     }
   ];
+
 
   const getBrandLogo = (brandName: string) => {
     switch (brandName.toLowerCase()) {
@@ -454,9 +500,9 @@ export default function About() {
                     ))}
                   </div>
                   <div className="flex items-center gap-3 text-slate-400 pt-1">
-                    <a href="#" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-3.5 h-3.5" /></a>
-                    <a href="#" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-3.5 h-3.5" /></a>
-                    <a href="#" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-3.5 h-3.5" /></a>
+                    <a href={member.socials.fb} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-3.5 h-3.5" /></a>
+                    <a href={member.socials.insta} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-3.5 h-3.5" /></a>
+                    <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-3.5 h-3.5" /></a>
                   </div>
                 </div>
               </div>
