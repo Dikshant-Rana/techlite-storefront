@@ -1,16 +1,24 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import logoImg from '../assets/techlite_nobg_logo.png';
+import logoImg from '../assets/image/techlite-logo.png';
 import { servicesData } from '../data/servicesData';
+import Footer from './Footer';
+import ScrollToTopButton from './ScrollToTopButton';
 
 export default function Layout() {
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMobileServicesOpen, setIsMobileServicesOpen] = useState<boolean>(false);
 
-    // Helper to instantly know if we are on the Home page
+    // Helper to instantly know if we are on the Home, Services, Products, Downloads, or Contact page
     const isHome = location.pathname === '/';
+    const isAboutPage = location.pathname.startsWith('/about');
+    const isServicesPage = location.pathname.startsWith('/services');
+    const isProductsPage = location.pathname.startsWith('/products');
+    const isDownloadsPage = location.pathname.startsWith('/downloads');
+    const isContactPage = location.pathname.startsWith('/contact');
+    const isFullWidth = isHome || isAboutPage || isServicesPage || isProductsPage || isDownloadsPage || isContactPage;
 
     // Close mobile menus automatically when clicking a link
     useEffect(() => {
@@ -33,9 +41,9 @@ export default function Layout() {
         <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#066291] selection:text-white overflow-x-hidden">
 
             {/* Permanent Sticky Structural Header Block */}
-            <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-2 shadow-sm">
+            <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 shadow-sm">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    
+
                     {/* Brand/Shop Identity logo wrapper */}
                     <Link to="/" className="font-extrabold text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
                         <img
@@ -44,10 +52,10 @@ export default function Layout() {
                             className="w-12 h-12 object-contain"
                         />
                         <div className="flex flex-col leading-none">
-                            <span className="font-pacifico text-2xl font-medium">
+                            <span className="font-manrope text-2xl font-extrabold tracking-tight text-slate-900">
                                 Techlite
                             </span>
-                            <span className="font-rubik text-[#066291] text-xl font-medium ml-1 -mt-1.5">Group</span>
+                            <span className="font-manrope text-[#066291] text-lg font-bold ml-0.5 -mt-2">Group</span>
                         </div>
                     </Link>
 
@@ -63,7 +71,7 @@ export default function Layout() {
                                         ? 'text-[#066291] font-semibold after:scale-x-100'
                                         : 'text-slate-600 hover:text-[#066291]'
                                         }`}
-                                                                >
+                                >
                                     {link.name}
                                 </Link>
                             );
@@ -196,12 +204,14 @@ export default function Layout() {
             </nav>
 
             {/* Dynamic Content Frame Wrapper */}
-            <div className={`w-full ${!isHome ? 'flex-grow' : ''}`}>
-                <main className={`max-w-7xl w-full mx-auto animate-in fade-in duration-300 ${!isHome ? 'p-4 md:p-6 mt-16' : 'p-0'}`}>
+            <div className={`w-full ${!isFullWidth ? 'flex-grow' : ''}`}>
+                <main className={`w-full mx-auto animate-in fade-in duration-300 ${!isFullWidth ? 'max-w-7xl p-4 md:p-6 mt-16' : 'p-0'}`}>
                     <Outlet />
                 </main>
             </div>
-           
+
+            <Footer />
+            <ScrollToTopButton />
         </div>
     );
 }

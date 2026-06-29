@@ -1,9 +1,23 @@
 import { useState } from 'react';
-import { ChevronRight, ChevronDown, Download, Folder, File as FileIcon, Clock, ShieldCheck, Server, HelpCircle, Loader2, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useFileTree, type WebNode } from '../useFileTree'; // Adjust the import path as needed
+import DownloadImg from "../assets/image/install.jpg";
+import {
+  ChevronRight,
+  ChevronDown,
+  Download,
+  Folder,
+  Clock,
+  ShieldCheck,
+  Server,
+  Loader2,
+  AlertCircle,
+  Sparkles
+} from 'lucide-react';
 
-// 1. Recursive Table Row Component updated for WebNode structure
+import { useFileTree, type WebNode } from '../useFileTree';
+import { getFileIcon } from '../components/fileIconHelper';
+
+// Recursive Table Row Component for WebNode structure
 function FileTableRow({
   node,
   depth = 0,
@@ -15,7 +29,7 @@ function FileTableRow({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Calculate dynamic indentation safely via inline styles to ensure Tailwind compilation works perfectly
+  // Dynamic padding calculation for indentations
   const indentationStyle = { paddingLeft: `${(depth * 24) + 16}px` };
 
   if (node.isFolder) {
@@ -27,22 +41,21 @@ function FileTableRow({
           onClick={() => setIsOpen(!isOpen)}
           className="border-b border-slate-100 hover:bg-slate-50 transition cursor-pointer group"
         >
-          <td style={indentationStyle} className="py-3 flex items-center gap-3">
-            <span className="text-slate-400 group-hover:text-blue-600 transition-colors">
+          <td style={indentationStyle} className="py-4 flex items-center gap-3">
+            <span className="text-slate-400 group-hover:text-[#066291] transition-colors">
               {isOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
             </span>
-            <Folder className="w-5 h-5 text-blue-600 fill-blue-600/20" />
-            <span className="font-semibold text-slate-800 text-sm">{node.name}</span>
+            <Folder className="w-5 h-5 text-[#066291] fill-sky-500/10" />
+            <span className="font-bold text-slate-800 text-sm">{node.name}</span>
           </td>
-          <td className="py-3 px-4 text-xs text-slate-500 font-medium hidden sm:table-cell">
-            {childCount > 0 ? `${childCount} items` : '0 items'}
+          <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell">
+            {childCount > 0 ? `${childCount} files` : 'Empty Folder'}
           </td>
-          <td className="py-3 px-4 text-right text-xs">
-            {/* Folders don't have direct download triggers */}
+          <td className="py-4 px-4 text-right text-xs">
+            {/* Folders don't have direct downloads */}
           </td>
         </tr>
 
-        {/* RECURSION: Render children if the folder is expanded */}
         {isOpen && node.children && (
           node.children.map((child) => (
             <FileTableRow
@@ -59,128 +72,159 @@ function FileTableRow({
 
   // File Row Rendering
   return (
-    <tr className="border-b border-slate-50 hover:bg-slate-50 transition group">
-      <td style={indentationStyle} className="py-3 flex items-center gap-3">
-        {/* Adds visual alignment offset to balance against the folder chevron width */}
-        <FileIcon className="w-4 h-4 text-slate-400 ml-4" />
-        <span className="text-sm text-slate-600 font-medium truncate max-w-[200px] sm:max-w-md">
+    <tr className="border-b border-slate-50 hover:bg-slate-50/70 transition group">
+      <td style={indentationStyle} className="py-4 flex items-center gap-3">
+        <div className="ml-4 shrink-0 flex items-center justify-center">
+          {getFileIcon(node.name)}
+        </div>
+        <span className="text-sm text-slate-600 font-semibold truncate max-w-[200px] sm:max-w-md">
           {node.name}
         </span>
       </td>
-      <td className="py-3 px-4 text-xs text-slate-500 font-medium hidden sm:table-cell">
-        -- {/* Sizes can be supplemented if your backend schema expands later */}
+      <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell">
+        Standard Utility Tool
       </td>
-      <td className="py-3 px-4 text-right">
+      <td className="py-4 px-4 text-right">
         <a
           href={getDownloadUrl(node.id)}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded transition shadow-sm"
+          className="inline-flex items-center gap-1.5 bg-[#066291] hover:bg-[#044e74] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-xl transition-colors shadow-sm"
         >
-          <Download className="w-3 h-3" /> Download
+          <Download className="w-3.5 h-3.5" /> Download
         </a>
       </td>
     </tr>
   );
 }
 
-// 2. The Main Page Assembly
 export default function Downloads() {
-  // Consume your custom file tree hook here
   const { treeData, isLoading, error, getDownloadUrl } = useFileTree('http://localhost:5000');
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
+    <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
-      {/* Top Hero Section */}
-      <section className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-blue-600">Security First Architecture</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-            Secure Cloud Cluster Delivery
-          </h1>
-          <p className="text-slate-600 text-sm leading-relaxed max-w-lg">
-            Access our surgical-grade hardware diagnostics and OS deployment payloads. All mirrors are synced across globally distributed secure cloud clusters with end-to-end encryption.
-          </p>
-          <div className="flex gap-3 pt-2">
-            <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-              <ShieldCheck className="w-4 h-4" /> SHA-256 Verified
-            </span>
-            <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-              <Server className="w-4 h-4" /> 99.9% Uptime
-            </span>
+      {/* 1. PREMIUM HERO SECTION */}
+      <section className="relative w-screen pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
+        <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          {/* Left Block */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+              <Link to="/" className="hover:text-[#066291] transition-colors">Home</Link>
+              <ChevronRight className="w-3 h-3" />
+              <span className="text-slate-600">Downloads</span>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-100">
+              <span className="text-[#066291] text-xs">★</span>
+              <span className="text-xs font-semibold text-slate-700 tracking-wide uppercase">
+                Utility & Drivers Portal
+              </span>
+            </div>
+
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] max-w-2xl">
+              Download Center & <br />
+              <span className="relative inline-block text-[#066291]">
+                Utility Tools
+              </span>
+            </h1>
+
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-lg">
+              Get the latest software, printer setup helpers, and driver updates to keep your computer, laptop, and networking systems running smoothly.
+            </p>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              <span className="inline-flex items-center gap-1.5 bg-sky-50 border border-sky-100 text-[#066291] text-xs font-bold px-4 py-2 rounded-full">
+                <ShieldCheck className="w-4 h-4 text-[#066291]" /> Safe & Virus-Free Files
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-sky-50 border border-sky-100 text-[#066291] text-xs font-bold px-4 py-2 rounded-full">
+                <Server className="w-4 h-4 text-sky-600" /> Fast Download Speeds
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-slate-200">
-          <img
-            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80"
-            alt="Secure Cloud Servers"
-            className="w-full h-full object-cover"
-          />
+          {/* Right Image Frame */}
+          <div className="lg:col-span-5 relative w-full flex items-center justify-center order-1 lg:order-2">
+            <div className="w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-50 transform hover:scale-[1.02] transition-transform duration-300">
+              <img
+                src={DownloadImg}
+                alt="Secure Servers"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* The File Explorer Table Section */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+      {/* 2. REPOSITORY EXPLORER SECTION */}
+      <section className="max-w-7xl mx-auto px-6 py-20 space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-4 border-b border-slate-100">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900">Repository Explorer</h2>
-            <div className="text-xs text-slate-500 font-mono mt-1 flex items-center gap-2">
+            <span className="text-[10px] font-bold text-[#066291] uppercase tracking-widest block mb-1">Explorer</span>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Available Software Archives</h2>
+            <div className="text-xs text-slate-500 font-semibold mt-2 flex items-center gap-2">
               <span className="text-slate-400">root</span>
               <ChevronRight className="w-3 h-3 text-slate-300" />
-              <span className="text-slate-700 font-semibold">archives</span>
+              <span className="text-slate-700">archives</span>
             </div>
           </div>
-          <div className="inline-flex items-center gap-2 border border-slate-200 bg-slate-50 px-3 py-1.5 rounded text-xs text-slate-600 font-medium shadow-sm">
-            <Clock className="w-3.5 h-3.5 text-slate-400" /> Remote Storage Status: Connected
+          <div className="inline-flex items-center gap-2 border border-slate-200 bg-slate-50 px-4 py-2 rounded-xl text-xs text-slate-600 font-bold shadow-sm">
+            <Clock className="w-4 h-4 text-slate-400" /> Connection: Active & Synced
           </div>
         </div>
 
-        {/* Dynamic Data Table Engine */}
-        <div className="bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden">
+        {/* File Tree Table */}
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-semibold">
-                <th className="py-3 px-4 w-1/2 sm:w-auto">Name</th>
-                <th className="py-3 px-4 hidden sm:table-cell">Size</th>
-                <th className="py-3 px-4 text-right">Action</th>
+              <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
+                <th className="py-4 px-6 w-1/2 sm:w-auto">File / Folder Name</th>
+                <th className="py-4 px-4 hidden sm:table-cell">Type</th>
+                <th className="py-4 px-6 text-right">Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* Handling Async Loading State */}
+              {/* Async Loading State */}
               {isLoading && (
                 <tr>
-                  <td colSpan={3} className="py-12 text-center text-sm text-slate-500">
+                  <td colSpan={3} className="py-16 text-center text-sm text-slate-500">
                     <div className="flex items-center justify-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
-                      <span>Fetching remote repository tree...</span>
+                      <Loader2 className="w-5 h-5 animate-spin text-[#066291]" />
+                      <span className="font-bold">Scanning files repository...</span>
                     </div>
                   </td>
                 </tr>
               )}
 
-              {/* Handling Fetch Error State */}
+              {/* Fetch Error State */}
               {error && (
                 <tr>
-                  <td colSpan={3} className="py-12 text-center text-sm text-red-500">
-                    <div className="flex items-center justify-center gap-2 bg-red-50 border border-red-100 rounded-md p-4 mx-4">
-                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                      <span>{error}</span>
+                  <td colSpan={3} className="py-16 px-6">
+                    <div className="flex items-center justify-center gap-2 bg-red-50 border border-red-100 rounded-2xl p-4 max-w-xl mx-auto text-red-600 text-sm">
+                      <AlertCircle className="w-5 h-5 shrink-0" />
+                      <span className="font-semibold">{error}</span>
                     </div>
                   </td>
                 </tr>
               )}
 
-              {/* Render Nodes when Data is Ready */}
+              {/* Empty State */}
               {!isLoading && !error && treeData.length === 0 && (
                 <tr>
-                  <td colSpan={3} className="py-12 text-center text-sm text-slate-400 italic">
-                    Repository is currently empty.
+                  <td colSpan={3} className="py-16 text-center text-sm text-slate-400 italic">
+                    The software archive is currently empty.
                   </td>
                 </tr>
               )}
 
+              {/* Render File Tree */}
               {!isLoading && !error && treeData.map((node) => (
                 <FileTableRow
                   key={node.id}
@@ -192,39 +236,43 @@ export default function Downloads() {
           </table>
 
           {/* Table Footer */}
-          <div className="bg-slate-50 px-4 py-3 border-t border-slate-200 flex justify-between items-center text-xs text-slate-500 font-medium">
-            <span>Dynamic Sync Enabled</span>
-            <span>Root Nodes: {treeData.length}</span>
+          <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex justify-between items-center text-xs text-slate-500 font-bold">
+            <span className="flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5 text-[#066291]" /> Dynamic File Syncer Active</span>
+            <span>Files listed: {treeData.length}</span>
           </div>
         </div>
       </section>
 
-      {/* Bottom Information Panels */}
-      <section className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-slate-50 border border-slate-200 p-8 rounded-xl space-y-4">
-          <h3 className="text-lg font-bold text-slate-900">Integrity Check</h3>
-          <p className="text-sm text-slate-600 leading-relaxed">
-            Every download includes a signed hash. Ensure your environment matches our verified checksums before execution to guarantee zero data corruption during transfer.
-          </p>
-          <div className="bg-white border border-slate-200 p-4 rounded font-mono text-xs text-slate-600 shadow-inner overflow-x-auto">
-            <p className="text-slate-400">$ openssl sha256 techlite_setup.iso</p>
-            <p className="text-slate-700 font-semibold mt-1">&gt; 3a7bd3e236083d4e1c1c463ee8d54...9183</p>
-          </div>
-        </div>
+      {/* 3. FINAL CALL TO ACTION */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
-        <div className="bg-blue-700 text-white p-8 rounded-xl text-center space-y-6 flex flex-col justify-center shadow-md">
-          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
-            <HelpCircle className="w-6 h-6 text-blue-100" />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-lg font-bold">Need Assistance?</h3>
-            <p className="text-sm text-blue-100 leading-relaxed max-w-[250px] mx-auto">
-              Our deployment engineering team is available for custom cluster requests.
+          <div className="relative z-10 space-y-6 max-w-xl text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Can't Find the Right Driver or Software?
+            </h2>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              If you need a specific motherboard firmware, printer driver setup, or diagnostic tool not listed above, contact our technical team and we will find it for you.
             </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Link
+                to="/contact"
+                className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
+              >
+                Request Software File
+              </Link>
+              <a
+                href="tel:+977-123456789"
+                className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
+              >
+                Call Tech Support
+              </a>
+            </div>
           </div>
-          <Link to="/contact" className="inline-block bg-white text-blue-700 hover:bg-blue-50 font-bold text-sm px-6 py-2.5 rounded shadow transition w-fit mx-auto">
-            Contact Ops
-          </Link>
+
+          <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5 pointer-events-none flex items-center justify-center overflow-hidden">
+            <Folder className="w-96 h-96 text-white rotate-45 transform translate-x-12" />
+          </div>
         </div>
       </section>
 

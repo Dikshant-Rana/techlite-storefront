@@ -1,37 +1,225 @@
-import { ArrowRight, Download, ShieldCheck, Cpu, PhoneCall, MapPin, Quote, ChevronLeft, ChevronRight, Search, FileText, LinkIcon, CheckCircle2, Globe, CheckCircle, Wrench, Phone, Award, Users, Zap, Activity, Tv, Wifi } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Download, Cpu, PhoneCall, MapPin, Quote, ChevronLeft, ChevronRight, Search, FileText, CheckCircle2, CheckCircle, Wrench, Phone, Activity, Tv, Wifi, Camera, Monitor, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 // 1. IMPORT YOUR DATA HERE
 import { servicesData } from '../data/servicesData';
-import Footer from '../components/Footer.tsx'
 
+
+
+//2. Imported service images
+import techliteInterior from "../assets/image/techlite_interior.webp";
+import Networking from "../assets/image/router1.jpg";
+import Laptop from "../assets/image/laptop.jpg";
+
+//3. Imported team images
+import sushil from "../assets/image/sushil.jpg";
+import sajaan from "../assets/image/sajaan.jpg";
+import paurakhi from "../assets/image/paurakh.jpg";
+import rupak from "../assets/image/rupak.jpg";
+import kushal from "../assets/image/kushal.jpg";
+import manik from "../assets/image/manik.jpg";
+import ashish from "../assets/image/ashish.jpg";
+import bibek from "../assets/image/bibek.jpg";
+
+
+// 2. IMPORT BRAND LOGOS
+import DellLogo from '../assets/brands/dell.svg';
+import HpLogo from '../assets/brands/hp.svg';
+import TapoLogo from '../assets/brands/tapo.webp';
+import BrotherLogo from '../assets/brands/brother.svg';
+import AsusLogo from '../assets/brands/asus.svg';
+import AcerLogo from '../assets/brands/acer.svg';
+import CanonLogo from '../assets/brands/canon.svg';
+import EpsonLogo from '../assets/brands/epson.svg';
+import TpLinkLogo from '../assets/brands/tplink.svg';
+import Dlink from '../assets/brands/d-link.svg';
+import Lblink from '../assets/brands/lb-link.png';
+import Alhua from '../assets/brands/alhua.svg';
+import Ezviz from '../assets/brands/ezviz.png';
+
+
+interface BrandLogo {
+  name: string;
+  glowClass: string;
+  logo: string;
+  heightClass: string;
+}
 
 
 export default function Home() {
 
-  // 3. TOOLS ARRAY (From Screenshot Design)
-  const tools = [
+  // 3. DOWNLOAD CATEGORIES (Refactored Teaser Data)
+  const downloadCategories = [
     {
-      icon: <Download className="w-5 h-5 text-[#066291]" />,
-      title: "Firmware Updates",
-      desc: "Critical security patches and feature updates for motherboards and networking gear."
+      icon: <Camera className="w-5 h-5 text-[#066291] group-hover:text-[#066291] transition-colors duration-300" />,
+      title: "CCTV Software",
+      desc: "Software for viewing and managing your CCTV cameras."
     },
     {
-      icon: <Cpu className="w-5 h-5 text-[#066291]" />,
-      title: "Hardware Drivers",
-      desc: "Certified initial release drivers for optimal compatibility and maximum system stability."
+      icon: <Cpu className="w-5 h-5 text-[#066291] group-hover:text-[#066291] transition-colors duration-300" />,
+      title: "Device Drivers",
+      desc: "Drivers that help your computer recognize printers, scanners, cameras, and other devices."
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-[#066291]" />,
-      title: "Diagnostic Suite",
-      desc: "Proprietary utilities to stress-test components and identify potential failure points early."
+      icon: <Wrench className="w-5 h-5 text-[#066291] group-hover:text-[#066291] transition-colors duration-300" />,
+      title: "Windows Utilities",
+      desc: "Useful tools to maintain, troubleshoot, and improve your Windows computer."
+    },
+    {
+      icon: <Monitor className="w-5 h-5 text-[#066291] group-hover:text-[#066291] transition-colors duration-300" />,
+      title: "Popular Software",
+      desc: "Download commonly used applications such as AnyDesk, Adobe Photoshop, Google Chrome, VLC Media Player, TeamViewer, WinRAR, and more."
+    },
+    {
+      icon: <Briefcase className="w-5 h-5 text-[#066291] group-hover:text-[#066291] transition-colors duration-300" />,
+      title: "Microsoft Office Packages",
+      desc: "Microsoft Office applications for work, school, and everyday productivity."
+    }
+  ];
+  const brands: BrandLogo[] = [
+    {
+      name: 'Dell',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,103,184,0.4)]',
+      logo: DellLogo,
+      heightClass: 'h-15'
+    },
+    {
+      name: 'HP',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,150,214,0.4)]',
+      logo: HpLogo,
+      heightClass: 'h-20'
+    },
+    {
+      name: 'Tapo',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(225,0,15,0.3)]',
+      logo: TapoLogo,
+      heightClass: 'h-14'
+    },
+    {
+      name: 'Brother',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,103,184,0.4)]',
+      logo: BrotherLogo,
+      heightClass: 'h-8'
+    },
+    {
+      name: 'ASUS',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,103,184,0.4)]',
+      logo: AsusLogo,
+      heightClass: 'h-6'
+    },
+    {
+      name: 'Acer',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(131,184,26,0.4)]',
+      logo: AcerLogo,
+      heightClass: 'h-6'
+    },
+    {
+      name: 'Canon',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(204,0,0,0.4)]',
+      logo: CanonLogo,
+      heightClass: 'h-6'
+    },
+    {
+      name: 'Epson',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,51,153,0.4)]',
+      logo: EpsonLogo,
+      heightClass: 'h-6'
+    },
+    {
+      name: 'TP-Link',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(32,181,190,0.4)]',
+      logo: TpLinkLogo,
+      heightClass: 'h-20'
+    },
+    {
+      name: 'Dlink',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,113,197,0.4)]',
+      logo: Dlink,
+      heightClass: 'h-8'
+    },
+    {
+      name: 'Lblink',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(237,28,36,0.4)]',
+      logo: Lblink,
+      heightClass: 'h-40'
+    },
+    {
+      name: 'Alhua',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(255,5,5,0.4)]',
+      logo: Alhua,
+      heightClass: 'h-8'
+    },
+    {
+      name: 'Ezviz',
+      glowClass: 'group-hover:drop-shadow-[0_0_15px_rgba(0,176,240,0.4)]',
+      logo: Ezviz,
+      heightClass: 'h-35'
+    }
+  ];
+  const serviceTags = [
+    "Laptop/Cpu Repair & servicing",
+    "Hardware Upgrades (SSD,HDD,Ram)",
+    "Router setup & wiring",
+    "Printer Repair & Maintenance",
+    "Data Recovery & Software Services",
+    "CCTV installation & servicing",
+    "Custom PC Building",
+    "Product Sales"
+  ];
+
+
+  const testimonials = [
+    {
+      quote: "Techlite Group installed our entire CCTV system across three floors. The work was clean, professional, and completed on schedule. Their team is knowledgeable and explains everything clearly.",
+      author: "Rajesh Shrestha",
+      company: "Shrestha Trading Company",
+      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      quote: "We hired Techlite to set up our new corporate network. They handled the structured cabling, router configuration, and firewalls perfectly. Our internet speed and stability have never been better.",
+      author: "Sunita Karki",
+      company: "Himalayan Tech Solutions",
+      img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      quote: "Their laptop repair service is highly recommended. My computer was running extremely slow, and their technician diagnosed the issue, upgraded the SSD, and cleared malware within a few hours.",
+      author: "Anil Shrestha",
+      company: "Freelance Designer",
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      quote: "Techlite has been managing our office printer maintenance for over a year. Their response time is exceptional, and they always use genuine parts. Highly professional customer service. The Staff are friedly too.",
+      author: "Pooja Gurung",
+      company: "Apex Business Hub",
+      img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=150&q=80"
     }
   ];
 
-  return (
-    <div className="font-sans text-slate-900 space-y-24">
+  const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
 
-      {/* RECREATED HERO SECTION: HIGH-PRODUCTION GRID & DASHBOARD HUD */}
-      <section className="relative w-screen min-h-screen bg-white overflow-hidden pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)]">
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTestimonialIdx((prevIdx) => (prevIdx + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrevTestimonial = () => {
+    setActiveTestimonialIdx((prevIdx) => (prevIdx - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleNextTestimonial = () => {
+    setActiveTestimonialIdx((prevIdx) => (prevIdx + 1) % testimonials.length);
+  };
+
+  // Duplicate brands for a seamless marquee effect
+  const extendedBrands = [...brands, ...brands, ...brands, ...brands, ...brands];
+
+  return (
+    <div className="font-sans text-slate-900">
+
+      <section className="relative w-screen min-h-screen bg-white overflow-hidden pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
 
         {/* Decorative Ambient Soft Radial Glow Vectors */}
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
@@ -40,68 +228,66 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* LEFT SUB-ROW: ENGAGING VALUE PROP ENGINE */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <div className="lg:col-span-7 flex flex-col items-start text-left ">
 
             {/* Context Badge Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-100 mb-6 transition-colors duration-200">
-              <span className="text-[#066291] animate-bounce text-xs">★</span>
+              <span className="text-[#066291] text-xs">★</span>
               <span className="text-xs font-semibold text-slate-700 tracking-wide">
                 Serving Homes, Businesses, Schools & Organizations
               </span>
             </div>
 
             {/* Typography Header Structural Stack */}
-            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-4.5xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
               Your Trusted <br />
               <span className="relative inline-block text-[#066291]">
                 Technology
-                <span className="absolute left-0 bottom-1 w-full h-[3px] bg-sky-200 rounded-full" />
+
               </span> <br />
               Partner
             </h1>
 
             {/* Paragraph Block */}
-            <p className="text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mb-10">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mb-8">
               Professional computer sales, repair services, networking solutions,
               CCTV installations, hardware upgrades, data recovery, and
               complete technical support.
             </p>
 
-            {/* CTA Interaction Control Nodes */}
-            <div className="flex flex-wrap items-center gap-4 w-full mb-16">
+            {/* 1. EXACT THREE-BUTTON CTA CONFIGURATION MATRIX (From Screenshot 2026-06-26 114649.png) */}
+            <div className="flex flex-wrap items-center gap-4 w-full mb-10">
               <Link
                 to="/services"
-                className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 transform hover:-translate-y-0.5"
+                className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 transform hover:-translate-y-0.5"
               >
                 Explore Services <ArrowRight className="w-4 h-4" />
               </Link>
 
               <Link
-                to="/contact"
-                className="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+                to="/downloads"
+                className="bg-sky-50/60 hover:bg-sky-50 border border-sky-100 text-[#066291] px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-sm transform hover:-translate-y-0.5"
               >
-                <Phone className="w-4 h-4 text-slate-400" /> Contact Us
+                <Download className="w-4 h-4 text-[#066291]" /> Download Portal
+              </Link>
+
+              <Link
+                to="/contact"
+                className="hover:bg-slate-50 text-slate-800 px-5 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200"
+              >
+                <Phone className="w-4 h-4 text-slate-700" /> Contact Us
               </Link>
             </div>
 
-            {/* Lower Quality Pillars Segment Matrix */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
-              {[
-                { icon: <Award className="w-5 h-5 text-[#066291]" />, text: '8+ Years Experience' },
-                { icon: <Users className="w-5 h-5 text-[#066291]" />, text: 'Skilled Technical Team' },
-                { icon: <Zap className="w-5 h-5 text-[#066291]" />, text: 'Fast Service' },
-                { icon: <ShieldCheck className="w-5 h-5 text-[#066291]" />, text: 'Genuine Products' }
-              ].map((pillar, idx) => (
+            {/* 2. CORE SERVICES FLEX TAG CLOUD (From Screenshot 2026-06-26 114649.png) */}
+            <div className="flex flex-wrap gap-2.5 w-full pb-8 border-b border-slate-100 mb-8">
+              {serviceTags.map((tag, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-100 rounded-2xl p-4 flex flex-col items-center text-center justify-center shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-4 py-2 rounded-full shadow-sm shadow-slate-100/40 hover:border-slate-300 transition-colors duration-200"
                 >
-                  <div className="mb-3 p-2 bg-slate-50 rounded-xl">
-                    {pillar.icon}
-                  </div>
-                  <span className="text-xs font-bold text-slate-800 leading-tight">
-                    {pillar.text}
-                  </span>
+                  <CheckCircle2 className="w-4 h-4 text-[#066291] shrink-0" />
+                  <span className="text-xs font-semibold text-slate-700">{tag}</span>
                 </div>
               ))}
             </div>
@@ -109,7 +295,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT SUB-ROW: FLOATING HARNESS LAYERED HUDS */}
-          <div className="lg:col-span-5 relative w-full min-h-[450px] flex items-center justify-center mt-12 lg:mt-0">
+          <div className="lg:col-span-5 relative w-full min-h-[450px] flex items-center justify-center mt-12 lg:mt-0 order-1 lg:order-2">
 
             {/* Primary Console System Status Server Engine Container */}
             <div className="w-full max-w-[360px] bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl p-6 transform hover:scale-[1.02] transition-transform duration-300 relative z-20">
@@ -194,94 +380,176 @@ export default function Home() {
 
         </div>
       </section>
+      <section className="py-16 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] overflow-hidden border-b border-slate-200/80 select-none">
 
-      {/* 2. WHO WE ARE SECTION */}
-      <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left Image Box */}
-        <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 h-[400px]">
-          <img
-            src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1000&q=80"
-            alt="Hardware Precision"
-            className="w-full h-full object-cover"
-          />
+        {/* Structural Headers */}
+        <div className="max-w-7xl mx-auto px-6 md:px-8 text-center space-y-3 mb-12">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
+            Trusted Technology Brands
+          </span>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+            Brands We Work With
+          </h2>
+          <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mx-auto font-normal">
+            We proudly sell, install and support products from industry-leading technology manufacturers.
+          </p>
         </div>
 
-        {/* Right Content */}
-        <div className="space-y-6">
-          <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase">Who We Are</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Reliable Technology Solutions</h2>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            At Techlite Group, we help customers with computer repairs, software installation, system upgrades, and technical support. Whether you need a home computer fixed or help setting up office systems, our experienced team is ready to assist.
-          </p>
-          <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#066291] hover:text-[#044e74] transition-colors pt-2">
-            Learn More About Our Team <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* Infinite scrolling slider frame structure */}
+        <div className="relative w-full overflow-hidden flex items-center mask-faded-edges">
+
+          {/* Continuous animation loop wrapper */}
+          <div className="flex gap-20 items-center whitespace-nowrap animate-marquee-continuous w-max py-4">
+            {extendedBrands.map((brand, idx) => (
+              <div
+                key={idx}
+                className="group flex items-center justify-center min-w-[130px] transition-all duration-300 transform hover:scale-105"
+              >
+                {/* Grayscale filter toggles smoothly to full color upon mouse entry */}
+                <div className={`relative z-10 opacity-50 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-300 ${brand.glowClass}`}>
+                  <img
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    className={`${brand.heightClass} w-auto object-contain`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+      {/* 2. WHO WE ARE SECTION */}
+      <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Image Box */}
+          <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 h-[400px]">
+            <img
+              src={techliteInterior}
+              alt="Hardware Precision"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Right Content */}
+          <div className="space-y-6">
+            <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase">Who We Are</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Reliable Technology Solutions</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              At Techlite Group, we help customers with computer repairs, software installation, system upgrades, and technical support. Whether you need a home computer fixed or help setting up office systems, our experienced team is ready to assist.
+            </p>
+            <Link to="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#066291] hover:text-[#044e74] transition-colors pt-2">
+              Learn About Us <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* 3. SERVICES SECTION */}
-      <section className="max-w-7xl mx-auto px-6 space-y-8">
-        {/* Header Layout */}
-        <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 border-b border-transparent pb-2">
-          <div>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-[#066291]">What We Offer</span>
-            <h2 className="text-3xl font-bold tracking-tight mt-1">Expert Utility & Setup</h2>
+      <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
+        <div className="max-w-7xl mx-auto px-6 space-y-8">
+          {/* Header Layout */}
+          <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 border-b border-transparent pb-2">
+            <div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-[#066291]">What We Offer</span>
+              <h2 className="text-3xl font-bold tracking-tight mt-1">Expert Utility & Setup</h2>
+            </div>
           </div>
-        </div>
 
-        {/* Card Grid Layout */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {servicesData.map((svc) => (
-            <div key={svc.id} className="border border-slate-200 bg-white p-6 rounded shadow-sm hover:shadow-md transition flex flex-col">
+          {/* Card Grid Layout */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {servicesData.map((svc) => (
+              <div key={svc.id} className="border border-slate-200 bg-white p-6 rounded shadow-sm hover:shadow-md transition flex flex-col">
 
-              {/* Category & Title */}
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{svc.category}</span>
-              <h3 className="text-lg font-semibold text-slate-900 mt-1 mb-4">{svc.title}</h3>
+                {/* Category & Title */}
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{svc.category}</span>
+                <h3 className="text-lg font-semibold text-slate-900 mt-1 mb-4">{svc.title}</h3>
 
-              {/* Image Frame */}
-              <div className="w-full h-44 bg-slate-100 mb-4 overflow-hidden border border-slate-100">
-                <img src={svc.imageUrl} alt={svc.title} className="w-full h-full object-cover" />
-              </div>
-
-              {/* Description */}
-              <p className="text-sm text-slate-600 leading-relaxed flex-grow">
-                {svc.desc}
-              </p>
-
-              {/* Tags + Learn More Button */}
-              <div className="mt-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {svc.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="bg-slate-100 text-slate-500 text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Image Frame */}
+                <div className="w-full h-44 bg-slate-100 mb-4 overflow-hidden border border-slate-100">
+                  <img src={svc.imageUrl} alt={svc.title} className="w-full h-full object-cover" />
                 </div>
 
-                <Link
-                  to={`/services/${svc.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#066291] hover:text-[#044e74] transition-colors"
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
+                {/* Description */}
+                <p className="text-sm text-slate-600 leading-relaxed flex-grow">
+                  {svc.desc}
+                </p>
+
+                {/* Tags + Learn More Button */}
+                <div className="mt-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {svc.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="bg-slate-100 text-slate-500 text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    to={`/services/${svc.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#066291] hover:text-[#044e74] transition-colors"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
 
+      {/* 4. DOWNLOAD CENTER SECTION */}
+      <section className="bg-slate-50/40 py-20 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase">Download Center</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Software & Resource Library</h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              We provide essential drivers, utilities, and applications to keep your computer, printer, and CCTV systems running at peak performance.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-8">
+            {downloadCategories.map((cat, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-[#066291]/5 hover:-translate-y-1 hover:border-[#066291]/30 transition-all duration-300 flex flex-col justify-between overflow-hidden w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] min-h-[220px]"
+              >
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-transparent group-hover:bg-[#066291] transition-colors duration-300" />
+
+                <div className="space-y-4">
+                  <div className="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center group-hover:bg-slate-950 transition-all duration-300">
+                    {cat.icon}
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-lg group-hover:text-[#066291] transition-colors duration-300">{cat.title}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed font-normal">
+                    {cat.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center pt-4">
+            <Link to="/downloads" className="inline-flex items-center gap-2 bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-xs uppercase tracking-wider px-8 py-4 rounded-xl transition-all duration-200 shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 transform hover:-translate-y-0.5">
+              Browse Download Center <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* 5. REPLICATED TECHNOLOGY PRODUCTS GRID FROM SCREENSHOT */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+      <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Shop With Us</span>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Technology Products</h2>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Technology Products</h2>
           <p className="text-slate-500 text-sm leading-relaxed">
             Genuine products from leading global brands, sourced and sold with full warranty support.
           </p>
@@ -289,11 +557,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { title: "Laptops", desc: "HP, Dell, Lenovo, Asus, Acer", img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" },
+            { title: "Laptops", desc: "HP, Dell, Lenovo, Asus, Acer", img: Laptop },
             { title: "Desktop Computers", desc: "Custom builds & branded PCs", img: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80" },
-            { title: "Printers", desc: "Canon, Epson, HP printers", img: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80" },
-            { title: "CCTV Systems", desc: "IP cameras & NVR systems", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80" },
-            { title: "Networking Equipment", desc: "Routers, switches, cables", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" },
+            { title: "Printers", desc: "Canon, Epson, Brother printers", img: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80" },
+            { title: "CCTV Systems", desc: "Dahua, Ezviz, Tapo, Hikvision", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80" },
+            { title: "Networking Equipment", desc: "Routers, switches, cables", img: Networking },
             { title: "Computer Accessories", desc: "Keyboards, mice, monitors", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80" }
           ].map((prod, idx) => (
             <div key={idx} className="relative group aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
@@ -312,16 +580,17 @@ export default function Home() {
             View All Products <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
+        </div>
       </section>
 
       {/* NEW SECTION A: REPLICATED HOW WE WORK PIPELINE */}
-      <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
+      <section className="bg-slate-50/50 py-20 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Simple Process</span>
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">How We Work</h2>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">How We Work</h2>
             <p className="text-slate-500 text-sm leading-relaxed">
               A clear, transparent process so you know exactly what to expect — every step of the way.
             </p>
@@ -353,12 +622,13 @@ export default function Home() {
       </section>
 
       {/* NEW SECTION B: REPLICATED MEET OUR EXPERTS TEAM MATRIX */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+      <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Our Experts</span>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Meet Our Experts</h2>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Meet Our Experts</h2>
           <p className="text-slate-500 text-sm leading-relaxed">
             Skilled, certified technicians dedicated to delivering exceptional service and technical excellence.
           </p>
@@ -370,57 +640,57 @@ export default function Home() {
               name: "Sushil Karki",
               role: "Head Technician",
               experience: "8+ Years",
-              img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
-              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Computer Troubleshooting", "Technical Support"]
+              img: sushil,
+              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Server Rack Installation", "Data Cabling", "On-Site Technical Support"]
             },
             {
-              name: "Sajan Rai",
+              name: "Saajan Rai",
               role: "Technician",
               experience: "5+ Years",
-              img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
-              tags: ["Network Wiring", "CCTV Installation", "Computer Troubleshooting", "System Maintenance", "Technical Support"]
+              img: sajaan,
+              tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Data Cabling", "Printer Repair", "Printer Maintenance", "System Maintenance", "On-Site Technical Support"]
             },
             {
-              name: "Ashish Subedi",
+              name: "Bibek Rai",
+              role: "Technician",
+              experience: "5+ Years",
+              img: bibek,
+              tags: ["Router Setup", "Network wiring", "Internet Configuration", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "CCTV Maintenance", "On-Site Technical Support"]
+            },
+            {
+              name: "Ashish Gautam",
               role: "Printer Repair Technician",
               experience: "4+ Years",
-              img: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=400&q=80",
-              tags: ["Printer Repair", "Printer Maintenance", "Diagnostics", "Laser Printers", "Inkjet Printers"]
+              img: ashish,
+              tags: ["Printer Repair", "Printer Installation & Setup", "Maintenance & Servicing", "Ink & Toner Services", "Networking & Connectivity", "On-Site Support", "Sales & Spare Parts"]
             },
             {
               name: "Paurakh Subedi",
               role: "Printer Repair Technician",
               experience: "4+ Years",
-              img: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80",
-              tags: ["Printer Repair", "Troubleshooting", "Maintenance", "Office Printers", "Technical Support"]
+              img: paurakhi,
+              tags: ["Printer Repair", "Installation & Setup", "Maintenance & Cleaning", "Ink & Toner Services", "Network Configuration", "On-Site Support", "Printer Parts & Supplies"]
             },
             {
               name: "Rupak Rai",
               role: "Computer Service Technician",
-              experience: "5+ Years",
-              img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-              tags: ["Laptop Repair", "Desktop Repair", "Data Recovery", "RAM & SSD Upgrades", "OS Installation"]
+              experience: "2+ Years",
+              img: rupak,
+              tags: ["Laptop & Desktop Repair/Servicing",  "Computer Hardware Upgrades(RAM/SSD/HDD & more)", "Office Package Installation", "OS & Drivers Installation", "Data Recovery"]
             },
             {
-              name: "Manik Rai",
+              name: "Manik Neupane",
               role: "Head Accountant",
               experience: "6+ Years",
-              img: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=400&q=80",
+              img: manik,
               tags: ["Accounting", "Financial Management", "Budget Planning", "Reporting", "Business Operations"]
             },
             {
               name: "Kushal Gautam",
               role: "Assistant Accountant",
               experience: "3+ Years",
-              img: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&w=400&q=80",
+              img: kushal,
               tags: ["Bookkeeping", "Financial Records", "Transaction Management", "Reporting", "Administrative Support"]
-            },
-            {
-              name: "Bibek Rai",
-              role: "Technician",
-              experience: "5+ Years",
-              img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-              tags: ["Network Wiring", "CCTV Installation", "Computer Troubleshooting", "System Maintenance", "Technical Support"]
             }
           ].map((member, idx) => (
             <div key={idx} className="bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between text-left">
@@ -428,7 +698,7 @@ export default function Home() {
                 {/* Profile Picture Frame with Experience Badge Overlay */}
                 <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
                   <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top" />
-                  <div className="absolute top-4 right-4 bg-teal-600 text-white font-mono font-bold text-[9px] px-2.5 py-1 rounded-md shadow-sm">
+                  <div className="absolute top-4 right-4 bg-[#066291] text-white font-mono font-bold text-[9px] px-2.5 py-1 rounded-md shadow-sm">
                     {member.experience}
                   </div>
                 </div>
@@ -453,106 +723,27 @@ export default function Home() {
 
               {/* Social Footnote Anchors */}
               <div className="px-5 pb-5 pt-3 border-t border-slate-50 flex items-center gap-3 text-slate-400">
-                <a href="#" className="hover:text-[#066291] transition-colors"><Globe className="w-4 h-4" /></a>
-                <a href="#" className="hover:text-[#066291] transition-colors"><LinkIcon className="w-4 h-4" /></a>
+                <a href="#" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-4 h-4" /></a>
+                <a href="#" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-4 h-4" /></a>
+                <a href="#" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-4 h-4" /></a>
               </div>
             </div>
           ))}
         </div>
-      </section>
-
-      {/* 6. CALL TO ACTION BANNER (Kept unchanged below your new components) */}
-
-      {/* 4. DOWNLOAD CENTER SECTION */}
-      <section className="bg-[#f8fafc] py-24 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 space-y-16">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase">Download Center</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Optimized Tools for Your Hardware</h2>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Access our professional-grade diagnostic software suite and latest driver packages to keep your hardware running at peak performance.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {tools.map((tool, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 text-center flex flex-col items-center space-y-4 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mb-2">
-                  {tool.icon}
-                </div>
-                <h3 className="font-bold text-slate-900">{tool.title}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  {tool.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link to="/downloads" className="inline-block bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-8 py-3.5 rounded shadow-sm transition-colors">
-              Browse All Downloads
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* NEW SECTION C: REPLICATED RECENT PROJECTS SHOWCASE MATRIX */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
-            <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Our Work</span>
-          </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Recent Projects</h2>
-          <p className="text-slate-500 text-sm leading-relaxed">
-            A snapshot of our recent deployments, installations, and service engagements across Nepal.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { title: "School Computer Lab Setup", tag: "Computer Lab Deployment", loc: "Kathmandu, Nepal", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80", tagColor: "bg-indigo-500/20 text-indigo-200" },
-            { title: "Office CCTV Installation", tag: "CCTV Installation", loc: "Lalitpur, Nepal", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80", tagColor: "bg-rose-500/20 text-rose-200" },
-            { title: "Corporate Network Infrastructure", tag: "Office Network Setup", loc: "Bhaktapur, Nepal", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80", tagColor: "bg-sky-500/20 text-sky-200" },
-            { title: "Router Configuration — 50 Device Office", tag: "Router Configuration", loc: "Kathmandu, Nepal", img: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&w=600&q=80", tagColor: "bg-purple-500/20 text-purple-200" },
-            { title: "Bulk Laptop Repair — College", tag: "Laptop Repair", loc: "Pokhara, Nepal", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80", tagColor: "bg-amber-500/20 text-amber-200" },
-            { title: "Annual IT Support — Retail Chain", tag: "Business IT Support", loc: "Kathmandu, Nepal", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80", tagColor: "bg-teal-500/20 text-teal-200" }
-          ].map((project, idx) => (
-            <div key={idx} className="relative group aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
-              <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-              {/* Top Left Specific Meta Tag Badge */}
-              <div className="absolute top-4 left-4">
-                <span className={`text-[9px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-md backdrop-blur-md ${project.tagColor}`}>
-                  {project.tag}
-                </span>
-              </div>
-
-              {/* Bottom Structural Data Strings */}
-              <div className="absolute bottom-5 left-5 right-5 text-left text-white space-y-2">
-                <h4 className="text-sm font-bold tracking-tight leading-snug">{project.title}</h4>
-                <div className="flex items-center justify-between pt-1 border-t border-white/10 text-[10px] text-slate-300 font-medium">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-slate-400" /> {project.loc}
-                  </span>
-                  <span className="flex items-center gap-1 text-teal-400 font-bold">
-                    <CheckCircle className="w-3 h-3" /> Completed
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* NEW SECTION D: REPLICATED TESTIMONIAL VIEWPORT CAROUSEL */}
-      <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
+      <section className="bg-slate-50/50 py-16 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Customer Stories</span>
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">What Our Customers Say</h2>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">What Our Customers Say</h2>
             <p className="text-slate-500 text-sm leading-relaxed">
               Real feedback from real clients who trust Techlite Group with their technology needs.
             </p>
@@ -560,7 +751,7 @@ export default function Home() {
 
           {/* Testimonial Card Frame Structure */}
           <div className="max-w-3xl mx-auto flex flex-col items-center space-y-8">
-            <div className="bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm relative w-full text-left">
+            <div key={activeTestimonialIdx} className="bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm relative w-full text-left animate-in fade-in duration-500">
               {/* Quote Decorative Markings */}
               <Quote className="absolute top-8 right-8 w-10 h-10 text-sky-100 rotate-180" />
 
@@ -571,38 +762,50 @@ export default function Home() {
 
               {/* Central Review Paragraph */}
               <p className="text-slate-700 text-sm md:text-base font-normal leading-relaxed mb-8">
-                "Techlite Group installed our entire CCTV system across three floors. The work
-                was clean, professional, and completed on schedule. Their team is
-                knowledgeable and explains everything clearly."
+                "{testimonials[activeTestimonialIdx].quote}"
               </p>
 
               {/* Author Row Profile Vector */}
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Rajesh Shrestha" className="w-full h-full object-cover" />
+                  <img src={testimonials[activeTestimonialIdx].img} alt={testimonials[activeTestimonialIdx].author} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Rajesh Shrestha</h4>
-                  <p className="text-[11px] font-medium text-[#066291]">Shrestha Trading Company</p>
+                  <h4 className="text-sm font-bold text-slate-900">{testimonials[activeTestimonialIdx].author}</h4>
+                  <p className="text-[11px] font-medium text-[#066291]">{testimonials[activeTestimonialIdx].company}</p>
                 </div>
               </div>
             </div>
 
             {/* Slider Control Nodes Block */}
             <div className="flex items-center gap-4">
-              <button className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#066291] hover:border-[#066291] transition-all duration-200 shadow-sm">
+              <button
+                onClick={handlePrevTestimonial}
+                aria-label="Previous testimonial"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#066291] hover:border-[#066291] transition-all duration-200 shadow-sm"
+              >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
               {/* Carousel Indicator Dots */}
               <div className="flex items-center gap-2">
-                <span className="w-6 h-1.5 rounded-full bg-[#066291]" />
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveTestimonialIdx(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      activeTestimonialIdx === idx ? 'w-6 bg-[#066291]' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
+                    }`}
+                  />
+                ))}
               </div>
 
-              <button className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#066291] hover:border-[#066291] transition-all duration-200 shadow-sm">
+              <button
+                onClick={handleNextTestimonial}
+                aria-label="Next testimonial"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#066291] hover:border-[#066291] transition-all duration-200 shadow-sm"
+              >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
@@ -610,41 +813,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEW SECTION E: REPLICATED BRANDS WE WORK WITH STRIP */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 space-y-6 text-center">
-        <div>
-          <h3 className="text-base font-bold text-slate-900 tracking-tight">Brands We Work With</h3>
-          <p className="text-xs text-slate-400 font-medium mt-1">Authorized service and sales partner for the world's leading technology brands.</p>
-        </div>
 
-        {/* Corporate Grid Matrix Container Block */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 pt-4">
-          {['Dell', 'HP', 'Lenovo', 'Asus', 'Acer', 'Canon', 'Epson', 'TP-Link'].map((brand) => (
-            <div key={brand} className="bg-white border border-slate-100 rounded-xl py-4 px-6 flex items-center justify-center shadow-sm font-sans font-black text-sm text-slate-400/80 tracking-wide select-none cursor-default hover:text-[#066291] hover:border-sky-100 transition-colors duration-200">
-              {brand}
-            </div>
-          ))}
-        </div>
-      </section>
 
 
       {/* 6. CALL TO ACTION BANNER */}
-      <section className="max-w-7xl mx-auto px-6">
+      <section className="max-w-7xl mx-auto px-6 py-10">
         <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
           <div className="relative z-10 space-y-6 max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-              Ready to optimize your hardware stack?
+              Need Professional Technical Support?
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               Our technicians are available for emergency diagnostics and scheduled infrastructure deployments. Experience the Techlite standard of precision.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link to="/contact" className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3 rounded transition-colors shadow-sm">
-                Request Assessment
+                Contact Us
               </Link>
               <Link to="/services" className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
-                Technical Documentation
+                Our Services
               </Link>
             </div>
           </div>
@@ -654,7 +842,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
+
 
 
 
