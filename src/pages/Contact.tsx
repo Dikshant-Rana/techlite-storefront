@@ -339,7 +339,7 @@ export default function Contact() {
                 Chat on WhatsApp
               </a>
               <a
-                href="tel:+977-9855072916"
+                href="tel:+977 9801944800"
                 className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
               >
                 Direct Call
