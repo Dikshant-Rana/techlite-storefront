@@ -3,6 +3,13 @@ import Upgrade from '../assets/image/upgrade.jpg';
 import Repair from '../assets/image/comp-repair.jpg';
 import Router from '../assets/image/tplink.jpg';
 
+export interface Technician {
+  name: string;
+  role: string;
+  phone: string;
+  whatsapp?: string;
+}
+
 export interface ServiceItem {
   id: string;
   slug: string;
@@ -25,6 +32,7 @@ export interface ServiceItem {
     question: string;
     answer: string;
   }[];
+  technicians: Technician[];
 }
 
 export const servicesData: ServiceItem[] = [
@@ -117,6 +125,26 @@ export const servicesData: ServiceItem[] = [
         question: "Do you also provide regular servicing?",
         answer: "Yes. We offer preventive servicing, internal cleaning, cooling system maintenance, and printer servicing to help improve performance and extend the lifespan of your devices."
       }
+    ],
+    technicians: [
+      {
+        name: "Rupak Rai",
+        role: "Computer Service Technician",
+        phone: "+977 9801982808",
+        whatsapp: "https://wa.me/9779801982808"
+      },
+      {
+        name: "Ashish Gautam",
+        role: "Printer Repair Technician",
+        phone: "+977 9802499727",
+        whatsapp: "https://wa.me/9779802499727"
+      },
+      {
+        name: "Paurakh Subedi",
+        role: "Printer Repair Technician",
+        phone: "+977 9706238009",
+        whatsapp: "https://wa.me/9779706238009"
+      }
     ]
   },
   {
@@ -203,6 +231,14 @@ export const servicesData: ServiceItem[] = [
       {
         question: "How long does a hard drive upgrade take?",
         answer: "If you bring your device in the morning, we can usually finish the drive upgrade, data transfer, and cleaning by the afternoon of the same day."
+      }
+    ],
+    technicians: [
+      {
+        name: "Rupak Rai",
+        role: "Computer Service Technician",
+        phone: "+977 9801982808",
+        whatsapp: "https://wa.me/9779801982808"
       }
     ]
   },
@@ -291,6 +327,26 @@ export const servicesData: ServiceItem[] = [
         question: "Will you hide the cables when wiring my office?",
         answer: "Absolutely. We use professional plastic channels, clips, and wall boxes to hide cables neatly along baseboards or ceilings, keeping your space clean and safe."
       }
+    ],
+    technicians: [
+      {
+        name: "Sushil Gautam",
+        role: "Head IT Technician",
+        phone: "+977 9801944800",
+        whatsapp: "https://wa.me/9779801944800"
+      },
+      {
+        name: "Saajan Rai",
+        role: "Hardware Support Specialist",
+        phone: "+977 9821280031",
+        whatsapp: "https://wa.me/9779821280031"
+      },
+      {
+        name: "Bibek Rai",
+        role: "Network & Security Technician",
+        phone: "+977 9801944840",
+        whatsapp: "https://wa.me/9779801944840"
+      }
     ]
   },
   {
@@ -309,7 +365,6 @@ export const servicesData: ServiceItem[] = [
       "CCTV system stopped recording past footage",
       "Cannot view cameras on mobile phone anymore",
       "Cameras not showing clear images at night",
-      "CCTV system beep sound or error warnings",
       "Damaged camera wires due to rain or pests",
       "Recording storage fills up too quickly",
       "Need to move cameras to different locations"
@@ -324,7 +379,6 @@ export const servicesData: ServiceItem[] = [
       "Security system power supply repairs",
       "Storage hard drive installation for longer recording",
       "Night vision camera upgrades",
-      "Regular system health checks and servicing"
     ],
     features: [
       "High-definition cameras with crisp video clarity",
@@ -377,6 +431,26 @@ export const servicesData: ServiceItem[] = [
       {
         question: "Can I hear audio through the cameras?",
         answer: "Yes, we install cameras with built-in microphones that allow you to hear clear audio along with the video on your mobile app or monitor."
+      }
+    ],
+    technicians: [
+      {
+        name: "Bibek Rai",
+        role: "Network & Security Technician",
+        phone: "+977 9801944840",
+        whatsapp: "https://wa.me/9779801944840"
+      },
+      {
+        name: "Saajan Rai",
+        role: "Hardware Support Specialist",
+        phone: "+977 9821280031",
+        whatsapp: "https://wa.me/9779821280031"
+      },
+      {
+        name: "Sushil Gautam",
+        role: "Head IT Technician",
+        phone: "+977 9801944800",
+        whatsapp: "https://wa.me/9779801944800"
       }
     ]
   },
@@ -465,6 +539,20 @@ export const servicesData: ServiceItem[] = [
         question: "What kind of warranty do I get with a custom PC?",
         answer: "Instead of a single short system warranty, you get the individual manufacturer warranties for each part (often 2 to 5 years on RAM, power supplies, and storage)."
       }
+    ],
+    technicians: [
+      {
+        name: "Anup Karki",
+        role: "Co-Founder & Tech Lead",
+        phone: "+977 9801944800",
+        whatsapp: "https://wa.me/9779801944800"
+      },
+      {
+        name: "Sushil Gautam",
+        role: "Head IT Technician",
+        phone: "+977 9801944800",
+        whatsapp: "https://wa.me/9779801944800"
+      }
     ]
   },
   {
@@ -551,6 +639,14 @@ export const servicesData: ServiceItem[] = [
       {
         question: "Can you recover files from a formatted USB drive?",
         answer: "Yes, in most cases we can recover files from quick-formatted USB drives and SD cards as long as new files have not been saved on top of them."
+      }
+    ],
+    technicians: [
+      {
+        name: "Rupak Rai",
+        role: "Computer Service Technician",
+        phone: "+977 9801982808",
+        whatsapp: "https://wa.me/9779801982808"
       }
     ]
   }

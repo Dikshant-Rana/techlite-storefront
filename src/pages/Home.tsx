@@ -16,7 +16,7 @@ import Laptop from "../assets/image/laptop.jpg";
 import sushil from "../assets/image/sushil.jpg";
 import sajaan from "../assets/image/sajaan.jpg";
 import paurakhi from "../assets/image/paurakh.jpg";
-import rupak from "../assets/image/rupak.jpg";
+import rupak from "../assets/image/rupak1.jpg";
 import kushal from "../assets/image/kushal.jpg";
 import manik from "../assets/image/manik.jpg";
 import ashish from "../assets/image/ashish.jpg";

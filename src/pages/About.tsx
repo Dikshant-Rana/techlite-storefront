@@ -10,19 +10,20 @@ import {
   CheckCircle,
   Headphones,
   ChevronRight,
-
   BookOpen,
-
   UserCheck,
-  Smile
+  Smile,
+  Mail
 } from 'lucide-react';
 import techliteabout from "../assets/image/techlite_about.jpg";
 import Anup from "../assets/image/anup.jpg";
+import Adhikari from "../assets/image/adhikari.jpg";
+
 
 import sushil from "../assets/image/sushil.jpg";
 import sajaan from "../assets/image/sajaan.jpg";
 import paurakhi from "../assets/image/paurakh.jpg";
-import rupak from "../assets/image/rupak.jpg";
+import rupak from "../assets/image/rupak1.jpg";
 import kushal from "../assets/image/kushal.jpg";
 import bibek from "../assets/image/bibek.jpg";
 import manik from "../assets/image/manik.jpg";
@@ -31,7 +32,7 @@ import ashish from "../assets/image/ashish.jpg";
 import {
   FaFacebook,
   FaInstagram,
-  FaWhatsapp,
+  FaWhatsapp
 } from "react-icons/fa";
 
 // Import brand logos to match homepage styling
@@ -176,6 +177,33 @@ export default function About() {
         fb: "https://www.facebook.com/gautam.kushal.16",
         insta: "https://www.instagram.com/gautam.kushal.16/",
         whatsapp: "https://wa.me/9779742559021"
+      }
+    }
+  ];
+
+  const founders = [
+    {
+      name: "Anup Karki",
+      role: "Co-Founder",
+      img: Anup,
+      imageAlt: "Anup Karki - Co-Founder & Partner",
+      quote: "I co-founded Techlite Group with Anup's focus on technical repair operations, aiming to deliver computer services, camera setups, and network installations that customers could depend on, backed by transparent pricing.",
+      socials: {
+        facebook: "https://www.facebook.com/anup.karki.351",
+        mail: "techlitegroups@gmail.com",
+        whatsapp: "https://wa.me/9779801944800"
+      }
+    },
+    {
+      name: "Bikash Adhikari",
+      role: "Co-Founder",
+      img: Adhikari,
+      imageAlt: "Bikash Adhikari - Co-Founder & Partner",
+      quote: "Our goal is to build long-term relationships with clients through high-quality network engineering, corporate support, and reliable CCTV setups, ensuring durable and secure technical solutions.",
+      socials: {
+        facebook: "https://www.facebook.com/bikash.adhikari.124642",
+        mail: "techlitegroups@gmail.com",
+        whatsapp: "https://wa.me/9779801944803"
       }
     }
   ];
@@ -326,55 +354,83 @@ export default function About() {
         </div>
       </section>
 
-      {/* 8. FOUNDER'S MESSAGE */}
+      {/* 8. FOUNDER'S & LEADERSHIP SECTION */}
       <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-slate-50/40 overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
 
-          {/* Portrait Grid */}
-          <div className="lg:col-span-4 max-w-sm mx-auto w-full">
-            <div className="aspect-[3/4] bg-slate-100 rounded-3xl shadow-md border border-slate-100 overflow-hidden relative group">
-              <img
-                src={Anup}
-                alt="Managing Director of Techlite Group"
-                className="w-full h-full object-cover object-top group-hover:scale-102 transition duration-300"
-              />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-slate-100 text-left">
-                <p className="font-bold text-sm text-slate-900">Anup Karki</p>
-                <p className="text-xs text-[#066291] font-semibold mt-0.5">Managing Director</p>
-              </div>
+          {/* Header Block */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-800 text-xs font-semibold rounded-full border border-amber-100">
+              <MessageSquare className="w-3 h-3" /> Co-Founders
             </div>
+            <h2 className="text-2xl md:text-3.5xl font-bold text-slate-900 tracking-tight">
+              Our Leadership Team
+            </h2>
+            <p className="text-slate-500 text-sm leading-relaxed font-normal">
+              Anup Karki and Bikash Adhikari are the co-founders and partners behind TechLite Groups. Driven by a shared passion for technology and innovation, they established the company with a mission to provide dependable IT products, professional services, and customer-centric solutions. Their collaborative leadership continues to guide TechLite Groups toward delivering quality, trust, and long-term value to every client.
+            </p>
           </div>
 
-          {/* Letter Description Column */}
-          <div className="lg:col-span-8 flex flex-col items-start text-left space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-800 text-xs font-semibold rounded-full border border-amber-100">
-              <MessageSquare className="w-3 h-3" /> Founder's Message
-            </div>
+          {/* Founders Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            {founders.map((founder, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-slate-200/80 rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 md:p-8 flex flex-col justify-between text-left group"
+              >
+                <div className="space-y-6">
+                  {/* Photo container with zoom */}
+                  <div className="aspect-[3/4] bg-slate-100 rounded-2xl overflow-hidden border border-slate-100 relative">
+                    <img
+                      src={founder.img}
+                      alt={founder.imageAlt}
+                      className="w-full h-full object-cover object-top group-hover:scale-102 transition duration-300"
+                    />
+                    <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-slate-100 shadow-sm text-left">
+                      <p className="font-bold text-sm text-slate-900">{founder.name}</p>
+                      <p className="text-xs text-[#066291] font-semibold mt-0.5">{founder.role}</p>
+                    </div>
+                  </div>
 
-            <h2 className="text-2xl md:text-3.5xl font-bold text-slate-900 tracking-tight">
-              Our Commitment to Customer Trust
-            </h2>
+                  {/* Letter Description / Quote */}
+                  <div className="text-slate-500 text-sm leading-relaxed font-normal italic">
+                    "{founder.quote}"
+                  </div>
+                </div>
 
-            <div className="space-y-4 text-slate-500 text-sm leading-relaxed font-normal max-w-2xl">
-              <p>
-                "I started Techlite Group with a single goal: to provide computer repairs, camera setups, and network wiring that customers could depend on, backed by transparent pricing."
-              </p>
-              <p>
-                "We don't cut corners. We perform a detailed check before starting any installation, source certified components, and stand behind our work with warranty maintenance. Whether we are setting up a router in a home or wiring cameras across a multi-story school building, our priority is always to work cleanly and honestly."
-              </p>
-              <p>
-                "Thank you for choosing Techlite Group as your technology partner. We will continue working hard to keep your systems operating smoothly."
-              </p>
-            </div>
+                {/* Signature & Socials */}
+                <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                  <div>
+                    <div className="font-pacifico text-lg text-[#066291] tracking-wide select-none">
+                      {founder.name}
+                    </div>
+                    <p className="text-[10px] text-slate-400 uppercase font-semibold tracking-wider mt-0.5">
+                      {founder.role}
+                    </p>
+                  </div>
 
-            {/* Signature Area */}
-            <div className="pt-6 border-t border-slate-200/80 w-full max-w-xs text-left">
-              <div className="font-pacifico text-xl text-[#066291] tracking-wide mb-1 select-none">
-                Anup Karki
+                  {/* Optional social links */}
+                  <div className="flex items-center gap-3 text-slate-400">
+                    {founder.socials.facebook && (
+                      <a href={founder.socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors" title="Facebook">
+                        <FaFacebook className="w-4 h-4" />
+                      </a>
+                    )}
+                    {founder.socials.mail && (
+                      <a href={`mailto:${founder.socials.mail}`} className="hover:text-[#066291] transition-colors" title="Email">
+                        <Mail className="w-4 h-4" />
+                      </a>
+                    )}
+                    {founder.socials.whatsapp && (
+                      <a href={founder.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors" title="WhatsApp">
+                        <FaWhatsapp className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
               </div>
-              <p className="text-xs font-bold text-slate-900">Anup Karki</p>
-              <p className="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Managing Director, Techlite Group</p>
-            </div>
+            ))}
           </div>
 
         </div>

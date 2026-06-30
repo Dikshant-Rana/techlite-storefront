@@ -5,7 +5,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Phone,
-  Calendar,
   AlertCircle,
   HelpCircle,
   Clock,
@@ -14,9 +13,34 @@ import {
   ShieldCheck,
   Settings,
   MapPin,
-  Activity
+  Activity,
+  User
 } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
+import { FaWhatsapp } from 'react-icons/fa';
+
+import sushil from '../assets/image/sushil.jpg';
+import sajaan from '../assets/image/sajaan.jpg';
+import bibek from '../assets/image/bibek.jpg';
+import Anup from '../assets/image/anup.jpg';
+import Adhikari from '../assets/image/adhikari.jpg';
+import rupak from '../assets/image/rupak1.jpg';
+import ashish from '../assets/image/ashish.jpg';
+import paurakh from '../assets/image/paurakh.jpg';
+
+const getTechImage = (name: string) => {
+  switch (name.toLowerCase()) {
+    case 'sushil gautam': return sushil;
+    case 'saajan rai': return sajaan;
+    case 'bibek rai': return bibek;
+    case 'anup karki': return Anup;
+    case 'bikash adhikari': return Adhikari;
+    case 'rupak rai': return rupak;
+    case 'ashish gautam': return ashish;
+    case 'paurakh subedi': return paurakh;
+    default: return null;
+  }
+};
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -96,18 +120,12 @@ export default function ServiceDetail() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#booking-cta"
+              <Link
+                to="/contact"
                 className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 transform hover:-translate-y-0.5"
               >
-                Request Service <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="tel:+977-123456789"
-                className="bg-sky-50/60 hover:bg-sky-50 border border-sky-100 text-[#066291] px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200"
-              >
-                <Phone className="w-4 h-4" /> Call Technician
-              </a>
+                Contact Us <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 
@@ -168,30 +186,99 @@ export default function ServiceDetail() {
             </div>
             <div className="flex items-center gap-3 text-xs text-slate-300">
               <MapPin className="w-4 h-4 text-[#066291] shrink-0" />
-              <span>Kathmandu, Lalitpur, Bhaktapur</span>
+              <span>Available all over Hetauda</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-slate-300">
               <ShieldCheck className="w-4 h-4 text-[#066291] shrink-0" />
-              <span>All repairs include service warranty</span>
+              <span>All repair/ Service done professionally</span>
             </div>
           </div>
 
           <div className="border-t border-slate-800 pt-6 space-y-3">
             <a
-              href="#booking-cta"
-              className="w-full bg-[#066291] hover:bg-[#044e74] text-white py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-colors shadow-sm"
-            >
-              <Calendar className="w-4 h-4" /> Book Appointment
-            </a>
-            <a
-              href="tel:+977-123456789"
+              href="tel:+977 9801944800"
               className="w-full bg-transparent hover:bg-white/5 border border-slate-700 text-white py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-colors"
             >
-              <Phone className="w-4 h-4 text-slate-400" /> Connect Instantly
+              <Phone className="w-4 h-4 text-slate-400" /> Call Us
             </a>
           </div>
         </div>
       </section>
+      {/* 6.5. CONTACT A TECHNICIAN SECTION */}
+      {service.technicians && service.technicians.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6 py-20 border-t border-slate-100 space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
+              <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Direct Contact</span>
+            </div>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Contact a Technician</h2>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              Connect directly with the technical experts assigned to this service for custom inquiries or fast support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {service.technicians.map((tech, idx) => {
+              const techImg = getTechImage(tech.name);
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left group"
+                >
+                  <div className="flex items-start gap-4">
+                    {/* Photo / Avatar */}
+                    <div className="w-16 h-16 rounded-full overflow-hidden border border-slate-100 shrink-0 bg-slate-50 flex items-center justify-center">
+                      {techImg ? (
+                        <img
+                          src={techImg}
+                          alt={tech.name}
+                          className="w-full h-full object-cover object-top"
+                        />
+                      ) : (
+                        <User className="w-6 h-6 text-[#066291]" />
+                      )}
+                    </div>
+
+                    {/* Tech Details */}
+                    <div className="space-y-1">
+                      <h3 className="font-bold text-slate-900 text-base group-hover:text-[#066291] transition-colors">
+                        {tech.name}
+                      </h3>
+                      <p className="text-xs text-[#066291] font-semibold">
+                        {tech.role}
+                      </p>
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        Assigned Technical Specialist
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="grid grid-cols-2 gap-3 mt-6 pt-4 border-t border-slate-50">
+                    <a
+                      href={`tel:${tech.phone}`}
+                      className="w-full bg-transparent hover:bg-slate-50 border border-slate-200 text-slate-700 py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-slate-500" /> Call
+                    </a>
+                    {tech.whatsapp && (
+                      <a
+                        href={tech.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 transition-colors shadow-sm"
+                      >
+                        <FaWhatsapp className="w-3.5 h-3.5" /> WhatsApp
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
 
       {/* 3. COMMON PROBLEMS WE SOLVE */}
       <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
@@ -327,6 +414,7 @@ export default function ServiceDetail() {
           ))}
         </div>
       </section>
+
 
       {/* 7. FREQUENTLY ASKED QUESTIONS */}
       <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
