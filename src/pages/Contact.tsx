@@ -331,7 +331,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a
-                href="https://wa.me/9855075819"
+                href="https://wa.me/9801944800"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
@@ -342,7 +342,7 @@ export default function Contact() {
                 href="tel:+977-9855072916"
                 className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
               >
-                Call Hotline
+                Direct Call
               </a>
             </div>
           </div>
