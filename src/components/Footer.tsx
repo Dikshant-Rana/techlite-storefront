@@ -35,7 +35,7 @@ export default function Footer() {
                 { icon: <FaFacebook className="w-4 h-4" />, href: "https://www.facebook.com/techlitegroups" },
                 { icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/techlitegroups/" },
                 { icon: <FaTiktok className="w-4 h-4" />, href: "https://www.tiktok.com/@techlitegroups" },
-                { icon: <FaWhatsapp className="w-4 h-4" />, href: "https://wa.me/9779855082916" }
+                { icon: <FaWhatsapp className="w-4 h-4" />, href: "https://wa.me/9779801944800" }
               ].map((social, sIdx) => (
                 <a
                   key={sIdx}
@@ -65,13 +65,12 @@ export default function Footer() {
           <div className="col-span-1 lg:col-span-4 text-left space-y-4">
             <h4 className="text-white text-xs font-bold uppercase tracking-wider">Our Services</h4>
             <ul className="space-y-2.5 text-xs font-medium">
-              <li><Link to="/services/laptop-repair-servicing" className="hover:text-white transition-colors">Laptop & Computer Repair</Link></li>
-              <li><Link to="/services/hardware-upgrades" className="hover:text-white transition-colors">SSD & RAM Upgrades</Link></li>
-              <li><Link to="/services/router-setup-wiring" className="hover:text-white transition-colors">Wi-Fi Router & Office Wiring</Link></li>
-              <li><Link to="/services/printer-repair-maintenance" className="hover:text-white transition-colors">Printer Repair & Servicing</Link></li>
-              <li><Link to="/services/data-recovery-software" className="hover:text-white transition-colors">Data Recovery & OS Setup</Link></li>
-              <li><Link to="/services/cctv-installation-servicing" className="hover:text-white transition-colors">CCTV Camera Installation</Link></li>
+              <li><Link to="/services/laptop-desktop-printer-repair" className="hover:text-white transition-colors">Laptop / Desktop / Printer Repair</Link></li>
+              <li><Link to="/services/hardware-upgrades" className="hover:text-white transition-colors">Hardware Upgrades</Link></li>
+              <li><Link to="/services/router-setup-network-wiring" className="hover:text-white transition-colors">Router Setup & Network Wiring</Link></li>
+              <li><Link to="/services/cctv-installation-servicing" className="hover:text-white transition-colors">CCTV Installation & Servicing</Link></li>
               <li><Link to="/services/custom-pc-building" className="hover:text-white transition-colors">Custom PC Building</Link></li>
+              <li><Link to="/services/data-recovery-software-installation" className="hover:text-white transition-colors">Data Recovery & Software Installation</Link></li>
             </ul>
           </div>
 
@@ -80,6 +79,7 @@ export default function Footer() {
             <h4 className="text-white text-xs font-bold uppercase tracking-wider">Product Categories</h4>
             <ul className="space-y-2.5 text-xs font-medium">
               <li><Link to="/products" className="hover:text-white transition-colors">Laptops</Link></li>
+              <li><Link to="/products" className="hover:text-white transition-colors">Desktops</Link></li>
               <li><Link to="/products" className="hover:text-white transition-colors">CCTV & Security Systems</Link></li>
               <li><Link to="/products" className="hover:text-white transition-colors">Networking Devices</Link></li>
               <li><Link to="/products" className="hover:text-white transition-colors">Printers</Link></li>
@@ -96,7 +96,8 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs font-semibold text-white">
             <a href="tel:+977 9855072916" className="flex items-center gap-3 hover:text-[#066291] transition-colors duration-200">
               <Phone className="w-4 h-4 text-[#066291] shrink-0" />
-              <span>+977 98550-72916</span>
+              <span>+977 98019-44800</span>
+              <span>+977 98019-44803</span>
             </a>
 
             <a href="mailto:techlitegroups@gmail.com" className="flex items-center gap-3 hover:text-[#066291] transition-colors duration-200">
@@ -113,11 +114,19 @@ export default function Footer() {
 
         {/* BOTTOM BLOCK: COPYRIGHT INFRASTRUCTURE & LEGAL METRICS */}
         <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-medium text-slate-500">
-          <p>© {new Date().getFullYear()} Techlite Groups. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300 transition-colors">Terms & Conditions</a>
-          </div>
+          <p>© 2026 TechLite Groups. All rights reserved.</p>
+
+          <p className="flex items-center gap-1">
+            <span>Designed &amp; Developed by</span>
+            <a
+              href="https://www.linkedin.com/in/dikshant-rana-31a90830a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slate-300 hover:text-white transition-colors"
+            >
+              Dikshant Rana
+            </a>
+          </p>
         </div>
 
       </div>

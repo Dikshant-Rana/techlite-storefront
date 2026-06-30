@@ -30,14 +30,14 @@ export interface ServiceItem {
 export const servicesData: ServiceItem[] = [
   {
     id: "1",
-    slug: "computer-laptop-printer-repair",
+    slug: "laptop-desktop-printer-repair",
     category: "REPAIR & SERVICING",
-    title: "Computer, Laptop & Printer Repair",
+    title: "Laptop, Desktop & Printer Repair",
     imageUrl: Repair,
     desc: "Professional repair, servicing, troubleshooting, and maintenance for desktop computers, laptops, and printers from all major brands.",
     longDesc: "Technology problems can interrupt your work, studies, or business. Whether your computer won't turn on, your laptop has a broken screen, or your printer refuses to print, our experienced technicians are here to help. We provide reliable repair and servicing for desktop computers, laptops, and printers using quality parts and proven repair techniques.\n\nOur team begins every repair with a thorough diagnosis to identify the root cause of the problem. We then explain the issue in simple language, provide a clear quotation, and carry out the repair only after your approval. From routine servicing to complex hardware repairs, we aim to restore your device quickly and efficiently.\n\nBefore returning your device, we perform comprehensive testing to ensure everything works properly. Whether you are a student, home user, office, school, or business, we are committed to keeping your technology running smoothly.",
     tags: [
-      "Computer Repair",
+      "Desktop Repair",
       "Laptop Repair",
       "Printer Repair",
       "Servicing"

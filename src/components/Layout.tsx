@@ -54,7 +54,7 @@ export default function Layout() {
                             <span className="font-manrope text-2xl font-extrabold tracking-tight text-slate-900">
                                 Techlite
                             </span>
-                            <span className="font-manrope text-[#066291] text-lg font-bold ml-0.5 -mt-2">Group</span>
+                            <span className="font-manrope text-[#066291] text-lg font-bold ml-0.5 -mt-2">Groups</span>
                         </div>
                     </Link>
 

@@ -1,5 +1,6 @@
 import laptopImg from '../assets/image/laptop.jpg';
 import networkingImg from '../assets/image/router1.jpg';
+import desktopImg from '../assets/image/desktop.jpg';
 
 export interface ProductItem {
   id: string;
@@ -22,6 +23,16 @@ export const productsData: ProductItem[] = [
     description: "Reliable laptops for students, professionals, businesses, and everyday users.",
     brands: ["Dell", "HP", "ASUS", "Acer"],
     specs: ["Student Laptops", "Business Laptops", "Gaming Laptops", "Everyday Use"]
+  },
+  {
+    id: "p6",
+    slug: "desktops",
+    category: "Desktops",
+    name: "Desktop Computers",
+    imageUrl: desktopImg,
+    description: "Office Desktops, High-performance custom desktops, gaming PCs, and brand-name workstations.",
+    brands: ["Dell", "HP", "ASUS", "Acer"],
+    specs: ["Custom Gaming PCs", "Brand Workstations", "All-in-One PCs", "Office & School Desktops"]
   },
   {
     id: "p2",

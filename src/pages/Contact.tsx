@@ -1,15 +1,8 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { Link } from 'react-router-dom';
 import {
   MapPin,
   Clock,
-  CheckCircle,
-  Zap,
-  UserCheck,
-  ShieldCheck,
   Copy,
   Check,
   Mail,
@@ -29,30 +22,9 @@ import {
   FaLinkedin,
 } from 'react-icons/fa';
 
-// Validation Schema Definition
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must contain at least 2 characters"),
-  email: z.string().email("Please provide a valid email address"),
-  serviceType: z.string(),
-  message: z.string().min(10, "Please write at least 10 characters describing your request")
-});
-
-type ContactFormInputs = z.infer<typeof contactSchema>;
-
 export default function Contact() {
-  const [submitted, setSubmitted] = useState<boolean>(false);
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormInputs>({
-    resolver: zodResolver(contactSchema)
-  });
-
-  const onSubmitForm = async (_data: ContactFormInputs) => {
-    await new Promise((res) => setTimeout(res, 1200));
-    setSubmitted(true);
-    reset();
-  };
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -134,14 +106,14 @@ export default function Contact() {
               </div>
               <div className="space-y-2.5 pt-2 border-t border-slate-100 w-full font-semibold text-xs text-slate-700">
                 <div className="flex items-center justify-between">
-                  <span>+977 98550 72916</span>
-                  <button onClick={() => handleCopy("+9779855072916", "phone1")} className="p-1 hover:text-[#066291] hover:bg-slate-50 rounded">
+                  <span>+977 9801944800</span>
+                  <button onClick={() => handleCopy("+9779801944800", "phone1")} className="p-1 hover:text-[#066291] hover:bg-slate-50 rounded">
                     {copiedText === "phone1" ? <Check className="w-3.5 h-3.5 text-[#066291]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
                   </button>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span>+977 98550 75819</span>
-                  <button onClick={() => handleCopy("+9779855075819", "phone2")} className="p-1 hover:text-[#066291] hover:bg-slate-50 rounded">
+                  <span>+977 9801944803</span>
+                  <button onClick={() => handleCopy("+9779801944803", "phone2")} className="p-1 hover:text-[#066291] hover:bg-slate-50 rounded">
                     {copiedText === "phone2" ? <Check className="w-3.5 h-3.5 text-[#066291]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
                   </button>
                 </div>
@@ -217,121 +189,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* 3. CONTACT FORM & ADDITIONAL BADGES */}
-      <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-          {/* Left Column Form Info */}
-          <div className="lg:col-span-5 text-left space-y-6">
-            <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase block">Contact Form</span>
-            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Send Us a Message</h2>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-md">
-              Fill out the form with your name, email, and details about what you need. Our support representatives will review your request and get back to you shortly.
-            </p>
-
-            <div className="space-y-4 pt-4">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-[#066291] shrink-0">
-                  <Zap className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-700">Response within 2-4 business hours</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-[#066291] shrink-0">
-                  <UserCheck className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-700">Experienced technicians review all inquiries</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-[#066291] shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <span className="text-xs font-bold text-slate-700">Your details are safe and confidential</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column Form Card */}
-          <div className="lg:col-span-7 bg-white p-6 md:p-8 border border-slate-200 rounded-2xl shadow-sm w-full">
-            {submitted ? (
-              <div className="py-12 px-6 bg-[#066291]/5 border border-[#066291]/20 rounded-2xl text-center space-y-4 animate-in fade-in duration-300">
-                <div className="w-12 h-12 bg-[#066291]/10 border border-[#066291]/20 rounded-full flex items-center justify-center mx-auto text-[#066291]">
-                  <CheckCircle className="w-6 h-6" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-lg tracking-tight">Message Sent Successfully!</h3>
-                <p className="text-slate-500 text-xs leading-relaxed max-w-sm mx-auto">
-                  Thank you for reaching out. A Techlite Group support representative will contact you shortly to assist with your request.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-2 text-xs font-black text-[#066291] uppercase tracking-wider hover:opacity-80 transition"
-                >
-                  ← Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmitForm)} className="space-y-5 text-left">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Your Name</label>
-                    <input
-                      {...register('name')}
-                      className={`w-full p-3 border rounded-xl focus:ring-1 focus:ring-[#066291] focus:border-[#066291] focus:outline-none text-xs transition-all ${errors.name ? 'border-red-300 bg-red-50/10' : 'border-slate-200'}`}
-                      placeholder="Enter your name"
-                    />
-                    {errors.name && <span className="text-xs text-red-500 mt-1 block font-medium">{errors.name.message}</span>}
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Email Address</label>
-                    <input
-                      {...register('email')}
-                      className={`w-full p-3 border rounded-xl focus:ring-1 focus:ring-[#066291] focus:border-[#066291] focus:outline-none text-xs transition-all ${errors.email ? 'border-red-300 bg-red-50/10' : 'border-slate-200'}`}
-                      placeholder="Enter your email"
-                    />
-                    {errors.email && <span className="text-xs text-red-500 mt-1 block font-medium">{errors.email.message}</span>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Select Topic</label>
-                  <select
-                    {...register('serviceType')}
-                    className="w-full p-3 border border-slate-200 rounded-xl focus:ring-1 focus:ring-[#066291] focus:border-[#066291] focus:outline-none text-xs bg-white text-slate-600 font-bold"
-                  >
-                    <option>General Support / Inquiry</option>
-                    <option>Laptop & Computer Repair</option>
-                    <option>Hardware Upgrade Diagnostic</option>
-                    <option>CCTV & Networking Setup</option>
-                    <option>Custom Desktop PC Quote</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Your Message</label>
-                  <textarea
-                    {...register('message')}
-                    rows={4}
-                    className={`w-full p-3 border rounded-xl focus:ring-1 focus:ring-[#066291] focus:border-[#066291] focus:outline-none text-xs transition-all ${errors.message ? 'border-red-300 bg-red-50/10' : 'border-slate-200'}`}
-                    placeholder="Describe how we can help you..."
-                  />
-                  {errors.message && <span className="text-xs text-red-500 mt-1 block font-medium">{errors.message.message}</span>}
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#066291] hover:bg-[#044e74] disabled:bg-slate-100 disabled:text-slate-400 text-white font-bold p-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-sm"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
-            )}
-          </div>
-
-        </div>
-      </section>
-
+    
       {/* 4. ADDRESS AND MAP */}
       <section className="max-w-7xl mx-auto px-6 py-20 space-y-12">
         <div className="text-left space-y-3">

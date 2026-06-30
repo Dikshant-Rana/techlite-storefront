@@ -325,7 +325,7 @@ export default function Home() {
                   <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Satisfied</div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold text-white">8+</div>
+                  <div className="text-lg font-bold text-white">15+</div>
                   <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Years</div>
                 </div>
               </div>
