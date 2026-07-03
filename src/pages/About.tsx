@@ -187,7 +187,7 @@ export default function About() {
       role: "Co-Founder",
       img: Anup,
       imageAlt: "Anup Karki - Co-Founder & Partner",
-      quote: "I co-founded Techlite Group with Anup's focus on technical repair operations, aiming to deliver computer services, camera setups, and network installations that customers could depend on, backed by transparent pricing.",
+      quote: "I co-founded TechLite Groups with Bikash Adhikari, driven by a passion for technology and a vision to provide reliable IT products and services. My focus is on delivering dependable solutions, honest guidance, and exceptional customer support that businesses and individuals can trust.",
       socials: {
         facebook: "https://www.facebook.com/anup.karki.351",
         mail: "techlitegroups@gmail.com",

@@ -7,8 +7,10 @@ export interface WebNode {
   children?: WebNode[];
 }
 
-// Pass your backend Express port URL here (defaulted to 5000)
-export function useFileTree(apiUrl: string = 'http://localhost:5000') {
+const DEFAULT_API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.DEV ? 'http://localhost:5000' : 'https://backend.techlite.com.np');
+
+export function useFileTree(apiUrl: string = DEFAULT_API_URL) {
   const [treeData, setTreeData] = useState<WebNode[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
