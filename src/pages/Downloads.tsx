@@ -99,7 +99,7 @@ function FileTableRow({
 }
 
 export default function Downloads() {
-  const { treeData, isLoading, error, getDownloadUrl } = useFileTree('http://localhost:5000');
+  const { treeData, isLoading, error, getDownloadUrl } = useFileTree('https://backend.techlite.com.np');
 
   return (
     <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
