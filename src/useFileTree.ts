@@ -8,7 +8,7 @@ export interface WebNode {
 }
 
 // Pass your backend Express port URL here (defaulted to 5000)
-export function useFileTree(apiUrl: string = 'http://localhost:5000') {
+export function useFileTree(apiUrl: string = 'https://backend.techlite.com.np') {
   const [treeData, setTreeData] = useState<WebNode[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
