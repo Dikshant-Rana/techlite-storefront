@@ -12,7 +12,7 @@ export default function SEO({
   title,
   description,
   keywords,
-  image = "https://techlite.com.np/og-image.jpg",
+  image = "https://techlite.com.np/og-image.png",
   url = "https://techlite.com.np",
 }: SEOProps) {
   return (
