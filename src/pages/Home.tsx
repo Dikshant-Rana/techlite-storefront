@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 // 1. IMPORT YOUR DATA HERE
 import { servicesData } from '../data/servicesData';
+import SEO from "../components/SEO";
 
 
 
@@ -217,6 +218,13 @@ export default function Home() {
   const extendedBrands = [...brands, ...brands, ...brands, ...brands, ...brands];
 
   return (
+    <>
+       <SEO
+        title="TechLite Groups | Best Technology Company in Hetauda"
+        description="TechLite Group provides computer repair, CCTV installation, networking, printer services, software downloads, and technical support in Hetauda."
+        keywords="TechLite, computer repair, software downloads, printer drivers, CCTV, networking, laptop repair, Hetauda"
+        url="https://techlite.com.np/"
+      />
     <div className="font-sans text-slate-900">
 
       <section className="relative w-screen bg-white overflow-hidden pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
@@ -888,5 +896,6 @@ export default function Home() {
 
 
     </div>
+     </>
   );
 }

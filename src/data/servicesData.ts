@@ -20,6 +20,13 @@ export interface ServiceItem {
   desc: string;
   longDesc: string;
 
+  seo: {
+    title: string;
+    description: string;
+    keywords: string;
+  };
+
+
   tags: string[];
 
   problems: string[];
@@ -44,12 +51,20 @@ export const servicesData: ServiceItem[] = [
     imageUrl: Repair,
     desc: "Professional repair, servicing, troubleshooting, and maintenance for desktop computers, laptops, and printers from all major brands.",
     longDesc: "Technology problems can interrupt your work, studies, or business. Whether your computer won't turn on, your laptop has a broken screen, or your printer refuses to print, our experienced technicians are here to help. We provide reliable repair and servicing for desktop computers, laptops, and printers using quality parts and proven repair techniques.\n\nOur team begins every repair with a thorough diagnosis to identify the root cause of the problem. We then explain the issue in simple language, provide a clear quotation, and carry out the repair only after your approval. From routine servicing to complex hardware repairs, we aim to restore your device quickly and efficiently.\n\nBefore returning your device, we perform comprehensive testing to ensure everything works properly. Whether you are a student, home user, office, school, or business, we are committed to keeping your technology running smoothly.",
+    seo: {
+      title: "Laptop, Desktop & Printer Repair | TechLite Groups",
+      description:
+        "Professional laptop, desktop, and printer repair services in Nepal. We repair all major brands with reliable diagnostics and quality service.",
+      keywords:
+        "laptop repair, desktop repair, printer repair, computer servicing, hardware repair, TechLite Nepal"
+    },
     tags: [
       "Desktop Repair",
       "Laptop Repair",
       "Printer Repair",
       "Servicing"
     ],
+
     problems: [
       "Computer or laptop won't turn on",
       "Laptop screen is cracked or damaged",
@@ -155,6 +170,13 @@ export const servicesData: ServiceItem[] = [
     imageUrl: Upgrade,
     desc: "Speed up your slow computer with fast solid-state drives, extra memory, and better storage options.",
     longDesc: "If your computer takes several minutes to start up or freezes when you open a few internet tabs, you do not need to buy a brand new computer. Often, a simple and affordable upgrade to your internal components can make your existing machine run up to ten times faster. We specialize in upgrading older laptops and desktops to meet today's software demands.\n\nWe install high-speed Solid-State Drives (SSDs) to replace slow, traditional hard drives. This upgrade dramatically reduces start times and makes applications open instantly. We also upgrade Random Access Memory (RAM), which allows your computer to handle multiple tasks at the same time without slowing down.\n\nOur team ensures that your files, photos, and settings are safely moved over to your new drive during the upgrade. We only use reliable hardware from top-tier brands, ensuring your upgraded computer stays fast and stable for years to come.",
+    seo: {
+      title: "Computer Hardware Upgrades | TechLite Groups",
+      description:
+        "Upgrade your laptop or desktop with SSDs, HDDs, RAM, graphics cards, power supplies, and other hardware for faster performance and improved reliability.",
+      keywords:
+        "computer hardware upgrade, SSD upgrade, RAM upgrade, HDD replacement, desktop upgrade, laptop upgrade, TechLite Nepal"
+    },
     tags: ["Speed Boost", "Need More Storage", "Extra Memory", "Computer Speedup"],
     problems: [
       "Computer takes too long to turn on and load",
@@ -250,6 +272,13 @@ export const servicesData: ServiceItem[] = [
     imageUrl: Router,
     desc: "Professional internet and Wi-Fi setup, physical cable wiring, network configuration, and signal extension for homes and offices.",
     longDesc: "A weak internet connection or spotty Wi-Fi can ruin your work-from-home day, online classes, or business operations. We provide complete home and office network setup services to ensure you have fast, reliable internet in every corner of your property. Our team helps you configure your routers, set up network extenders, and lay high-quality physical network cables.\n\nWe design network layouts that prevent wireless dead zones. If you have a large home, a multi-story building, or a busy office, we can set up modern smart Wi-Fi systems that automatically keep you connected to the strongest signal as you walk around.\n\nWe also handle physical network wiring. Our technicians run cables neatly along walls or inside ceilings to connect computers, smart TVs, and printers directly, ensuring the fastest possible speed without messy wires cluttering your space.",
+    seo: {
+      title: "Router Setup & Network Wiring | TechLite Groups",
+      description:
+        "Professional router installation, Wi-Fi configuration, structured network cabling, and LAN setup for homes, offices, schools, and businesses.",
+      keywords:
+        "router setup, network wiring, LAN setup, WiFi installation, structured cabling, network configuration, TechLite Nepal"
+    },
     tags: ["Wi-Fi Setup", "Network Wiring", "Internet Setup", "Signal Booster"],
     problems: [
       "Wi-Fi not reaching all rooms or floors",
@@ -357,6 +386,13 @@ export const servicesData: ServiceItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80",
     desc: "Complete security camera setup, mobile viewing configuration, repair services, and routine maintenance for homes and businesses.",
     longDesc: "Keeping your family, home, and business safe is a top priority. We install high-definition security camera systems that let you monitor your property 24 hours a day, 7 days a week. Our services include placing cameras in the best viewing spots, running secure wiring, and setting up recording boxes so you can review footage whenever you need to.\n\nWe connect your camera system to the internet, allowing you to watch live video feeds directly on your mobile phone, tablet, or laptop from anywhere in the world. Whether you are at work or traveling outside Nepal, you can check in on your property with a single tap.\n\nIf you have an existing system that has stopped working, has blurry video, or is not recording, our maintenance team can diagnose and repair it. We clean camera lenses, check power supplies, replace damaged cables, and fix recording hard drives to keep your security system running without interruption.",
+    seo: {
+      title: "CCTV Installation & Servicing | TechLite Groups",
+      description:
+        "Professional CCTV camera installation, maintenance, troubleshooting, DVR/NVR setup, remote viewing configuration, and security system support for homes and businesses.",
+      keywords:
+        "CCTV installation, CCTV servicing, security camera installation, DVR setup, NVR setup, IP camera installation, CCTV maintenance, TechLite Nepal"
+    },
     tags: ["Set Up CCTV Cameras", "Security Cameras", "Mobile Viewing Setup", "CCTV Servicing"],
     problems: [
       "Need to secure home or business against theft",
@@ -462,6 +498,13 @@ export const servicesData: ServiceItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
     desc: "Build a computer for gaming, office work, video editing, or studying, tailored exactly to your budget and needs.",
     longDesc: "Standard ready-made computers often come with cheap internal parts or features you do not need. When you choose a custom-built computer, you get to decide exactly where your money goes. We help you design and build a desktop computer that fits your exact needs, whether you are looking for a reliable office workstation, a student desktop, or a high-end gaming system.\n\nOur custom computer service makes the process easy. You do not need to know any technical details; simply tell us what you want to use the computer for and what your budget is. We select compatible, high-quality components and compile them into a balanced system design.\n\nWe assemble your new computer with extreme care, ensuring neat wiring for clean airflow and cooler temperatures. Before we hand over the PC, we install the operating system, update all essential drivers, and run stress tests to ensure everything is stable and ready to go.",
+    seo: {
+      title: "Custom PC Building | TechLite Groups",
+      description:
+        "Build a custom desktop PC for gaming, office work, content creation, or professional use. We help you choose compatible components and assemble your system with expert cable management and testing.",
+      keywords:
+        "custom PC building, gaming PC, desktop assembly, PC builder, workstation PC, custom computer, TechLite Nepal"
+    },
     tags: ["Custom PC", "Build a Computer", "Gaming PC", "Office Workstation"],
     problems: [
       "Ready-made store computers are overpriced or weak",
@@ -542,16 +585,10 @@ export const servicesData: ServiceItem[] = [
     ],
     technicians: [
       {
-        name: "Anup Karki",
-        role: "Co-Founder & Tech Lead",
-        phone: "+977 9801944800",
-        whatsapp: "https://wa.me/9779801944800"
-      },
-      {
-        name: "Sushil Gautam",
-        role: "Head IT Technician",
-        phone: "+977 9801944800",
-        whatsapp: "https://wa.me/9779801944800"
+        name: "Rupak Rai",
+        role: "Computer Service Technician",
+        phone: "+977 9801982808",
+        whatsapp: "https://wa.me/9779801982808"
       }
     ]
   },
@@ -563,6 +600,13 @@ export const servicesData: ServiceItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     desc: "Recover lost files from damaged drives, install Windows, remove viruses, and set up daily office applications securely.",
     longDesc: "Software errors, computer viruses, or accidentally deleted files can cause massive stress. If you have lost important family photos, project documents, or office database files, our data recovery team uses professional tools to restore your files from corrupt hard drives, external disks, and USB drives.\n\nWe also handle complete operating system installations and software setups. If your computer is running slow, showing error messages, or infected with malware, a fresh installation of Windows can make it feel like new. We configure your computer safely, install essential drivers, and set up daily programs like Microsoft Office, web browsers, and antivirus utilities.\n\nOur team is committed to keeping your private information safe. We handle all data recovery and software configurations with strict confidentiality, ensuring your files are never exposed, copied, or lost during the service process.",
+    seo: {
+      title: "Data Recovery & Software Installation | TechLite Groups",
+      description:
+        "Recover lost files and install Windows, Microsoft Office, drivers, antivirus, and essential software. We provide secure data recovery and professional software installation services.",
+      keywords:
+        "data recovery, Windows installation, software installation, Microsoft Office installation, driver installation, virus removal, TechLite Nepal"
+    },
     tags: ["Recover Lost Files", "Install Windows", "Virus Removal", "Software Setup"],
     problems: [
       "Accidentally deleted important files or folders",
