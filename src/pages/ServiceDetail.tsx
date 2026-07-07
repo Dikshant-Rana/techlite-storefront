@@ -75,12 +75,12 @@ export default function ServiceDetail() {
     <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
       {/* 1. HERO SECTION */}
-      <section className="relative w-screen pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+      <section className="relative w-screen pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
         {/* Ambient Glows */}
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
         <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* Left Column */}
           <div className="lg:col-span-7 flex flex-col items-start text-left ">
@@ -155,7 +155,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 2. SERVICE OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div className="lg:col-span-8 space-y-6">
           <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase block">Overview</span>
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight">About the Service</h2>
@@ -206,7 +206,7 @@ export default function ServiceDetail() {
       </section>
       {/* 6.5. CONTACT A TECHNICIAN SECTION */}
       {service.technicians && service.technicians.length > 0 && (
-        <section className="max-w-7xl mx-auto px-6 py-20 border-t border-slate-100 space-y-12">
+        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 border-t border-slate-100 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Direct Contact</span>
@@ -282,7 +282,7 @@ export default function ServiceDetail() {
 
       {/* 3. COMMON PROBLEMS WE SOLVE */}
       <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-50 border border-red-100">
               <span className="text-[10px] font-bold text-red-600 uppercase tracking-wider">Troubleshooting</span>
@@ -310,7 +310,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 4. SERVICES INCLUDED */}
-      <section className="max-w-7xl mx-auto px-6 py-20 space-y-12">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Detailed Scope</span>
@@ -341,7 +341,7 @@ export default function ServiceDetail() {
 
       {/* 5. WHY CHOOSE US & FEATURES */}
       <section className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           <div className="space-y-8">
             <div className="space-y-3">
@@ -389,7 +389,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 6. OUR SERVICE PROCESS */}
-      <section className="max-w-7xl mx-auto px-6 py-20 space-y-16">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-16">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">How We Work</span>
@@ -461,7 +461,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 8. RELATED SERVICES */}
-      <section className="max-w-7xl mx-auto px-6 py-20 space-y-12">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-[10px] font-bold text-[#066291] uppercase tracking-widest block">
             More Options
@@ -500,7 +500,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 9. FINAL CALL TO ACTION */}
-      <section id="booking-cta" className="max-w-7xl mx-auto px-6 pb-20">
+      <section id="booking-cta" className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 pb-20">
         <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
           <div className="relative z-10 space-y-6 max-w-xl text-left">

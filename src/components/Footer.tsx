@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 text-sm font-sans pt-16 pb-8 border-t border-slate-900 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-4">
+      <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-4">
 
         {/* TOP BLOCK: BRAND AND LINK CATEGORIES */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-4">

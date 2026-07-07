@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Fragment, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import DownloadImg from "../assets/image/install.jpg";
 import {
@@ -9,111 +9,120 @@ import {
   Clock,
   ShieldCheck,
   Server,
-  Loader2,
-  AlertCircle,
   Sparkles
 } from 'lucide-react';
 
-import { useFileTree, type WebNode } from '../useFileTree';
+import { downloadsData } from '../data/downloadsData';
 import { getFileIcon } from '../components/fileIconHelper';
 
-// Recursive Table Row Component for WebNode structure
-function FileTableRow({
-  node,
-  depth = 0,
-  getDownloadUrl
-}: {
-  node: WebNode;
-  depth?: number;
-  getDownloadUrl: (id: string) => string;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Downloads() {
+  // Track open/collapsed state of folders. Default all to collapsed.
+  const [expandedFolders, setExpandedFolders] = useState<Record<string, boolean>>({});
 
-  // Dynamic padding calculation for indentations
-  const indentationStyle = { paddingLeft: `${(depth * 24) + 16}px` };
+  const toggleFolder = (folderName: string) => {
+    setExpandedFolders(prev => ({
+      ...prev,
+      [folderName]: !prev[folderName]
+    }));
+  };
 
-  if (node.isFolder) {
-    const childCount = node.children?.length || 0;
+  // Recursively count files in current folder and all subfolders
+  const getFolderFileCount = (folder: any): number => {
+    const directFiles = folder.files?.length || 0;
+    const nestedFiles = folder.subfolders?.reduce((acc: number, subfolder: any) => acc + getFolderFileCount(subfolder), 0) ?? 0;
+    return directFiles + nestedFiles;
+  };
+
+  const totalFiles = downloadsData.reduce((acc, folder) => acc + getFolderFileCount(folder), 0);
+
+  // Recursive function to render rows flatly inside the existing top-level table
+  const renderTreeItems = (folder: any, path: string, depth = 0): ReactNode => {
+    const isOpen = !!expandedFolders[path];
 
     return (
-      <>
+      <Fragment key={path}>
+        {/* Folder Row */}
         <tr
-          onClick={() => setIsOpen(!isOpen)}
-          className="border-b border-slate-100 hover:bg-slate-50 transition cursor-pointer group"
+          onClick={() => toggleFolder(path)}
+          className="bg-slate-50/50 hover:bg-slate-50/80 transition cursor-pointer select-none border-b border-slate-100"
         >
-          <td style={indentationStyle} className="py-4 flex items-center gap-3">
-            <span className="text-slate-400 group-hover:text-[#066291] transition-colors">
-              {isOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-            </span>
-            <Folder className="w-5 h-5 text-[#066291] fill-sky-500/10" />
-            <span className="font-bold text-slate-800 text-sm">{node.name}</span>
-          </td>
-          <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell">
-            {childCount > 0 ? `${childCount} files` : 'Empty Folder'}
-          </td>
-          <td className="py-4 px-4 text-right text-xs">
-            {/* Folders don't have direct downloads */}
+          <td colSpan={4} className="py-4 px-6">
+            <div 
+              className="flex items-center justify-between"
+              style={{ paddingLeft: depth > 0 ? `${depth * 1.5}rem` : '0' }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-slate-400">
+                  {isOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                </span>
+                <Folder className="w-5 h-5 text-[#066291] fill-sky-500/10 shrink-0" />
+                <span className="font-bold text-slate-800 text-sm sm:text-base">{folder.name}</span>
+              </div>
+              <span className="text-xs text-slate-500 font-semibold bg-white border border-slate-100 shadow-sm px-2.5 py-1 rounded-lg">
+                {getFolderFileCount(folder)} {getFolderFileCount(folder) === 1 ? 'file' : 'files'}
+              </span>
+            </div>
           </td>
         </tr>
 
-        {isOpen && node.children && (
-          node.children.map((child) => (
-            <FileTableRow
-              key={child.id}
-              node={child}
-              depth={depth + 1}
-              getDownloadUrl={getDownloadUrl}
-            />
-          ))
+        {/* Files in Folder */}
+        {isOpen && folder.files?.map((file: any) => (
+          <tr key={`${path}/${file.name}`} className="border-b border-slate-100 hover:bg-slate-50/30 transition group last:border-b-0">
+            {/* Dynamic padding: 4rem (original pl-16) + depth indentation */}
+            <td className="py-4 pr-6 sm:w-1/2" style={{ paddingLeft: `calc(4rem + ${depth * 1.5}rem)` }}>
+              <div className="flex items-center gap-3">
+                <div className="shrink-0 flex items-center justify-center">
+                  {getFileIcon(file.name)}
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="text-sm text-slate-700 font-semibold truncate max-w-[160px] sm:max-w-md">
+                    {file.name}
+                  </span>
+                  <span className="text-[11px] text-slate-400 mt-0.5 truncate max-w-[160px] sm:max-w-md">
+                    {file.description}
+                  </span>
+                </div>
+              </div>
+            </td>
+            <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell sm:w-1/6">
+              {file.version}
+            </td>
+            <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell sm:w-1/6">
+              {file.size}
+            </td>
+            <td className="py-4 px-6 text-right sm:w-1/6">
+              <a
+                href={file.downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#066291] hover:bg-[#044e74] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-xl transition-colors shadow-sm"
+              >
+                <Download className="w-3.5 h-3.5" /> Download
+              </a>
+            </td>
+          </tr>
+        ))}
+
+        {/* Subfolders Mapping (Recursion) */}
+        {isOpen && folder.subfolders?.map((subfolder: any) => 
+          renderTreeItems(subfolder, `${path}/${subfolder.name}`, depth + 1)
         )}
-      </>
+      </Fragment>
     );
-  }
-
-  // File Row Rendering
-  return (
-    <tr className="border-b border-slate-50 hover:bg-slate-50/70 transition group">
-      <td style={indentationStyle} className="py-4 flex items-center gap-3">
-        <div className="ml-4 shrink-0 flex items-center justify-center">
-          {getFileIcon(node.name)}
-        </div>
-        <span className="text-sm text-slate-600 font-semibold truncate max-w-[200px] sm:max-w-md">
-          {node.name}
-        </span>
-      </td>
-      <td className="py-4 px-4 text-xs text-slate-500 font-bold hidden sm:table-cell">
-        Standard Utility Tool
-      </td>
-      <td className="py-4 px-4 text-right">
-        <a
-          href={getDownloadUrl(node.id)}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1.5 bg-[#066291] hover:bg-[#044e74] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-2 rounded-xl transition-colors shadow-sm"
-        >
-          <Download className="w-3.5 h-3.5" /> Download
-        </a>
-      </td>
-    </tr>
-  );
-}
-
-export default function Downloads() {
-  const { treeData, isLoading, error, getDownloadUrl } = useFileTree();
+  };
 
   return (
     <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
       {/* 1. PREMIUM HERO SECTION */}
-      <section className="relative w-screen pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+      <section className="relative w-screen pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
         <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Left Block */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Breadcrumbs */}
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">
               <Link to="/" className="hover:text-[#066291] transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
@@ -126,7 +135,6 @@ export default function Downloads() {
                 Utility & Drivers Portal
               </span>
             </div>
-
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] max-w-2xl">
               Download Center & <br />
@@ -164,7 +172,7 @@ export default function Downloads() {
       </section>
 
       {/* 2. REPOSITORY EXPLORER SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20 space-y-8">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-4 border-b border-slate-100">
           <div>
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-widest block mb-1">Explorer</span>
@@ -175,62 +183,40 @@ export default function Downloads() {
               <span className="text-slate-700">archives</span>
             </div>
           </div>
-          <div className="inline-flex items-center gap-2 border border-slate-200 bg-slate-50 px-4 py-2 rounded-xl text-xs text-slate-600 font-bold shadow-sm">
-            <Clock className="w-4 h-4 text-slate-400" /> Connection: Active & Synced
+          <div className="flex flex-col items-center sm:items-end gap-1.5 w-full sm:w-auto">
+            <div className="inline-flex items-center gap-2 border border-slate-200 bg-slate-50 px-4 py-2 rounded-xl text-xs text-slate-600 font-bold shadow-sm w-full sm:w-auto justify-center sm:justify-start">
+              <Clock className="w-4 h-4 text-slate-400" /> Data Source: Local Database
+            </div>
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest sm:hidden mt-0.5 select-none animate-pulse">
+              ← Swipe horizontally to scroll →
+            </span>
           </div>
         </div>
 
         {/* File Tree Table */}
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-          <table className="w-full text-left border-collapse">
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-x-auto">
+          <table className="w-full min-w-[500px] text-left border-collapse">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500 font-bold">
-                <th className="py-4 px-6 w-1/2 sm:w-auto">File / Folder Name</th>
-                <th className="py-4 px-4 hidden sm:table-cell">Type</th>
-                <th className="py-4 px-6 text-right">Action</th>
+                <th className="py-4 px-6 sm:w-1/2">File Name</th>
+                <th className="py-4 px-4 hidden sm:table-cell sm:w-1/6">Version</th>
+                <th className="py-4 px-4 hidden sm:table-cell sm:w-1/6">Size</th>
+                <th className="py-4 px-6 text-right sm:w-1/6">Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* Async Loading State */}
-              {isLoading && (
-                <tr>
-                  <td colSpan={3} className="py-16 text-center text-sm text-slate-500">
-                    <div className="flex items-center justify-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin text-[#066291]" />
-                      <span className="font-bold">Scanning files repository...</span>
-                    </div>
+              {/* Maps over the Top-Level Folders directly recreating original layout structure */}
+              {downloadsData.map((folder) => (
+                <tr key={folder.name} className="border-b border-slate-200">
+                  <td colSpan={4} className="p-0">
+                    <table className="w-full min-w-[500px] border-collapse">
+                      <tbody>
+                        {/* We use our function to recursively push all files and subfolders HERE */}
+                        {renderTreeItems(folder, folder.name, 0)}
+                      </tbody>
+                    </table>
                   </td>
                 </tr>
-              )}
-
-              {/* Fetch Error State */}
-              {error && (
-                <tr>
-                  <td colSpan={3} className="py-16 px-6">
-                    <div className="flex items-center justify-center gap-2 bg-red-50 border border-red-100 rounded-2xl p-4 max-w-xl mx-auto text-red-600 text-sm">
-                      <AlertCircle className="w-5 h-5 shrink-0" />
-                      <span className="font-semibold">{error}</span>
-                    </div>
-                  </td>
-                </tr>
-              )}
-
-              {/* Empty State */}
-              {!isLoading && !error && treeData.length === 0 && (
-                <tr>
-                  <td colSpan={3} className="py-16 text-center text-sm text-slate-400 italic">
-                    The software archive is currently empty.
-                  </td>
-                </tr>
-              )}
-
-              {/* Render File Tree */}
-              {!isLoading && !error && treeData.map((node) => (
-                <FileTableRow
-                  key={node.id}
-                  node={node}
-                  getDownloadUrl={getDownloadUrl}
-                />
               ))}
             </tbody>
           </table>
@@ -238,13 +224,13 @@ export default function Downloads() {
           {/* Table Footer */}
           <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex justify-between items-center text-xs text-slate-500 font-bold">
             <span className="flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5 text-[#066291]" /> Dynamic File Syncer Active</span>
-            <span>Files listed: {treeData.length}</span>
+            <span>Total files: {totalFiles}</span>
           </div>
         </div>
       </section>
 
       {/* 3. FINAL CALL TO ACTION */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 pb-20">
         <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
           <div className="relative z-10 space-y-6 max-w-xl text-left">

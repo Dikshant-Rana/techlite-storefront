@@ -9,6 +9,7 @@ export default function Layout() {
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMobileServicesOpen, setIsMobileServicesOpen] = useState<boolean>(false);
+    const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState<boolean>(false);
 
     // Helper to instantly know if we are on the Home, Services, Products, Downloads, or Contact page
     const isHome = location.pathname === '/';
@@ -23,7 +24,16 @@ export default function Layout() {
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setIsMobileServicesOpen(false);
+        setIsDesktopServicesOpen(false);
     }, [location]);
+
+    useEffect(() => {
+        const handleOutsideClick = () => {
+            setIsDesktopServicesOpen(false);
+        };
+        document.addEventListener('click', handleOutsideClick);
+        return () => document.removeEventListener('click', handleOutsideClick);
+    }, []);
 
     const navLinks = [
         { name: 'Home', path: '/', icon: <HardDrive className="w-4 h-4" /> },
@@ -41,7 +51,7 @@ export default function Layout() {
 
             {/* Permanent Sticky Structural Header Block */}
             <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 shadow-sm">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
+                <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto flex justify-between items-center">
 
                     {/* Brand/Shop Identity logo wrapper */}
                     <Link to="/" className="font-extrabold text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
@@ -78,18 +88,27 @@ export default function Layout() {
 
                         {/* Services Dropdown */}
                         <div className="relative group">
-                            <Link
-                                to="/services"
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsDesktopServicesOpen(!isDesktopServicesOpen);
+                                }}
                                 className={`${animatedUnderlineClasses} ${location.pathname.includes('/services')
                                     ? 'text-[#066291] font-semibold after:scale-x-100'
                                     : 'text-slate-600 hover:text-[#066291]'
-                                    }`}
+                                    } focus:outline-none cursor-pointer`}
                             >
                                 Our Services
-                                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-                            </Link>
+                                <ChevronDown className={`w-3 h-3 transition-transform ${isDesktopServicesOpen ? 'rotate-180' : 'group-hover:rotate-180'}`} />
+                            </button>
 
-                            <div className="absolute top-full left-0 mt-4 w-64 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden">
+                            <div
+                                onClick={(e) => e.stopPropagation()}
+                                className={`absolute top-full left-0 mt-4 w-64 bg-white border border-slate-100 rounded-xl shadow-xl transition-all duration-200 transform overflow-hidden ${isDesktopServicesOpen
+                                        ? 'opacity-100 visible translate-y-0'
+                                        : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+                                    }`}
+                            >
                                 <div className="p-2">
                                     {servicesData.map((service) => (
                                         <Link
@@ -204,7 +223,7 @@ export default function Layout() {
 
             {/* Dynamic Content Frame Wrapper */}
             <div className={`w-full ${!isFullWidth ? 'flex-grow' : ''}`}>
-                <main className={`w-full mx-auto animate-in fade-in duration-300 ${!isFullWidth ? 'max-w-7xl p-4 md:p-6 mt-16' : 'p-0'}`}>
+                <main className={`w-full mx-auto animate-in fade-in duration-300 ${!isFullWidth ? 'max-w-7xl 2xl:max-w-[85rem] p-4 md:p-6 mt-16' : 'p-0'}`}>
                     <Outlet />
                 </main>
             </div>

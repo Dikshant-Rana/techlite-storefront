@@ -219,13 +219,13 @@ export default function Home() {
   return (
     <div className="font-sans text-slate-900">
 
-      <section className="relative w-screen min-h-screen bg-white overflow-hidden pt-28 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
+      <section className="relative w-screen bg-white overflow-hidden pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
 
         {/* Decorative Ambient Soft Radial Glow Vectors */}
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
         <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* LEFT SUB-ROW: ENGAGING VALUE PROP ENGINE */}
           <div className="lg:col-span-7 flex flex-col items-start text-left ">
@@ -383,7 +383,7 @@ export default function Home() {
       <section className="py-16 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] overflow-hidden border-b border-slate-200/80 select-none">
 
         {/* Structural Headers */}
-        <div className="max-w-7xl mx-auto px-6 md:px-8 text-center space-y-3 mb-12">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 text-center space-y-3 mb-12">
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
             Trusted Technology Brands
           </span>
@@ -421,7 +421,7 @@ export default function Home() {
       </section>
       {/* 2. WHO WE ARE SECTION */}
       <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Image Box */}
           <div className="rounded-xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 h-[400px]">
             <img
@@ -447,7 +447,7 @@ export default function Home() {
 
       {/* 3. SERVICES SECTION */}
       <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
-        <div className="max-w-7xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 space-y-8">
           {/* Header Layout */}
           <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 border-b border-transparent pb-2">
             <div>
@@ -504,7 +504,7 @@ export default function Home() {
 
       {/* 4. DOWNLOAD CENTER SECTION */}
       <section className="bg-slate-50/40 py-20 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-        <div className="max-w-7xl mx-auto px-6 space-y-16">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase">Download Center</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Software & Resource Library</h2>
@@ -544,7 +544,7 @@ export default function Home() {
 
       {/* 5. REPLICATED TECHNOLOGY PRODUCTS GRID FROM SCREENSHOT */}
       <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Shop With Us</span>
@@ -585,7 +585,7 @@ export default function Home() {
 
       {/* NEW SECTION A: REPLICATED HOW WE WORK PIPELINE */}
       <section className="bg-slate-50/50 py-20 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-16">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Simple Process</span>
@@ -623,7 +623,7 @@ export default function Home() {
 
       {/* NEW SECTION B: REPLICATED MEET OUR EXPERTS TEAM MATRIX */}
       <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
             <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Our Experts</span>
@@ -778,7 +778,7 @@ export default function Home() {
 
       {/* NEW SECTION D: REPLICATED TESTIMONIAL VIEWPORT CAROUSEL */}
       <section className="bg-slate-50/50 py-16 border-b border-slate-200/80 w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 space-y-12">
+        <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Customer Stories</span>
@@ -857,7 +857,7 @@ export default function Home() {
 
 
       {/* 6. CALL TO ACTION BANNER */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
+      <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-10">
         <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
           <div className="relative z-10 space-y-6 max-w-xl">
