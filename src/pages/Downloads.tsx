@@ -122,11 +122,11 @@ export default function Downloads() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. PREMIUM HERO SECTION */}
-        <section className="relative w-screen pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+        <section className="relative w-screen pt-30 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
           <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="content-container w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Block */}
             <div className="lg:col-span-7 space-y-6 text-left">
@@ -179,7 +179,7 @@ export default function Downloads() {
         </section>
 
         {/* 2. REPOSITORY EXPLORER SECTION */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-8">
+        <section className="content-container py-20 space-y-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-4 border-b border-slate-100">
             <div>
               <span className="text-[10px] font-bold text-[#066291] uppercase tracking-widest block mb-1">Explorer</span>
@@ -237,7 +237,7 @@ export default function Downloads() {
         </section>
 
         {/* 3. FINAL CALL TO ACTION */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 pb-20">
+        <section className="content-container pb-20">
           <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">

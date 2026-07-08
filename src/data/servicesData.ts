@@ -166,7 +166,7 @@ export const servicesData: ServiceItem[] = [
     id: "2",
     slug: "hardware-upgrades",
     category: "UPGRADES",
-    title: "Hardware Upgrades",
+    title: "Hardware Upgrades (SSD/HDD, GPU, RAM)",
     imageUrl: Upgrade,
     desc: "Speed up your slow computer with fast solid-state drives, extra memory, and better storage options.",
     longDesc: "If your computer takes several minutes to start up or freezes when you open a few internet tabs, you do not need to buy a brand new computer. Often, a simple and affordable upgrade to your internal components can make your existing machine run up to ten times faster. We specialize in upgrading older laptops and desktops to meet today's software demands.\n\nWe install high-speed Solid-State Drives (SSDs) to replace slow, traditional hard drives. This upgrade dramatically reduces start times and makes applications open instantly. We also upgrade Random Access Memory (RAM), which allows your computer to handle multiple tasks at the same time without slowing down.\n\nOur team ensures that your files, photos, and settings are safely moved over to your new drive during the upgrade. We only use reliable hardware from top-tier brands, ensuring your upgraded computer stays fast and stable for years to come.",

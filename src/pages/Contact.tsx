@@ -66,10 +66,10 @@ export default function Contact() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. CLEAN ELEGANT HEADER */}
-        <section className="relative w-screen pt-32 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+        <section className="relative w-screen pt-30 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
 
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full relative z-10 text-left space-y-6">
+          <div className="content-container w-full relative z-10 text-left space-y-6">
             {/* Breadcrumb Navigation */}
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">
               <Link to="/" className="hover:text-[#066291] transition-colors">Home</Link>
@@ -98,7 +98,7 @@ export default function Contact() {
         </section>
 
         {/* 2. CONTACT INFORMATION CARDS */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-16">
+        <section className="content-container py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* Card A: Phone */}
@@ -198,7 +198,7 @@ export default function Contact() {
 
 
         {/* 4. ADDRESS AND MAP */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-12">
+        <section className="content-container py-20 space-y-12">
           <div className="text-left space-y-3">
             <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase block">Location</span>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Visit Our Store</h2>
@@ -326,7 +326,7 @@ export default function Contact() {
         </section>
 
         {/* 6. FINAL CONTACT CTA */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20">
+        <section className="content-container py-20">
           <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">

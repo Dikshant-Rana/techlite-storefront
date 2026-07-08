@@ -261,8 +261,8 @@ export default function About() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. PREMIUM COMPACT HEADER */}
-        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 pt-32 pb-14 bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 text-left space-y-4">
+        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 pt-30 pb-14 bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] overflow-x-hidden">
+          <div className="content-container text-left space-y-4">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">
               <Link to="/" className="hover:text-[#066291] transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -282,7 +282,7 @@ export default function About() {
 
         {/* 2. COMPANY STORY (PREMIUM SPLIT LAYOUT) */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="content-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Side: Story Image */}
             <div className="lg:col-span-5 w-full">
@@ -323,7 +323,7 @@ export default function About() {
 
         {/* 3. MISSION & VISION (TWO PREMIUM CARDS) */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-slate-50/40 overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Core Principles</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Our Mission & Vision</h2>
@@ -365,7 +365,7 @@ export default function About() {
 
         {/* 8. FOUNDER'S & LEADERSHIP SECTION */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-slate-50/40 overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
 
             {/* Header Block */}
             <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -448,7 +448,7 @@ export default function About() {
 
         {/* 4. WHY CUSTOMERS TRUST TECHLITE (UNIQUE LAYOUT) */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Our Strengths</span>
               <h2 className="text-2xl md:text-3.5xl font-bold text-slate-900 tracking-tight">Why Customers Trust Techlite</h2>
@@ -513,7 +513,7 @@ export default function About() {
         </section>
         {/* 7. MEET OUR TEAM */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Expert Technicians</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Meet Our Team</h2>
@@ -579,7 +579,7 @@ export default function About() {
 
         {/* 5. COMPANY STATISTICS */}
         <section className="bg-slate-950 py-16 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen text-center text-white border-b border-slate-900 overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="space-y-3">
               <span className="text-[9px] font-black tracking-widest text-[#066291] uppercase">Proven Performance</span>
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Our Achievements</h2>
@@ -609,7 +609,7 @@ export default function About() {
 
         {/* 6. COMPANY VALUES */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-slate-50/40 overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">How We Work</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Our Core Values</h2>
@@ -647,7 +647,7 @@ export default function About() {
 
         {/* 9. BRANDS WE WORK WITH */}
         <section id="brand-support" className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-12">
+          <div className="content-container space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Supported Ecosystem</span>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Brands We Sell & Support</h2>
@@ -690,7 +690,7 @@ export default function About() {
         </section>
 
         {/* 10. FINAL CALL TO ACTION */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20">
+        <section className="content-container py-20">
           <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
             <div className="relative z-10 space-y-6 max-w-xl text-left">
               <h2 className="text-3.5xl font-bold text-white tracking-tight leading-tight">

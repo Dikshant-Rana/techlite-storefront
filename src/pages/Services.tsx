@@ -99,12 +99,12 @@ export default function Services() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. PREMIUM HERO */}
-        <section className="relative w-screen pt-32 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+        <section className="relative w-screen pt-30 pb-16 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
           {/* Decorative ambient radial glows */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
           <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 w-full relative z-10 text-left">
+          <div className="content-container w-full relative z-10 text-left">
 
             {/* Breadcrumb */}
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-6">
@@ -151,7 +151,7 @@ export default function Services() {
         </section>
 
         {/* 2. COMPLETE SERVICE CATALOG */}
-        <section id="service-catalog" className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 py-20 space-y-12">
+        <section id="service-catalog" className="content-container py-20 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-[10px] font-bold tracking-widest text-[#066291] uppercase block">Catalog</span>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Complete Services Catalog</h2>
@@ -220,7 +220,7 @@ export default function Services() {
 
         {/* 3. FIND THE RIGHT SERVICE (SITUATION FINDER) */}
         <section id="service-finder" className="bg-slate-50/50 py-20 border-y border-slate-100 ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] w-screen">
-          <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 md:px-8 space-y-16">
+          <div className="content-container space-y-16">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-sky-50 border border-sky-100">
                 <span className="text-[10px] font-bold text-[#066291] uppercase tracking-wider">Service Finder</span>
@@ -304,7 +304,7 @@ export default function Services() {
         </section>
 
         {/* 5. FINAL CTA */}
-        <section className="max-w-7xl 2xl:max-w-[85rem] mx-auto px-6 pb-20">
+        <section className="content-container pb-20">
           <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">

@@ -51,7 +51,7 @@ export default function Layout() {
 
             {/* Permanent Sticky Structural Header Block */}
             <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 shadow-sm">
-                <div className="max-w-7xl 2xl:max-w-[85rem] mx-auto flex justify-between items-center">
+                <div className="max-w-[90%] mx-auto flex justify-between items-center">
 
                     {/* Brand/Shop Identity logo wrapper */}
                     <Link to="/" className="font-extrabold text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
@@ -105,8 +105,8 @@ export default function Layout() {
                             <div
                                 onClick={(e) => e.stopPropagation()}
                                 className={`absolute top-full left-0 mt-4 w-64 bg-white border border-slate-100 rounded-xl shadow-xl transition-all duration-200 transform overflow-hidden ${isDesktopServicesOpen
-                                        ? 'opacity-100 visible translate-y-0'
-                                        : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+                                    ? 'opacity-100 visible translate-y-0'
+                                    : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
                                     }`}
                             >
                                 <div className="p-2">
