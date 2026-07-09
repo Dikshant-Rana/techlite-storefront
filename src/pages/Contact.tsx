@@ -66,7 +66,7 @@ export default function Contact() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. CLEAN ELEGANT HEADER */}
-        <section className="relative w-screen pt-30 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
+        <section className="homepage-hero relative w-screen pt-30 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-100">
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
 
           <div className="content-container w-full relative z-10 text-left space-y-6">

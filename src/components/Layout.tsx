@@ -51,20 +51,20 @@ export default function Layout() {
 
             {/* Permanent Sticky Structural Header Block */}
             <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 shadow-sm">
-                <div className="max-w-[90%] mx-auto flex justify-between items-center">
+              <div className="max-w-[76rem] 2xl:max-w-[82rem] mx-auto flex justify-between items-center">
 
                     {/* Brand/Shop Identity logo wrapper */}
-                    <Link to="/" className="font-extrabold text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
+                    <Link to="/" className="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
                         <img
                             src={logoImg}
                             alt="Techlite Group Logo"
-                            className="w-12 h-12 object-contain"
+                            className="w-9 h-9 md:w-12 md:h-12 object-contain"
                         />
                         <div className="flex flex-col leading-none">
-                            <span className="font-manrope text-2xl font-extrabold tracking-tight text-slate-900">
+                            <span className="font-manrope text-lg md:text-2xl font-extrabold tracking-tight text-slate-900">
                                 Techlite
                             </span>
-                            <span className="font-manrope text-[#066291] text-lg font-bold ml-0.5 -mt-2">Groups</span>
+                            <span className="font-manrope text-[#066291] text-sm md:text-lg font-bold ml-0.5 -mt-1 md:-mt-2">Groups</span>
                         </div>
                     </Link>
 

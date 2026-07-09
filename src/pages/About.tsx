@@ -11,7 +11,7 @@ import {
   Headphones,
   ChevronRight,
   BookOpen,
-  UserCheck,
+  Heart,
   Smile,
   Mail
 } from 'lucide-react';
@@ -21,6 +21,8 @@ import SEO from "../components/SEO";
 import techliteabout from "../assets/image/techlite_about.jpg";
 import Anup from "../assets/image/anup.jpg";
 import Adhikari from "../assets/image/adhikari.jpg";
+
+import whyChoose from "../assets/image/laptop_repair1.webp";
 
 
 import sushil from "../assets/image/sushil.jpg";
@@ -261,7 +263,7 @@ export default function About() {
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
         {/* 1. PREMIUM COMPACT HEADER */}
-        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 pt-30 pb-14 bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] overflow-x-hidden">
+        <section className="homepage-hero w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 pt-30 pb-5 bg-white bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] overflow-x-hidden">
           <div className="content-container text-left space-y-4">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">
               <Link to="/" className="hover:text-[#066291] transition-colors">Home</Link>
@@ -281,7 +283,7 @@ export default function About() {
         </section>
 
         {/* 2. COMPANY STORY (PREMIUM SPLIT LAYOUT) */}
-        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
+        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-5 md:py-20 bg-white overflow-x-hidden">
           <div className="content-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Side: Story Image */}
@@ -447,67 +449,108 @@ export default function About() {
 
 
         {/* 4. WHY CUSTOMERS TRUST TECHLITE (UNIQUE LAYOUT) */}
-        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-white overflow-x-hidden">
-          <div className="content-container space-y-12">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Our Strengths</span>
-              <h2 className="text-2xl md:text-3.5xl font-bold text-slate-900 tracking-tight">Why Customers Trust Techlite</h2>
-              <p className="text-slate-500 text-sm leading-relaxed font-normal">
-                We base our business on straightforward recommendations, certified technical skills, and reliable after-sales support.
-              </p>
-            </div>
+        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-[#F8FAFC] overflow-x-hidden">
+          <div className="content-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-              {[
-                {
-                  icon: <Wrench className="w-5 h-5 text-[#066291]" />,
-                  title: "Experienced Technicians",
-                  desc: "Our technicians hold deep expertise in troubleshooting computer hardware, printers, smart surveillance wiring, and network routing."
-                },
-                {
-                  icon: <Package className="w-5 h-5 text-[#066291]" />,
-                  title: "Genuine Products Only",
-                  desc: "We supply only original equipment and replacement components sourced directly through certified distributor channels."
-                },
-                {
-                  icon: <CheckCircle className="w-5 h-5 text-indigo-600" />,
-                  title: "Honest Recommendations",
-                  desc: "We diagnose first and only suggest repairs or upgrades that are truly necessary. No confusing sales upsells or hidden fees."
-                },
-                {
-                  icon: <ShieldCheck className="w-5 h-5 text-sky-600" />,
-                  title: "Professional Installation",
-                  desc: "Every network line, access point, and security camera is installed with neat cable management and tidy labeling."
-                },
-                {
-                  icon: <Clock className="w-5 h-5 text-rose-600" />,
-                  title: "Fast Response & Support",
-                  desc: "We respect your time. Most hardware diagnostics and software configurations are processed same-day or next-day."
-                },
-                {
-                  icon: <Smile className="w-5 h-5 text-amber-600" />,
-                  title: "Friendly Customer Service",
-                  desc: "We explain technical issues in simple English, keeping you informed from diagnostics to the final system handover."
-                },
-                {
-                  icon: <UserCheck className="w-5 h-5 text-emerald-600" />,
-                  title: "Reliable After-Sales Support",
-                  desc: "Our relationship doesn't end after setup. We support our hardware installations with active local warranty maintenance."
-                }
-              ].map((strength, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-[210px] group"
-                >
-                  <div className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
-                      {strength.icon}
-                    </div>
-                    <h3 className="font-bold text-slate-900 text-sm">{strength.title}</h3>
-                    <p className="text-slate-500 text-[11px] leading-relaxed font-normal">{strength.desc}</p>
+              {/* LEFT COLUMN: Imagery & Stats */}
+              <div className="space-y-6">
+                {/* Image Card */}
+                <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-sm bg-slate-200">
+                  {/* Replace the src with your actual image */}
+                  <img
+                    src={whyChoose}
+                    alt="IT Professionals at work"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Horizontal Stats Bar */}
+                <div className="bg-white rounded-[2rem] shadow-sm border border-slate-100 p-6 flex items-center justify-between text-center divide-x divide-slate-100">
+                  <div className="flex-1 px-2">
+                    <div className="text-[#066291] font-bold text-2xl sm:text-3xl mb-1">8+</div>
+                    <div className="text-slate-500 text-[11px] sm:text-xs font-medium">Years<br />Experience</div>
+                  </div>
+                  <div className="flex-1 px-2">
+                    <div className="text-[#066291] font-bold text-2xl sm:text-3xl mb-1">5000+</div>
+                    <div className="text-slate-500 text-[11px] sm:text-xs font-medium">Devices<br />Serviced</div>
+                  </div>
+                  <div className="flex-1 px-2">
+                    <div className="text-[#066291] font-bold text-2xl sm:text-3xl mb-1">100+</div>
+                    <div className="text-slate-500 text-[11px] sm:text-xs font-medium">CCTV<br />Installations</div>
+                  </div>
+                  <div className="flex-1 px-2">
+                    <div className="text-[#066291] font-bold text-2xl sm:text-3xl mb-1">98%</div>
+                    <div className="text-slate-500 text-[11px] sm:text-xs font-medium">Customer<br />Satisfaction</div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* RIGHT COLUMN: Content & Features Grid */}
+              <div className="lg:pt-2">
+                {/* Top Pill Badge */}
+                <div className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-[#066291] text-sm font-semibold mb-6 border border-sky-100">
+                  Why Techlite
+                </div>
+
+                {/* Heading & Paragraph */}
+                <h2 className="text-3xl md:text-4xl lg:text-4.5xl font-bold text-slate-900 leading-tight mb-4">
+                  Why Businesses and Customers Choose Us
+                </h2>
+                <p className="text-slate-500 text-base leading-relaxed mb-8 pr-4">
+                  We combine technical expertise with genuine care for our customers. Every job we take is treated as a long-term relationship, not a one-time transaction.
+                </p>
+
+                {/* Features Grid */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    {
+                      icon: <Wrench className="w-5 h-5 text-[#066291]" />,
+                      title: "Experienced Technicians",
+                      desc: "Our team brings years of hands-on expertise across all technology domains."
+                    },
+                    {
+                      icon: <Package className="w-5 h-5 text-[#066291]" />,
+                      title: "Genuine Components",
+                      desc: "We use only authentic, certified parts to ensure longevity and reliability."
+                    },
+                    {
+                      icon: <Clock className="w-5 h-5 text-[#066291]" />,
+                      title: "Fast Turnaround Time",
+                      desc: "Most repairs completed same-day or next-day with priority service options."
+                    },
+                    {
+                      icon: <CheckCircle className="w-5 h-5 text-[#066291]" />,
+                      title: "Professional Installation",
+                      desc: "Neat, compliant installations with cable management and proper documentation."
+                    },
+                    {
+                      icon: <Headphones className="w-5 h-5 text-[#066291]" />,
+                      title: "Reliable Technical Support",
+                      desc: "Responsive support via phone, email, and on-site visits across Nepal."
+                    },
+                    {
+                      icon: <Heart className="w-5 h-5 text-[#066291]" />,
+                      title: "Customer Satisfaction Focus",
+                      desc: "We don't close a job until you're completely satisfied with the results."
+                    }
+                  ].map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4"
+                    >
+                      <div className="bg-sky-50 rounded-xl p-2.5 shrink-0">
+                        {feature.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-slate-900 text-sm mb-1">{feature.title}</h3>
+                        <p className="text-slate-500 text-[13px] leading-relaxed">{feature.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

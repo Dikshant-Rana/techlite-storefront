@@ -228,7 +228,7 @@ export default function Home() {
       />
       <div className="font-sans text-slate-900">
 
-        <section className="relative w-screen bg-white overflow-hidden pt-30 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
+        <section className="homepage-hero relative w-screen bg-white overflow-hidden pt-30 pb-10 flex items-center ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-[size:40px_40px] bg-[linear-gradient(to_right,rgba(226,232,240,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.4)_1px,transparent_1px)] border-b border-slate-200/80">
 
           {/* Decorative Ambient Soft Radial Glow Vectors */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
@@ -240,7 +240,7 @@ export default function Home() {
             <div className="lg:col-span-6 flex flex-col items-start text-left ">
 
               {/* Context Badge Pill */}
-              <div className="inline-flex items-center gap-2 px-2 py-2 rounded-full bg-sky-50 border border-sky-100 mb-3 transition-colors duration-200">
+              <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-sky-50 border border-sky-100 mb-3 transition-colors duration-200">
                 <span className="text-[#066291] text-xs">★</span>
                 <span className="text-xs font-semibold text-slate-700 tracking-wide">
                   Serving Homes, Businesses, Schools & Organizations
@@ -264,7 +264,7 @@ export default function Home() {
               </p>
 
               {/* 1. EXACT THREE-BUTTON CTA CONFIGURATION MATRIX (From Screenshot 2026-06-26 114649.png) */}
-              <div className="flex flex-wrap items-center gap-4 w-full mb-10">
+              <div className="flex flex-wrap items-center gap-4 w-full mb-6">
                 <Link
                   to="/services"
                   className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 transform hover:-translate-y-0.5"
