@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Settings,
   MapPin,
-  Activity,
   User
 } from 'lucide-react';
 import SEO from "../components/SEO";
@@ -147,16 +146,7 @@ export default function ServiceDetail() {
                 />
               </div>
 
-              {/* Float overlay status widget */}
-              <div className="absolute -left-4 bottom-8 bg-white border border-slate-100 p-3 rounded-xl shadow-lg flex items-center gap-3 w-48 z-20 [animation:float_4s_ease-in-out_infinite]">
-                <div className="w-7 h-7 bg-green-50 rounded-full flex items-center justify-center shrink-0">
-                  <Activity className="w-4 h-4 text-green-500 animate-pulse" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-bold text-slate-800">Support Active</div>
-                  <div className="text-[9px] text-slate-400 font-medium">Certified Technicians</div>
-                </div>
-              </div>
+              
             </div>
 
           </div>

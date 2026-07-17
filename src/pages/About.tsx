@@ -451,7 +451,7 @@ export default function About() {
         {/* 4. WHY CUSTOMERS TRUST TECHLITE (UNIQUE LAYOUT) */}
         <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-20 bg-[#F8FAFC] overflow-x-hidden">
           <div className="content-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
               {/* LEFT COLUMN: Imagery & Stats */}
               <div className="space-y-6">
@@ -466,7 +466,7 @@ export default function About() {
                 </div>
 
                 {/* Horizontal Stats Bar */}
-                <div className="bg-white rounded-[2rem] shadow-sm border border-slate-100 p-6 flex items-center justify-between text-center divide-x divide-slate-100">
+                <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm border border-slate-100 p-6 grid grid-cols-2 gap-6 sm:gap-0 sm:flex sm:items-center sm:justify-between text-center sm:divide-x sm:divide-slate-100">
                   <div className="flex-1 px-2">
                     <div className="text-[#066291] font-bold text-2xl sm:text-3xl mb-1">8+</div>
                     <div className="text-slate-500 text-[11px] sm:text-xs font-medium">Years<br />Experience</div>
