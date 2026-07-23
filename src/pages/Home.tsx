@@ -12,7 +12,7 @@ import SEO from "../components/SEO";
 import techliteInterior from "../assets/image/techlite_interior.webp";
 import Networking from "../assets/image/router1.jpg";
 import Laptop from "../assets/image/laptop.jpg";
-import collageImg from "../assets/image/collage.jpg";
+import collageImg from "../assets/image/collage.webp";
 
 //3. Imported team images
 import sushil from "../assets/image/sushil.jpg";
@@ -309,6 +309,8 @@ export default function Home() {
                 <img
                   src={collageImg}
                   alt="Techlite Services Collage"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors duration-300 pointer-events-none" />
@@ -349,6 +351,8 @@ export default function Home() {
                     <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
+                      loading="lazy"
+                      decoding="async"
                       className={`${brand.heightClass} w-auto object-contain`}
                     />
                   </div>
@@ -366,6 +370,8 @@ export default function Home() {
               <img
                 src={techliteInterior}
                 alt="Hardware Precision"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -406,7 +412,7 @@ export default function Home() {
 
                   {/* Image Frame */}
                   <div className="w-full h-44 bg-slate-100 mb-4 overflow-hidden border border-slate-100">
-                    <img src={svc.imageUrl} alt={svc.title} className="w-full h-full object-cover" />
+                    <img src={svc.imageUrl} alt={svc.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
 
                   {/* Description */}
@@ -504,7 +510,7 @@ export default function Home() {
                 { title: "Computer Accessories", desc: "Keyboards, mice, monitors", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80" }
               ].map((prod, idx) => (
                 <div key={idx} className="relative group aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
-                  <img src={prod.img} alt={prod.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={prod.img} alt={prod.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5 text-left text-white">
                     <h4 className="text-base font-bold tracking-tight mb-0.5">{prod.title}</h4>
@@ -744,7 +750,7 @@ export default function Home() {
                   <div>
                     {/* Profile Picture Frame with Experience Badge Overlay */}
                     <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
-                      <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top" />
+                      <img src={member.img} alt={member.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
                       <div className="absolute top-4 right-4 bg-[#066291] text-white font-mono font-bold text-[9px] px-2.5 py-1 rounded-md shadow-sm">
                         {member.experience}
                       </div>
@@ -815,7 +821,7 @@ export default function Home() {
                 {/* Author Row Profile Vector */}
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
-                    <img src={testimonials[activeTestimonialIdx].img} alt={testimonials[activeTestimonialIdx].author} className="w-full h-full object-cover" />
+                    <img src={testimonials[activeTestimonialIdx].img} alt={testimonials[activeTestimonialIdx].author} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-slate-900">{testimonials[activeTestimonialIdx].author}</h4>
