@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package } from 'lucide-react';
+import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package, Wrench } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/image/techlite-logo.png';
 import { servicesData } from '../data/servicesData';
@@ -11,7 +11,7 @@ export default function Layout() {
     const [isMobileServicesOpen, setIsMobileServicesOpen] = useState<boolean>(false);
     const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState<boolean>(false);
 
-    // Helper to instantly know if we are on the Home, Services, Products, Downloads, or Contact page
+    // Helper to check if current route uses unconstrained full-width sections
     const isHome = location.pathname === '/';
     const isAboutPage = location.pathname.startsWith('/about');
     const isServicesPage = location.pathname.startsWith('/services');
@@ -20,7 +20,7 @@ export default function Layout() {
     const isContactPage = location.pathname.startsWith('/contact');
     const isFullWidth = isHome || isAboutPage || isServicesPage || isProductsPage || isDownloadsPage || isContactPage;
 
-    // Close mobile menus automatically when clicking a link
+    // Close menus automatically on location change
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setIsMobileServicesOpen(false);
@@ -39,7 +39,6 @@ export default function Layout() {
         { name: 'Home', path: '/', icon: <HardDrive className="w-4 h-4" /> },
         { name: 'About Us', path: '/about', icon: <Download className="w-4 h-4" /> },
         { name: 'Products', path: '/products', icon: <Package className="w-4 h-4" /> },
-        // "Our Services" is handled dynamically
         { name: 'Downloads', path: '/downloads', icon: <Download className="w-4 h-4" /> },
         { name: 'Contact Us', path: '/contact', icon: <Mail className="w-4 h-4" /> },
     ];
@@ -49,11 +48,11 @@ export default function Layout() {
     return (
         <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#066291] selection:text-white overflow-x-hidden">
 
-            {/* Permanent Sticky Structural Header Block */}
-            <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 shadow-sm">
-              <div className="max-w-[76rem] 2xl:max-w-[82rem] mx-auto flex justify-between items-center">
+            {/* Sticky Header with unified content-container */}
+            <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm py-4">
+                <div className="content-container flex justify-between items-center">
 
-                    {/* Brand/Shop Identity logo wrapper */}
+                    {/* Brand / Logo Wrapper */}
                     <Link to="/" className="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
                         <img
                             src={logoImg}
@@ -64,11 +63,13 @@ export default function Layout() {
                             <span className="font-manrope text-lg md:text-2xl font-extrabold tracking-tight text-slate-900">
                                 Techlite
                             </span>
-                            <span className="font-manrope text-[#066291] text-sm md:text-lg font-bold ml-0.5 -mt-1 md:-mt-2">Groups</span>
+                            <span className="font-manrope text-[#066291] text-sm md:text-lg font-bold ml-0.5 -mt-1 md:-mt-2">
+                                Groups
+                            </span>
                         </div>
                     </Link>
 
-                    {/* Desktop Navigation Link Cluster */}
+                    {/* Desktop Navigation Links */}
                     <div className="hidden lg:flex gap-6 text-sm font-medium items-center">
                         {navLinks.slice(0, 3).map((link) => {
                             const isActive = location.pathname === link.path;
@@ -129,7 +130,7 @@ export default function Layout() {
                             </div>
                         </div>
 
-                        {/* Downloads and Contact */}
+                        {/* Downloads & Contact */}
                         {navLinks.slice(3).map((link) => {
                             const isActive = location.pathname === link.path;
                             return (
@@ -147,7 +148,7 @@ export default function Layout() {
                         })}
                     </div>
 
-                    {/* Mobile Shell Menu Toggle Button Trigger */}
+                    {/* Mobile Menu Button Trigger */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg lg:hidden transition-colors"
@@ -157,9 +158,9 @@ export default function Layout() {
                     </button>
                 </div>
 
-                {/* Responsive Mobile Navigation Drawer Frame */}
+                {/* Mobile Navigation Drawer */}
                 {isMobileMenuOpen && (
-                    <div className="lg:hidden mt-4 pt-4 border-t border-slate-100 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200 bg-white">
+                    <div className="lg:hidden mt-4 pt-4 border-t border-slate-100 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200 bg-white content-container">
                         {navLinks.slice(0, 3).map((link) => {
                             const isActive = location.pathname === link.path;
                             return (
@@ -180,7 +181,7 @@ export default function Layout() {
                                 className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm font-medium transition-colors ${location.pathname.includes('/services') ? 'bg-blue-50 text-[#066291]' : 'text-slate-600 hover:bg-slate-50 hover:text-[#066291]'}`}
                             >
                                 <div className="flex items-center gap-3">
-                                    <Mail className="w-4 h-4" />
+                                    <Wrench className="w-4 h-4" />
                                     Our Services
                                 </div>
                                 <ChevronDown className={`w-4 h-4 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
@@ -221,9 +222,9 @@ export default function Layout() {
                 )}
             </nav>
 
-            {/* Dynamic Content Frame Wrapper */}
+            {/* Dynamic Content Wrapper */}
             <div className={`w-full ${!isFullWidth ? 'flex-grow' : ''}`}>
-                <main className={`w-full mx-auto animate-in fade-in duration-300 ${!isFullWidth ? 'max-w-7xl 2xl:max-w-[85rem] p-4 md:p-6 mt-16' : 'p-0'}`}>
+                <main className={`w-full animate-in fade-in duration-300 ${!isFullWidth ? 'p-4 md:p-6 mt-16' : 'p-0'}`}>
                     <Outlet />
                 </main>
             </div>
