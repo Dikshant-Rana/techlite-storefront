@@ -267,23 +267,23 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4 w-full mb-6">
                 <Link
                   to="/services"
-                  className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 transform hover:-translate-y-0.5"
+                  className="group bg-[#066291] hover:bg-[#0a74a7] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 hover:scale-[1.0]"
                 >
-                  Explore Services <ArrowRight className="w-4 h-4" />
+                  Explore Services <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                 </Link>
 
                 <Link
                   to="/downloads"
-                  className="bg-sky-50/60 hover:bg-sky-50 border border-sky-100 text-[#066291] px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-sm transform hover:-translate-y-0.5"
+                  className="border border-[#066291] bg-transparent text-[#066291] px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out hover:bg-[#066291] hover:text-white hover:shadow-[0_0_0_4px_rgba(6,98,145,0.08)] hover:-translate-y-0.5"
                 >
-                  <Download className="w-4 h-4 text-[#066291]" /> Download Portal
+                  <Download className="w-4 h-4 text-current" /> Download Portal
                 </Link>
 
                 <Link
                   to="/contact"
-                  className="hover:bg-slate-50 text-slate-800 px-5 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200"
+                  className="border border-[#066291] bg-transparent text-[#066291] px-5 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out hover:bg-[#066291] hover:text-white hover:shadow-[0_0_0_4px_rgba(6,98,145,0.08)] hover:-translate-y-0.5"
                 >
-                  <Phone className="w-4 h-4 text-slate-700" /> Contact Us
+                  <Phone className="w-4 h-4 text-current" /> Contact Us
                 </Link>
               </div>
 

@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package, Wrench } from 'lucide-react';
+import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package, Wrench, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/image/techlite-logo.png';
 import { servicesData } from '../data/servicesData';
@@ -50,10 +50,10 @@ export default function Layout() {
 
             {/* Sticky Header with unified content-container */}
             <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm py-4">
-                <div className="content-container flex justify-between items-center">
+                <div className="content-container flex items-center justify-between gap-4">
 
                     {/* Brand / Logo Wrapper */}
-                    <Link to="/" className="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight flex items-center gap-1 group">
+                    <Link to="/" className="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight flex items-center gap-1 group shrink-0">
                         <img
                             src={logoImg}
                             alt="Techlite Group Logo"
@@ -70,7 +70,7 @@ export default function Layout() {
                     </Link>
 
                     {/* Desktop Navigation Links */}
-                    <div className="hidden lg:flex gap-6 text-sm font-medium items-center">
+                    <div className="hidden lg:flex flex-1 items-center justify-end gap-6 text-sm font-medium">
                         {navLinks.slice(0, 3).map((link) => {
                             const isActive = location.pathname === link.path;
                             return (
@@ -130,22 +130,28 @@ export default function Layout() {
                             </div>
                         </div>
 
-                        {/* Downloads & Contact */}
-                        {navLinks.slice(3).map((link) => {
-                            const isActive = location.pathname === link.path;
-                            return (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    className={`${animatedUnderlineClasses} ${isActive
-                                        ? 'text-[#066291] font-semibold after:scale-x-100'
-                                        : 'text-slate-600 hover:text-[#066291]'
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            );
-                        })}
+                        <Link
+                            to="/downloads"
+                            className={`${animatedUnderlineClasses} ${location.pathname === '/downloads'
+                                ? 'text-[#066291] font-semibold after:scale-x-100'
+                                : 'text-slate-600 hover:text-[#066291]'
+                                }`}
+                        >
+                            Downloads
+                        </Link>
+                    </div>
+
+                    <div className="hidden lg:flex items-center shrink-010-10 lg:ml-10">
+                        <Link
+                            to="/contact"
+                            className={`inline-flex items-center gap-2 rounded-full border border-[#006699] px-5 py-2.5 text-sm font-bold transition-colors ${location.pathname === '/contact'
+                                ? 'bg-[#006699] text-white ring-2 ring-[#006699]/20'
+                                : 'bg-transparent text-[#006699] hover:bg-[#006699] hover:text-white'
+                                }`}
+                        >
+                            <Phone className="h-4 w-4" />
+                            Contact Us
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button Trigger */}
