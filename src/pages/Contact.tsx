@@ -18,8 +18,8 @@ import {
 import {
   FaFacebook,
   FaInstagram,
-  FaTwitter,
-  FaLinkedin,
+  FaWhatsapp,
+  FaTiktok,
 } from 'react-icons/fa';
 import SEO from "../components/SEO";
 
@@ -140,7 +140,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2.5 pt-2 border-t border-slate-100 w-full font-semibold text-xs text-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="truncate mr-1">techlitegroups@.com</span>
+                    <span className="truncate mr-1">techlitegroups@gmail.com</span>
                     <button onClick={() => handleCopy("techlitegroups@.com", "email")} className="p-1 hover:text-[#066291] hover:bg-slate-50 rounded">
                       {copiedText === "email" ? <Check className="w-3.5 h-3.5 text-[#066291]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
                     </button>
@@ -183,7 +183,7 @@ export default function Contact() {
                 <div className="space-y-2.5 pt-2 border-t border-slate-100 w-full text-xs text-slate-700 font-semibold">
                   <div className="flex justify-between">
                     <span>Sun - Fri</span>
-                    <span>9:00 AM – 7:00 PM</span>
+                    <span>9:00 AM – 6:00 PM</span>
                   </div>
                   <div className="flex justify-between text-[#066291]">
                     <span>Saturday</span>
@@ -249,10 +249,10 @@ export default function Contact() {
                 <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Follow Us</div>
                 <div className="flex items-center gap-3">
                   {[
-                    { icon: <FaFacebook className="w-4 h-4" />, href: "#", name: "Facebook" },
-                    { icon: <FaInstagram className="w-4 h-4" />, href: "#", name: "Instagram" },
-                    { icon: <FaTwitter className="w-4 h-4" />, href: "#", name: "Twitter" },
-                    { icon: <FaLinkedin className="w-4 h-4" />, href: "#", name: "LinkedIn" },
+                    { icon: <FaFacebook className="w-4 h-4" />, href: "https://www.facebook.com/techlitegroups", name: "Facebook" },
+                    { icon: <FaInstagram className="w-4 h-4" />, href: "https://www.instagram.com/techlitegroups/", name: "Instagram" },
+                    { icon: <FaTiktok className="w-4 h-4" />, href: "https://www.tiktok.com/@techlitegroups", name: "TikTok" },
+                    { icon: <FaWhatsapp className="w-4 h-4" />, href: "https://wa.me/9779801944800", name: "WhatsApp" },
                   ].map((social) => (
                     <a
                       key={social.name}
