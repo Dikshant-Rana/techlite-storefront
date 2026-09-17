@@ -5,6 +5,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 // 1. IMPORT YOUR DATA HERE
 import { servicesData } from '../data/servicesData';
 import SEO from "../components/SEO";
+import { EmployeeMarquee } from '../components/EmployeeMarquee';
 
 
 
@@ -579,7 +580,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <EmployeeMarquee>
               {[
                 {
                   name: "Sushil Gautam",
@@ -646,7 +647,7 @@ export default function Home() {
                   socials: {
                     fb: "https://www.facebook.com/raee.tmg",
                     insta: "https://www.instagram.com/b_bibek_raii10/",
-                    whatsapp: "https://wa.me/9779801944840"
+                    whatsapp: "https://wa.me/9779801944804"
                   }
                 },
                 {
@@ -674,6 +675,7 @@ export default function Home() {
                   role: "Printer Repair Technician",
                   experience: "2+ Years",
                   img: paurakhi,
+                  imgPosition: "object-[center_35%]",
                   tags: [
                     "Printer Repair",
                     "Printer Setup",
@@ -697,6 +699,7 @@ export default function Home() {
                   tags: [
                     "Laptop Repair",
                     "Desktop Repair",
+                    "PC Building",
                     "Hardware Upgrades",
                     "Office Software Installation",
                     "Operating System Installation",
@@ -746,27 +749,27 @@ export default function Home() {
                   }
                 }
               ].map((member, idx) => (
-                <div key={idx} className="bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between text-left">
+                <div key={idx} className="h-full bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between text-left">
                   <div>
                     {/* Profile Picture Frame with Experience Badge Overlay */}
                     <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
-                      <img src={member.img} alt={member.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
-                      <div className="absolute top-4 right-4 bg-[#066291] text-white font-mono font-bold text-[9px] px-2.5 py-1 rounded-md shadow-sm">
+                      <img src={member.img} alt={member.name} loading="lazy" decoding="async" className={`w-full h-full object-cover ${member.imgPosition || 'object-top'}`} />
+                      <div className="absolute top-3 right-3 bg-[#066291] text-white font-mono font-bold text-[8px] px-2 py-0.5 rounded-md shadow-sm">
                         {member.experience}
                       </div>
                     </div>
 
                     {/* Meta Matrix Descriptions */}
-                    <div className="p-5 space-y-4">
+                    <div className="p-4 space-y-3">
                       <div>
-                        <h3 className="text-base font-bold text-slate-900 mb-0.5">{member.name}</h3>
+                        <h3 className="text-sm font-bold text-slate-900 mb-0.5">{member.name}</h3>
                         <p className="text-[11px] font-semibold text-[#066291] uppercase tracking-wider">{member.role}</p>
                       </div>
 
                       {/* Skills Grid Tags */}
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1">
                         {member.tags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[10px] bg-slate-50 text-slate-600 font-medium px-2.5 py-1 rounded-md border border-slate-100">
+                          <span key={tIdx} className="text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
                             {tag}
                           </span>
                         ))}
@@ -775,14 +778,14 @@ export default function Home() {
                   </div>
 
                   {/* Social Footnote Anchors */}
-                  <div className="px-5 pb-5 pt-3 border-t border-slate-50 flex items-center gap-3 text-slate-400">
+                  <div className="px-4 pb-4 pt-2 border-t border-slate-50 flex items-center gap-2.5 text-slate-400">
                     <a href={member.socials.fb} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-4 h-4" /></a>
                     <a href={member.socials.insta} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-4 h-4" /></a>
                     <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-4 h-4" /></a>
                   </div>
                 </div>
               ))}
-            </div>
+            </EmployeeMarquee>
           </div>
         </section>
 

@@ -16,6 +16,7 @@ import {
   Mail
 } from 'lucide-react';
 import SEO from "../components/SEO";
+import { EmployeeMarquee } from '../components/EmployeeMarquee';
 
 
 import techliteabout from "../assets/image/techlite_about.jpg";
@@ -61,6 +62,7 @@ interface TeamMember {
   description: string;
   imageAlt: string;
   img: string;
+  imgPosition?: string;
   experience?: string;
   tags: string[];
   socials: {
@@ -79,7 +81,14 @@ export default function About() {
       description: "10+ years of expertise in network setup, wiring, CCTV installation, advanced computer troubleshooting, and system diagnostics. Oversees all technical operations.",
       imageAlt: "Sushil Gautam - Head Technician",
       img: sushil,
-      tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Server Rack Installation", "Data Cabling", "On-Site Technical Support"],
+      tags: [
+        "Router Installation & Setup",
+        "CCTV Installation",
+        "Network Troubleshooting",
+        "Access Point Installation & Setup",
+        "Network Switch Installation & Setup",
+        "On-Site Support"
+      ],
       socials: {
         fb: "https://www.facebook.com/sushil.gautam.731",
         insta: "https://www.instagram.com/sushil3899/",
@@ -89,11 +98,18 @@ export default function About() {
     {
       name: "Saajan Rai",
       role: "Technician",
-      experience: "9+ Years",
+      experience: "10+ Years",
       description: "9+ years of expertise in network wiring, CCTV installations, hardware diagnostics, and regular system maintenance.",
       imageAlt: "Saajan Rai - Technician",
       img: sajaan,
-      tags: ["Router Setup", "Network Wiring", "CCTV Installation", "Wi-Fi Optimization", "Network Troubleshooting", "Internet Setup", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "Data Cabling", "Printer Repair", "Printer Maintenance", "System Maintenance", "On-Site Technical Support"],
+      tags: [
+        "Network Wiring",
+        "CCTV Installation",
+        "Router Installation & Setup",
+        "Access Point Installation & Setup",
+        "Network Switch Installation & Setup",
+        "On-Site Support"
+      ],
       socials: {
         fb: "https://www.facebook.com/saajan.rai.7798",
         insta: "#",
@@ -103,25 +119,40 @@ export default function About() {
     {
       name: "Bibek Rai",
       role: "Technician",
-      experience: "8+ Years",
+      experience: "10+ Years",
       description: "8+ years of expertise in network cabling, CCTV camera setups, computer troubleshooting, and providing dependable technical support.",
       imageAlt: "Bibek Rai - Technician",
       img: bibek,
-      tags: ["Router Setup", "Network wiring", "Internet Configuration", "Access Point Installation", "Network Switch Configuration", "IP Camera Configuration", "CCTV Maintenance", "On-Site Technical Support"],
+      tags: [
+        "Network Wiring",
+        "CCTV Installation",
+        "Router Installation & Setup",
+        "Access Point Installation & Setup",
+        "Network Switch Installation & Setup",
+        "On-Site Support"
+      ],
       socials: {
         fb: "https://www.facebook.com/raee.tmg",
         insta: "https://www.instagram.com/b_bibek_raii10/",
-        whatsapp: "https://wa.me/9779801944840"
+        whatsapp: "https://wa.me/9779801944804"
       }
     },
     {
       name: "Ashish Gautam",
       role: "Printer Repair Technician",
-      experience: "4+ Years",
+      experience: "2+ Years",
       description: "Printer repair specialist handling diagnostics, servicing, maintenance, and complex repairs for inkjet, laser, and multifunction printers.",
       imageAlt: "Ashish Gautam - Printer Repair Technician",
       img: ashish,
-      tags: ["Printer Repair", "Printer Installation & Setup", "Maintenance & Servicing", "Ink & Toner Services", "Networking & Connectivity", "On-Site Support", "Sales & Spare Parts"],
+      tags: [
+        "Printer Repair",
+        "Printer Setup",
+        "Printer Maintenance",
+        "Ink & Toner Replacement",
+        "Printer Network Setup",
+        "On-Site Support",
+        "Printer Parts"
+      ],
       socials: {
         fb: "https://www.facebook.com/asisa.gautama.942751",
         insta: "https://www.instagram.com/aashish_gautam_7/",
@@ -131,11 +162,20 @@ export default function About() {
     {
       name: "Paurakh Subedi",
       role: "Printer Repair Technician",
-      experience: "3+ Years",
+      experience: "2+ Years",
       description: "Dedicated printer repair technician with 3+ years of experience in troubleshooting, routine maintenance, and repair solutions.",
       imageAlt: "Paurakh Subedi - Printer Repair Technician",
       img: paurakhi,
-      tags: ["Printer Repair", "Installation & Setup", "Maintenance & Cleaning", "Ink & Toner Services", "Network Configuration", "On-Site Support", "Printer Parts & Supplies"],
+      imgPosition: "object-[center_35%]",
+      tags: [
+        "Printer Repair",
+        "Printer Setup",
+        "Printer Maintenance",
+        "Ink & Toner Replacement",
+        "Printer Network Setup",
+        "On-Site Support",
+        "Printer Parts"
+      ],
       socials: {
         fb: "https://www.facebook.com/paurakh.subedi.3",
         insta: "https://www.instagram.com/paurakh.subedi/",
@@ -145,11 +185,20 @@ export default function About() {
     {
       name: "Rupak Rai",
       role: "Computer Service Technician",
-      experience: "3+ Years",
+      experience: "2+ Years",
       description: "Expert in desktop and laptop repairs, operating system installations, hardware upgrades (RAM/SSD), data recovery, and performance optimization.",
       imageAlt: "Rupak Rai - Computer Service Technician",
       img: rupak,
-      tags: ["Laptop & Desktop Repair/Servicing", "Computer Hardware Upgrades(RAM/SSD/HDD & more)", "Office Package Installation", "OS & Drivers Installation", "Data Recovery"],
+      tags: [
+        "Laptop Repair",
+        "Desktop Repair",
+        "PC Building",
+        "Hardware Upgrades",
+        "Office Software Installation",
+        "Operating System Installation",
+        "Driver Installation",
+        "Data Recovery"
+      ],
       socials: {
         fb: "https://www.facebook.com/rupaka.ra.i.926983",
         insta: "https://www.instagram.com/putet_98/",
@@ -163,7 +212,13 @@ export default function About() {
       description: "Manages financial operations, budgeting, financial reporting, and keeps our organization’s business accounts organized and precise.",
       imageAlt: "Manik Neupane - Head Accountant",
       img: manik,
-      tags: ["Accounting", "Financial Management", "Budget Planning", "Reporting", "Business Operations"],
+      tags: [
+        "Accounting",
+        "Financial Management",
+        "Budgeting",
+        "Financial Reports",
+        "Business Operations"
+      ],
       socials: {
         fb: "https://www.facebook.com/Manikneupane7",
         insta: "https://www.instagram.com/zero_manik_07/",
@@ -177,7 +232,13 @@ export default function About() {
       description: "Supports daily financial tracking, transaction processing, reporting, and smooth administrative financial operations.",
       imageAlt: "Kushal Gautam - Assistant Accountant",
       img: kushal,
-      tags: ["Bookkeeping", "Financial Records", "Transaction Management", "Reporting", "Administrative Support"],
+      tags: [
+        "Bookkeeping",
+        "Financial Records",
+        "Transaction Records",
+        "Financial Reports",
+        "Administrative Support"
+      ],
       socials: {
         fb: "https://www.facebook.com/gautam.kushal.16",
         insta: "https://www.instagram.com/gautam.kushal.16/",
@@ -565,57 +626,47 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <EmployeeMarquee>
               {team.map((member, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between text-left group"
-                >
+                <div key={idx} className="h-full bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between text-left">
                   <div>
-                    {/* Photo container */}
-                    <div className="relative aspect-square bg-slate-50 overflow-hidden border-b border-slate-100">
-                      <img
-                        src={member.img}
-                        alt={member.imageAlt}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
+                    {/* Profile Picture Frame with Experience Badge Overlay */}
+                    <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                      <img src={member.img} alt={member.name} loading="lazy" decoding="async" className={`w-full h-full object-cover ${member.imgPosition || 'object-top'}`} />
                       {member.experience && (
-                        <div className="absolute top-4 right-4 bg-[#066291] text-white font-mono font-bold text-[9px] px-2.5 py-1 rounded-md shadow-sm">
+                        <div className="absolute top-3 right-3 bg-[#066291] text-white font-mono font-bold text-[8px] px-2 py-0.5 rounded-md shadow-sm">
                           {member.experience}
                         </div>
                       )}
                     </div>
 
-                    {/* Info details */}
-                    <div className="p-5 space-y-3">
+                    {/* Meta Matrix Descriptions */}
+                    <div className="p-4 space-y-3">
                       <div>
-                        <h3 className="text-base font-bold text-slate-900 mb-0.5 group-hover:text-[#066291] transition-colors">{member.name}</h3>
-                        <p className="text-[10px] font-semibold text-[#066291] uppercase tracking-wider">{member.role}</p>
+                        <h3 className="text-sm font-bold text-slate-900 mb-0.5">{member.name}</h3>
+                        <p className="text-[11px] font-semibold text-[#066291] uppercase tracking-wider">{member.role}</p>
                       </div>
-                      <p className="text-slate-500 text-[11px] leading-relaxed font-normal">
-                        {member.description}
-                      </p>
+
+                      {/* Skills Grid Tags */}
+                      <div className="flex flex-wrap gap-1">
+                        {member.tags.map((tag, tIdx) => (
+                          <span key={tIdx} className="text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Footer tags */}
-                  <div className="px-5 pb-5 pt-3 border-t border-slate-50 flex flex-col gap-3">
-                    <div className="flex flex-wrap gap-1">
-                      {member.tags.map((tag, tIdx) => (
-                        <span key={tIdx} className="text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded border border-slate-100">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-3 text-slate-400 pt-1">
-                      <a href={member.socials.fb} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-3.5 h-3.5" /></a>
-                      <a href={member.socials.insta} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-3.5 h-3.5" /></a>
-                      <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-3.5 h-3.5" /></a>
-                    </div>
+                  {/* Social Footnote Anchors */}
+                  <div className="px-4 pb-4 pt-2 border-t border-slate-50 flex items-center gap-2.5 text-slate-400">
+                    <a href={member.socials.fb} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaFacebook className="w-4 h-4" /></a>
+                    <a href={member.socials.insta} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaInstagram className="w-4 h-4" /></a>
+                    <a href={member.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-[#066291] transition-colors"><FaWhatsapp className="w-4 h-4" /></a>
                   </div>
                 </div>
               ))}
-            </div>
+            </EmployeeMarquee>
           </div>
         </section>
 
