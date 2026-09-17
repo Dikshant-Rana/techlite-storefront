@@ -54,9 +54,9 @@ export const servicesData: ServiceItem[] = [
     seo: {
       title: "Laptop, Desktop & Printer Repair | TechLite Groups",
       description:
-        "Professional laptop, desktop, and printer repair services in Nepal. We repair all major brands with reliable diagnostics and quality service.",
+        "Professional laptop, desktop, and printer repair services in Hetauda. We fix all major brands with reliable hardware diagnostics, screen repair, and quality service.",
       keywords:
-        "laptop repair, desktop repair, printer repair, computer servicing, hardware repair, TechLite Nepal"
+        "laptop repair hetauda, desktop repair hetauda, printer repair hetauda, computer servicing, hardware repair, TechLite Groups"
     },
     tags: [
       "Desktop Repair",
@@ -173,9 +173,9 @@ export const servicesData: ServiceItem[] = [
     seo: {
       title: "Computer Hardware Upgrades | TechLite Groups",
       description:
-        "Upgrade your laptop or desktop with SSDs, HDDs, RAM, graphics cards, power supplies, and other hardware for faster performance and improved reliability.",
+        "Upgrade your laptop or desktop with SSDs, RAM, and hardware upgrades in Hetauda. Get faster performance and reliable components at TechLite Groups.",
       keywords:
-        "computer hardware upgrade, SSD upgrade, RAM upgrade, HDD replacement, desktop upgrade, laptop upgrade, TechLite Nepal"
+        "computer hardware upgrade hetauda, ssd upgrade hetauda, ram upgrade hetauda, laptop desktop upgrade, TechLite Groups"
     },
     tags: ["Speed Boost", "Need More Storage", "Extra Memory", "Computer Speedup"],
     problems: [
@@ -275,9 +275,9 @@ export const servicesData: ServiceItem[] = [
     seo: {
       title: "Router Setup & Network Wiring | TechLite Groups",
       description:
-        "Professional router installation, Wi-Fi configuration, structured network cabling, and LAN setup for homes, offices, schools, and businesses.",
+        "Professional router installation, Wi-Fi configuration, structured network cabling, and LAN setup for homes, offices, and schools in Hetauda. Contact TechLite Groups.",
       keywords:
-        "router setup, network wiring, LAN setup, WiFi installation, structured cabling, network configuration, TechLite Nepal"
+        "router setup hetauda,Wifi hetauda, network wiring hetauda, lan setup hetauda, wifi installation, structured cabling, TechLite Groups"
     },
     tags: ["Wi-Fi Setup", "Network Wiring", "Internet Setup", "Signal Booster"],
     problems: [
@@ -387,11 +387,11 @@ export const servicesData: ServiceItem[] = [
     desc: "Complete security camera setup, mobile viewing configuration, repair services, and routine maintenance for homes and businesses.",
     longDesc: "Keeping your family, home, and business safe is a top priority. We install high-definition security camera systems that let you monitor your property 24 hours a day, 7 days a week. Our services include placing cameras in the best viewing spots, running secure wiring, and setting up recording boxes so you can review footage whenever you need to.\n\nWe connect your camera system to the internet, allowing you to watch live video feeds directly on your mobile phone, tablet, or laptop from anywhere in the world. Whether you are at work or traveling outside Nepal, you can check in on your property with a single tap.\n\nIf you have an existing system that has stopped working, has blurry video, or is not recording, our maintenance team can diagnose and repair it. We clean camera lenses, check power supplies, replace damaged cables, and fix recording hard drives to keep your security system running without interruption.",
     seo: {
-      title: "CCTV Installation & Servicing | TechLite Groups",
+      title: "CCTV Installation | TechLite Groups",
       description:
-        "Professional CCTV camera installation, maintenance, troubleshooting, DVR/NVR setup, remote viewing configuration, and security system support for homes and businesses.",
+        "Professional CCTV camera installation, maintenance, DVR/NVR setup, and remote viewing configuration for homes and businesses in Hetauda. Call TechLite Groups.",
       keywords:
-        "CCTV installation, CCTV servicing, security camera installation, DVR setup, NVR setup, IP camera installation, CCTV maintenance, TechLite Nepal"
+        "cctv in hetauda, cctv installation hetauda, security camera repair hetauda, dvr nvr setup, ip camera installation hetauda, TechLite Nepal"
     },
     tags: ["Set Up CCTV Cameras", "Security Cameras", "Mobile Viewing Setup", "CCTV Servicing"],
     problems: [
@@ -499,11 +499,11 @@ export const servicesData: ServiceItem[] = [
     desc: "Build a computer for gaming, office work, video editing, or studying, tailored exactly to your budget and needs.",
     longDesc: "Standard ready-made computers often come with cheap internal parts or features you do not need. When you choose a custom-built computer, you get to decide exactly where your money goes. We help you design and build a desktop computer that fits your exact needs, whether you are looking for a reliable office workstation, a student desktop, or a high-end gaming system.\n\nOur custom computer service makes the process easy. You do not need to know any technical details; simply tell us what you want to use the computer for and what your budget is. We select compatible, high-quality components and compile them into a balanced system design.\n\nWe assemble your new computer with extreme care, ensuring neat wiring for clean airflow and cooler temperatures. Before we hand over the PC, we install the operating system, update all essential drivers, and run stress tests to ensure everything is stable and ready to go.",
     seo: {
-      title: "Custom PC Building | TechLite Groups",
+      title: "Custom PC Building Services | TechLite Groups",
       description:
-        "Build a custom desktop PC for gaming, office work, content creation, or professional use. We help you choose compatible components and assemble your system with expert cable management and testing.",
+        "Build a custom gaming PC or workstation in Hetauda. We help you choose compatible parts and assemble your system with expert cable management at TechLite Groups.",
       keywords:
-        "custom PC building, gaming PC, desktop assembly, PC builder, workstation PC, custom computer, TechLite Nepal"
+        "custom pc building hetauda, gaming pc hetauda, desktop assembly, pc builder hetauda, custom computer, TechLite Groups"
     },
     tags: ["Custom PC", "Build a Computer", "Gaming PC", "Office Workstation"],
     problems: [
@@ -603,9 +603,9 @@ export const servicesData: ServiceItem[] = [
     seo: {
       title: "Data Recovery & Software Installation | TechLite Groups",
       description:
-        "Recover lost files and install Windows, Microsoft Office, drivers, antivirus, and essential software. We provide secure data recovery and professional software installation services.",
+        "Recover lost files and install Windows, Office, and essential software in Hetauda. We provide secure data recovery and software setup at TechLite Groups.",
       keywords:
-        "data recovery, Windows installation, software installation, Microsoft Office installation, driver installation, virus removal, TechLite Nepal"
+        "data recovery hetauda, windows installation hetauda, software installation hetauda, virus removal, TechLite Groups"
     },
     tags: ["Recover Lost Files", "Install Windows", "Virus Removal", "Software Setup"],
     problems: [

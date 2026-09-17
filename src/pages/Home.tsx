@@ -224,7 +224,7 @@ export default function Home() {
       <SEO
         title="TechLite Groups | Best Technology Company in Hetauda"
         description="TechLite Group provides computer repair, CCTV installation, networking, printer services, software downloads, and technical support in Hetauda."
-        keywords="TechLite, computer repair, software downloads, printer drivers, CCTV, networking, laptop repair, Hetauda"
+        keywords="TechLite, computer repair, software downloads, printer drivers, CCTV in hetauda, networking, laptop repair,  Hetauda"
         url="https://techlite.com.np/"
       />
       <div className="font-sans text-slate-900">
