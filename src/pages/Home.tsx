@@ -588,15 +588,12 @@ export default function Home() {
                   experience: "10+ Years",
                   img: sushil,
                   tags: [
-                    "Network Wiring",
-                    "CCTV Installation",
-                    "Wi-Fi Setup",
+                    "Router Installation",
                     "Network Troubleshooting",
-                    "Internet Setup",
+                    "CCTV Installation",
+                    "Access Point Installation",
                     "Access Point Setup",
                     "Network Switch Setup",
-                    "IP Camera Setup",
-                    "Data Cabling",
                     "On-Site Support"
                   ],
                   socials: {
@@ -611,16 +608,12 @@ export default function Home() {
                   experience: "10+ Years",
                   img: sajaan,
                   tags: [
-                    "Network Wiring",
                     "CCTV Installation",
-                    "Wi-Fi Setup",
+                    "Access Point Installation",
+                    "Router Installation",
+                    "Network Wiring",
                     "Access Point Setup",
                     "Network Switch Setup",
-                    "IP Camera Setup",
-                    "Data Cabling",
-                    "Printer Repair",
-                    "Printer Maintenance",
-                    "Computer Maintenance",
                     "On-Site Support"
                   ],
                   socials: {
@@ -635,13 +628,12 @@ export default function Home() {
                   experience: "10+ Years",
                   img: bibek,
                   tags: [
-                    "Router Setup",
+                    "CCTV Installation",
+                    "Access Point Installation",
+                    "Router Installation",
                     "Network Wiring",
-                    "Internet Setup",
                     "Access Point Setup",
                     "Network Switch Setup",
-                    "IP Camera Setup",
-                    "CCTV Maintenance",
                     "On-Site Support"
                   ],
                   socials: {
@@ -657,9 +649,9 @@ export default function Home() {
                   img: ashish,
                   tags: [
                     "Printer Repair",
-                    "Printer Setup",
-                    "Printer Maintenance",
                     "Ink & Toner Replacement",
+                    "Printer Maintenance",
+                    "Printer Setup",
                     "Printer Network Setup",
                     "On-Site Support",
                     "Printer Parts"
@@ -677,10 +669,10 @@ export default function Home() {
                   img: paurakhi,
                   imgPosition: "object-[center_35%]",
                   tags: [
-                    "Printer Repair",
-                    "Printer Setup",
-                    "Printer Maintenance",
                     "Ink & Toner Replacement",
+                    "Printer Maintenance",
+                    "Printer Setup",
+                    "Printer Repair",
                     "Printer Network Setup",
                     "On-Site Support",
                     "Printer Parts"
@@ -722,7 +714,8 @@ export default function Home() {
                     "Financial Management",
                     "Budgeting",
                     "Financial Reports",
-                    "Business Operations"
+                    "Business Operations",
+                    "Bookkeeping"
                   ],
                   socials: {
                     fb: "https://www.facebook.com/Manikneupane7",
@@ -769,7 +762,7 @@ export default function Home() {
                       {/* Skills Grid Tags */}
                       <div className="flex flex-wrap gap-1">
                         {member.tags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
+                          <span key={tIdx} className="whitespace-nowrap text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
                             {tag}
                           </span>
                         ))}

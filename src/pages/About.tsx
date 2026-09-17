@@ -82,11 +82,12 @@ export default function About() {
       imageAlt: "Sushil Gautam - Head Technician",
       img: sushil,
       tags: [
-        "Router Installation & Setup",
-        "CCTV Installation",
+        "Router Installation",
         "Network Troubleshooting",
-        "Access Point Installation & Setup",
-        "Network Switch Installation & Setup",
+        "CCTV Installation",
+        "Access Point Installation",
+        "Access Point Setup",
+        "Network Switch Setup",
         "On-Site Support"
       ],
       socials: {
@@ -103,11 +104,12 @@ export default function About() {
       imageAlt: "Saajan Rai - Technician",
       img: sajaan,
       tags: [
-        "Network Wiring",
         "CCTV Installation",
-        "Router Installation & Setup",
-        "Access Point Installation & Setup",
-        "Network Switch Installation & Setup",
+        "Access Point Installation",
+        "Router Installation",
+        "Network Wiring",
+        "Access Point Setup",
+        "Network Switch Setup",
         "On-Site Support"
       ],
       socials: {
@@ -124,11 +126,12 @@ export default function About() {
       imageAlt: "Bibek Rai - Technician",
       img: bibek,
       tags: [
-        "Network Wiring",
         "CCTV Installation",
-        "Router Installation & Setup",
-        "Access Point Installation & Setup",
-        "Network Switch Installation & Setup",
+        "Access Point Installation",
+        "Router Installation",
+        "Network Wiring",
+        "Access Point Setup",
+        "Network Switch Setup",
         "On-Site Support"
       ],
       socials: {
@@ -146,9 +149,9 @@ export default function About() {
       img: ashish,
       tags: [
         "Printer Repair",
-        "Printer Setup",
-        "Printer Maintenance",
         "Ink & Toner Replacement",
+        "Printer Maintenance",
+        "Printer Setup",
         "Printer Network Setup",
         "On-Site Support",
         "Printer Parts"
@@ -168,10 +171,10 @@ export default function About() {
       img: paurakhi,
       imgPosition: "object-[center_35%]",
       tags: [
-        "Printer Repair",
-        "Printer Setup",
-        "Printer Maintenance",
         "Ink & Toner Replacement",
+        "Printer Maintenance",
+        "Printer Setup",
+        "Printer Repair",
         "Printer Network Setup",
         "On-Site Support",
         "Printer Parts"
@@ -217,7 +220,8 @@ export default function About() {
         "Financial Management",
         "Budgeting",
         "Financial Reports",
-        "Business Operations"
+        "Business Operations",
+        "Bookkeeping"
       ],
       socials: {
         fb: "https://www.facebook.com/Manikneupane7",
@@ -650,7 +654,7 @@ export default function About() {
                       {/* Skills Grid Tags */}
                       <div className="flex flex-wrap gap-1">
                         {member.tags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
+                          <span key={tIdx} className="whitespace-nowrap text-[9px] bg-slate-50 text-slate-600 font-medium px-2 py-0.5 rounded-md border border-slate-100">
                             {tag}
                           </span>
                         ))}

@@ -16,6 +16,7 @@ export const EmployeeMarquee: React.FC<EmployeeMarqueeProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef<boolean>(false);
+  const touchActiveRef = useRef<boolean>(false);
   const offsetRef = useRef<number>(0);
   const animationFrameIdRef = useRef<number | null>(null);
 
@@ -51,10 +52,27 @@ export const EmployeeMarquee: React.FC<EmployeeMarqueeProps> = ({
       isPausedRef.current = false;
     };
 
+    const handleTouchStart = () => {
+      touchActiveRef.current = true;
+    };
+
+    const handleTouchEnd = () => {
+      isPausedRef.current = !isPausedRef.current;
+      window.setTimeout(() => {
+        touchActiveRef.current = false;
+      }, 0);
+    };
+
     // Focusout check to ensure focus hasn't just moved to another card inside the marquee
     const handleFocusOut = (e: FocusEvent) => {
-      if (container && !container.contains(e.relatedTarget as Node)) {
+      if (!touchActiveRef.current && container && !container.contains(e.relatedTarget as Node)) {
         resume();
+      }
+    };
+
+    const handleFocusIn = () => {
+      if (!touchActiveRef.current) {
+        pause();
       }
     };
 
@@ -63,12 +81,12 @@ export const EmployeeMarquee: React.FC<EmployeeMarqueeProps> = ({
     container.addEventListener("mouseleave", resume);
 
     // Mobile touch listeners - include touchcancel to fix "stuck mobile" glitch when scrolling vertically
-    container.addEventListener("touchstart", pause, { passive: true });
-    container.addEventListener("touchend", resume, { passive: true });
+    container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchend", handleTouchEnd, { passive: true });
     container.addEventListener("touchcancel", resume, { passive: true });
 
     // Accessibility keyboard focus listeners
-    container.addEventListener("focusin", pause);
+    container.addEventListener("focusin", handleFocusIn);
     container.addEventListener("focusout", handleFocusOut);
 
     return () => {
@@ -77,10 +95,10 @@ export const EmployeeMarquee: React.FC<EmployeeMarqueeProps> = ({
       }
       container.removeEventListener("mouseenter", pause);
       container.removeEventListener("mouseleave", resume);
-      container.removeEventListener("touchstart", pause);
-      container.removeEventListener("touchend", resume);
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchend", handleTouchEnd);
       container.removeEventListener("touchcancel", resume);
-      container.removeEventListener("focusin", pause);
+      container.removeEventListener("focusin", handleFocusIn);
       container.removeEventListener("focusout", handleFocusOut);
     };
   }, [speed]);
