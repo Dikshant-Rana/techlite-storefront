@@ -164,7 +164,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     id: "2",
-    slug: "hardware-upgrades",
+    slug: "computer-hardware-upgrades",
     category: "UPGRADES",
     title: "Hardware Upgrades (SSD/HDD, GPU, RAM)",
     imageUrl: Upgrade,

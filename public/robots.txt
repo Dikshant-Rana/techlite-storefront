@@ -1,4 +1,11 @@
 User-agent: *
+Disallow: /*?*
+Disallow: /*&
+Disallow: /search
+Disallow: /filter
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
 Allow: /
 
 Sitemap: https://techlite.com.np/sitemap.xml

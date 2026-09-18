@@ -66,7 +66,7 @@ export default function Footer() {
             <h4 className="text-white text-xs font-bold uppercase tracking-wider">Our Services</h4>
             <ul className="space-y-2.5 text-xs font-medium">
               <li><Link to="/services/laptop-desktop-printer-repair" className="hover:text-white transition-colors">Laptop / Desktop / Printer Repair</Link></li>
-              <li><Link to="/services/hardware-upgrades" className="hover:text-white transition-colors">Hardware Upgrades</Link></li>
+              <li><Link to="/services/computer-hardware-upgrades" className="hover:text-white transition-colors">Hardware Upgrades</Link></li>
               <li><Link to="/services/router-setup-network-wiring" className="hover:text-white transition-colors">Router Setup & Network Wiring</Link></li>
               <li><Link to="/services/cctv-installation-servicing" className="hover:text-white transition-colors">CCTV Installation & Servicing</Link></li>
               <li><Link to="/services/custom-pc-building" className="hover:text-white transition-colors">Custom PC Building</Link></li>

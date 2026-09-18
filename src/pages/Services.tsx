@@ -32,7 +32,7 @@ export default function Services() {
     {
       situation: "My computer is extremely slow and I run out of file space.",
       recommendation: "Hardware Upgrades",
-      slug: "hardware-upgrades",
+      slug: "computer-hardware-upgrades",
       icon: <Settings className="w-5 h-5 text-sky-500" />
     },
     {
