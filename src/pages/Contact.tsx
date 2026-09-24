@@ -60,7 +60,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact Us | Techlite Groups"
-        description="Contact TechLite Group for computer repair, software installation, and technical support."
+        description="Contact TechLite Groups in Hetauda for computer repair, CCTV installation, network setup, printer servicing, and technical support."
         url="https://techlite.com.np/contact"
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">

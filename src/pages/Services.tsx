@@ -92,7 +92,7 @@ export default function Services() {
     <>
       <SEO
         title="Our Services | TechLite Groups"
-        description="Computer repair, CCTV installation, networking, printer maintenance, data recovery, and more."
+        description="Professional computer repair, CCTV camera installation, network wiring, printer servicing, and data recovery in Hetauda by TechLite Groups."
         url="https://techlite.com.np/services"
       />
 

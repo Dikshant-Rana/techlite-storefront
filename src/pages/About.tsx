@@ -169,7 +169,7 @@ export default function About() {
       description: "Dedicated printer repair technician with 3+ years of experience in troubleshooting, routine maintenance, and repair solutions.",
       imageAlt: "Paurakh Subedi - Printer Repair Technician",
       img: paurakhi,
-      imgPosition: "object-[center_35%]",
+      imgPosition: "object-[center_40%]",
       tags: [
         "Ink & Toner Replacement",
         "Printer Maintenance",
@@ -322,7 +322,7 @@ export default function About() {
     <>
       <SEO
         title="About Us | Techlite Groups"
-        description="Learn about TechLite Group, our experience, mission, and professional IT services."
+        description="Learn about TechLite Groups in Hetauda, our experienced IT technicians, mission, and reliable computer and security camera services."
         url="https://techlite.com.np/about"
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
@@ -791,7 +791,7 @@ export default function About() {
         <section className="content-container py-20">
           <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
             <div className="relative z-10 space-y-6 max-w-xl text-left">
-              <h2 className="text-3.5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                 Looking for a Trusted Technology Partner?
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed font-normal">

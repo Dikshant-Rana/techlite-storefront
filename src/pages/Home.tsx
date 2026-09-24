@@ -222,9 +222,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="TechLite Groups | Best Technology Company in Hetauda"
+        title="TechLite Groups | Computer Repair, CCTV & IT Services in Hetauda"
         description="TechLite Group provides computer repair, CCTV installation, networking, printer services, software downloads, and technical support in Hetauda."
-        keywords="TechLite, computer repair, software downloads, printer drivers, CCTV in hetauda, networking, laptop repair,  Hetauda"
         url="https://techlite.com.np/"
       />
       <div className="font-sans text-slate-900">
@@ -649,9 +648,9 @@ export default function Home() {
                   img: ashish,
                   tags: [
                     "Printer Repair",
-                    "Ink & Toner Replacement",
-                    "Printer Maintenance",
                     "Printer Setup",
+                    "Printer Maintenance",
+                    "Ink & Toner Replacement",
                     "Printer Network Setup",
                     "On-Site Support",
                     "Printer Parts"
@@ -667,7 +666,7 @@ export default function Home() {
                   role: "Printer Repair Technician",
                   experience: "2+ Years",
                   img: paurakhi,
-                  imgPosition: "object-[center_35%]",
+                  imgPosition: "object-[center_40%]",
                   tags: [
                     "Ink & Toner Replacement",
                     "Printer Maintenance",

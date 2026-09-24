@@ -66,7 +66,7 @@ export default function Products() {
     <>
       <SEO
         title="Products | TechLite Groups"
-        description="Explore Routers , CCTV cameras, printers, and computer accessories."
+        description="Browse quality routers, CCTV cameras, printers, custom PC parts, and computer accessories at TechLite Groups in Hetauda."
         url="https://techlite.com.np/products"
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">

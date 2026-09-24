@@ -116,7 +116,7 @@ export default function Downloads() {
     <>
       <SEO
         title="Download Portal | TechLite Groups"
-        description="Download software, printer drivers, utilities, browsers, office applications, and more."
+        description="Download verified software, printer drivers, utilities, browsers, and office applications from TechLite Groups download portal."
         url="https://techlite.com.np/downloads"
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">

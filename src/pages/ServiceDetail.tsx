@@ -76,7 +76,6 @@ export default function ServiceDetail() {
       <SEO
         title={service.seo.title}
         description={service.seo.description}
-        keywords={service.seo.keywords}
         url={`https://techlite.com.np/services/${service.slug}`}
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
