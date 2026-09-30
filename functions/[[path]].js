@@ -1,13 +1,31 @@
-import validServiceSlugs from '../src/data/serviceSlugs.json';
+// Cloudflare Pages Function (Worker)
+// Validates requested URLs against static SPA routes and service slugs.
+
+const staticValidRoutes = new Set([
+  '/',
+  '/about',
+  '/products',
+  '/downloads',
+  '/contact',
+  '/services'
+]);
+
+const validServiceSlugs = new Set([
+  'laptop-desktop-printer-repair',
+  'computer-hardware-upgrades',
+  'router-setup-network-wiring',
+  'cctv-installation-servicing',
+  'custom-pc-building',
+  'data-recovery-software-installation'
+]);
 
 export async function onRequest(context) {
   const { request, env } = context;
   
-  // new URL() automatically separates pathname from query params (?utm_source=google) and hash (#section)
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // 1. Static file extensions check (pass directly to asset serving)
+  // 1. Pass static asset requests directly to Cloudflare asset worker
   if (/\.[a-zA-Z0-9]+$/.test(pathname)) {
     return env.ASSETS.fetch(request);
   }
@@ -17,16 +35,7 @@ export async function onRequest(context) {
     ? pathname.slice(0, -1)
     : pathname;
 
-  // 3. Define valid static / SPA routes
-  const staticValidRoutes = new Set([
-    '/',
-    '/about',
-    '/products',
-    '/downloads',
-    '/contact',
-    '/services'
-  ]);
-
+  // 3. Check static valid routes
   if (staticValidRoutes.has(normalizedPath)) {
     return env.ASSETS.fetch(request);
   }
@@ -34,14 +43,13 @@ export async function onRequest(context) {
   // 4. Dynamic service route check: /services/:slug
   if (normalizedPath.startsWith('/services/')) {
     const slug = normalizedPath.slice('/services/'.length);
-    const validSlugsSet = new Set(validServiceSlugs);
 
-    if (validSlugsSet.has(slug)) {
+    if (validServiceSlugs.has(slug)) {
       return env.ASSETS.fetch(request);
     }
   }
 
-  // 5. Invalid Route -> Return 404.html with HTTP 404 status
+  // 5. Invalid Route -> Serve 404.html with HTTP 404 status
   const fourOhFourUrl = new URL('/404.html', request.url);
   const fourOhFourResponse = await env.ASSETS.fetch(fourOhFourUrl);
 
