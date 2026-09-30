@@ -16,6 +16,7 @@ import {
   User
 } from 'lucide-react';
 import SEO from "../components/SEO";
+import NotFound from "./NotFound";
 import { servicesData } from '../data/servicesData';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -51,16 +52,9 @@ export default function ServiceDetail() {
 
   // Fallback if service not found
   if (!service) {
-    return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center space-y-6 px-6">
-        <h1 className="text-4xl font-bold text-slate-900">Service Not Found</h1>
-        <p className="text-slate-600">We couldn't find the service you're looking for.</p>
-        <Link to="/" className="text-[#066291] font-medium hover:underline flex items-center gap-2">
-          <ArrowLeft className="w-4 h-4" /> Return to Home
-        </Link>
-      </div>
-    );
+    return <NotFound />;
   }
+
 
   // Get related services (excluding current one)
   const relatedServices = servicesData

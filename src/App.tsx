@@ -7,6 +7,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Products from './pages/Products';
+import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
@@ -22,10 +23,13 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="products" element={<Products />} />
           
-          {/* Added the dynamic route here! */}
+          {/* Dynamic service route */}
           <Route path="services/:slug" element={<ServiceDetail />} />
+
+          {/* Catch-all 404 route for client navigation fallback */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
-}
+}
