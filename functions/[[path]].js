@@ -35,9 +35,15 @@ export async function onRequest(context) {
     ? pathname.slice(0, -1)
     : pathname;
 
+  // Helper function to serve index.html with HTTP 200 for valid SPA routes
+  const serveIndexHtml = () => {
+    const indexUrl = new URL('/index.html', request.url);
+    return env.ASSETS.fetch(indexUrl);
+  };
+
   // 3. Check static valid routes
   if (staticValidRoutes.has(normalizedPath)) {
-    return env.ASSETS.fetch(request);
+    return serveIndexHtml();
   }
 
   // 4. Dynamic service route check: /services/:slug
@@ -45,7 +51,7 @@ export async function onRequest(context) {
     const slug = normalizedPath.slice('/services/'.length);
 
     if (validServiceSlugs.has(slug)) {
-      return env.ASSETS.fetch(request);
+      return serveIndexHtml();
     }
   }
 
