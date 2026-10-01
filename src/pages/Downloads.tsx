@@ -238,7 +238,7 @@ export default function Downloads() {
 
         {/* 3. FINAL CALL TO ACTION */}
         <section className="content-container pb-20">
-          <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+          <div className="bg-[#0f172a] rounded-2xl p-7 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
@@ -247,18 +247,18 @@ export default function Downloads() {
               <p className="text-slate-300 text-sm leading-relaxed">
                 If you need a specific motherboard firmware, printer driver setup, or diagnostic tool not listed above, contact our technical team and we will find it for you.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-2 pt-3">
                 <Link
                   to="/contact"
-                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
+                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
                 >
-                  Request Software File
+                  Find Us
                 </Link>
                 <a
                   href="tel:+977-123456789"
-                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
+                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-4 rounded-full transition-colors"
                 >
-                  Call Tech Support
+                  Call Now
                 </a>
               </div>
             </div>

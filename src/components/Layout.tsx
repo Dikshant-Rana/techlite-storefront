@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { HardDrive, Download, Mail, Menu, X, ChevronDown, Package, Wrench, Phone } from 'lucide-react';
+import { House, Info, Download, Menu, X, ChevronDown, Package, Wrench, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logoImg from '../assets/image/techlite-logo.png';
 import { servicesData } from '../data/servicesData';
@@ -36,11 +36,11 @@ export default function Layout() {
     }, []);
 
     const navLinks = [
-        { name: 'Home', path: '/', icon: <HardDrive className="w-4 h-4" /> },
-        { name: 'About Us', path: '/about', icon: <Download className="w-4 h-4" /> },
+        { name: 'Home', path: '/', icon: <House className="w-4 h-4" /> },
+        { name: 'About Us', path: '/about', icon: <Info className="w-4 h-4" /> },
         { name: 'Products', path: '/products', icon: <Package className="w-4 h-4" /> },
         { name: 'Downloads', path: '/downloads', icon: <Download className="w-4 h-4" /> },
-        { name: 'Contact Us', path: '/contact', icon: <Mail className="w-4 h-4" /> },
+        { name: 'Contact Us', path: '/contact', icon: <Phone className="w-4 h-4" /> },
     ];
 
     const animatedUnderlineClasses = "relative flex items-center gap-1 px-1 py-1 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#066291] after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100";

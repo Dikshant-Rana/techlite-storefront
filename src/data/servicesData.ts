@@ -384,7 +384,7 @@ export const servicesData: ServiceItem[] = [
       description:
         "Professional CCTV camera installation, maintenance, DVR/NVR setup, and remote viewing configuration for homes and businesses in Hetauda. Call TechLite Groups."
     },
-    tags: ["Set Up CCTV Cameras", "Security Cameras", "Mobile Viewing Setup", "CCTV Servicing"],
+    tags: ["CCTV Installation", "Video Playback", "Mobile View Setup", "Cloud storage", "CCTV Maintenance"],
     problems: [
       "Need to secure home or business against theft",
       "Existing camera showing black screen or no signal",

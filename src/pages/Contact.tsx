@@ -326,28 +326,28 @@ export default function Contact() {
         </section>
 
         {/* 6. FINAL CONTACT CTA */}
-        <section className="content-container py-20">
-          <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+        <section className="content-container py-10">
+          <div className="bg-[#0f172a] rounded-2xl p-7 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                 Looking for Immediate Support?
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Skip the forms entirely. Click below to start a conversation on WhatsApp or call our main hotline directly to connect with our hardware desk coordinators.
+                Click below to start a conversation on WhatsApp or call our main hotline directly to connect with our hardware desk coordinators.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-2 pt-3">
                 <a
                   href="https://wa.me/9801944800"
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
+                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
                 >
-                  Chat on WhatsApp
+                  WhatsApp Us
                 </a>
                 <a
                   href="tel:+977 9801944800"
-                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
+                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-4 rounded-full transition-colors"
                 >
                   Direct Call
                 </a>

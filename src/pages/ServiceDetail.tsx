@@ -80,10 +80,10 @@ export default function ServiceDetail() {
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none animate-pulse duration-[6000ms]" />
           <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="content-container w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="content-container w-full grid grid-cols-1 md:grid-cols-12 gap-1 items-center relative z-10">
 
             {/* Left Column */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left ">
+            <div className="md:col-span-7 flex flex-col items-start text-left ">
               <Link
                 to="/"
                 className="inline-flex items-center gap-2 text-slate-500 hover:text-[#066291] transition-colors text-xs font-semibold uppercase tracking-wider mb-6"
@@ -119,18 +119,10 @@ export default function ServiceDetail() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  className="bg-[#066291] hover:bg-[#044e74] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 shadow-md shadow-[#066291]/10 transform hover:-translate-y-0.5"
-                >
-                  Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
             </div>
 
             {/* Right Column */}
-            <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-12 lg:mt-0 order-1 lg:order-2">
+            <div className="md:col-span-5 relative w-full flex items-center justify-center mt-4 md:mt-0 order-1 md:order-2">
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 transform hover:scale-[1.02] transition-transform duration-300">
                 <img
                   src={service.imageUrl}
@@ -492,7 +484,7 @@ export default function ServiceDetail() {
 
         {/* 9. FINAL CALL TO ACTION */}
         <section id="booking-cta" className="content-container pb-20">
-          <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+          <div className="bg-[#0f172a] rounded-2xl p-7 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
             <div className="relative z-10 space-y-6 max-w-xl text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
@@ -501,18 +493,18 @@ export default function ServiceDetail() {
               <p className="text-slate-300 text-sm leading-relaxed">
                 Our expert technicians are ready to service your system or install networks and CCTV setups. Experience the Techlite standard of precision.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center gap-2 pt-3">
                 <Link
                   to="/contact"
-                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
+                  className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
                 >
-                  Contact Us Now
+                  Contact Us 
                 </Link>
                 <a
                   href="tel:+977-123456789"
-                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
+                  className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-4 rounded-full transition-colors"
                 >
-                  Call Office
+                  Call Now
                 </a>
               </div>
             </div>

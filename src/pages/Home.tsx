@@ -162,14 +162,19 @@ export default function Home() {
   ];
   const serviceTags = [
     "Laptop/Cpu Repair & servicing",
+    "CCTV installation & Maintenance",
     "Hardware Upgrades (SSD,HDD,Ram)",
     "Router setup & wiring",
     "Printer Repair & Maintenance",
-    "Data Recovery & Software Services",
-    "CCTV installation & servicing",
     "Custom PC Building",
-    "Product Sales"
+    "Product Sales",
+    "Data Recovery & Software Downloads"
   ];
+
+  const handleServiceTagClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    document.getElementById('home-services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
 
   const testimonials = [
@@ -242,13 +247,13 @@ export default function Home() {
               {/* Context Badge Pill */}
               <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-sky-50 border border-sky-100 mb-3 transition-colors duration-200">
                 <span className="text-[#066291] text-xs">★</span>
-                <span className="text-xs font-semibold text-slate-700 tracking-wide">
-                  Serving Homes, Businesses, Schools & Organizations
+                <span className="text-xs  font-semibold text-slate-700 tracking-wide">
+                  Serving Businesses, Organizations, Schools & Homes
                 </span>
               </div>
 
               {/* Typography Header Structural Stack */}
-              <h1 className="text-3xl sm:text-4.5xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1] mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1] mb-4">
                 Your Trusted <br />
                 <span className="relative inline-block text-[#066291]">
                   Technology
@@ -269,34 +274,36 @@ export default function Home() {
                   to="/services"
                   className="group bg-[#066291] hover:bg-[#0a74a7] text-white px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out shadow-md shadow-[#066291]/10 hover:shadow-lg hover:shadow-[#066291]/20 hover:scale-[1.0]"
                 >
-                  Explore Services <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
+                  Our Services <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
                 </Link>
 
                 <Link
                   to="/downloads"
                   className="border border-[#066291] bg-transparent text-[#066291] px-6 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out hover:bg-[#066291] hover:text-white hover:shadow-[0_0_0_4px_rgba(6,98,145,0.08)] hover:-translate-y-0.5"
                 >
-                  <Download className="w-4 h-4 text-current" /> Download Portal
+                  <Download className="w-4 h-4 text-current" /> Downloads
                 </Link>
 
-                <Link
-                  to="/contact"
+                <a
+                  href="tel:9801944800"
                   className="border border-[#066291] bg-transparent text-[#066291] px-5 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-2 transition-all duration-200 ease-in-out hover:bg-[#066291] hover:text-white hover:shadow-[0_0_0_4px_rgba(6,98,145,0.08)] hover:-translate-y-0.5"
                 >
-                  <Phone className="w-4 h-4 text-current" /> Contact Us
-                </Link>
+                  <Phone className="w-4 h-4 text-current" /> Call Us
+                </a>
               </div>
 
               {/* 2. CORE SERVICES FLEX TAG CLOUD (From Screenshot 2026-06-26 114649.png) */}
               <div className="flex flex-wrap gap-2.5 w-full pb-2 border-b border-slate-100">
                 {serviceTags.map((tag, idx) => (
-                  <div
+                  <a
                     key={idx}
-                    className="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-4 py-2 rounded-full shadow-sm shadow-slate-100/40 hover:border-slate-300 transition-colors duration-200"
+                    href="#home-services"
+                    onClick={handleServiceTagClick}
+                    className="service-tag-link inline-flex items-center gap-2 bg-white border border-slate-200/80 px-4 py-2 rounded-full shadow-sm shadow-slate-100/40"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#066291] shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-[#066291] shrink-0" />
                     <span className="text-xs font-semibold text-slate-700">{tag}</span>
-                  </div>
+                  </a>
                 ))}
               </div>
 
@@ -391,7 +398,7 @@ export default function Home() {
         </section>
 
         {/* 3. SERVICES SECTION */}
-        <section className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16">
+        <section id="home-services" className="w-screen ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] border-b border-slate-200/80 py-16 scroll-mt-24">
           <div className="content-container space-y-8">
             {/* Header Layout */}
             <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 border-b border-transparent pb-2">
@@ -865,20 +872,20 @@ export default function Home() {
 
         {/* 6. CALL TO ACTION BANNER */}
         <section className="content-container py-10">
-          <div className="bg-[#0f172a] rounded-2xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+          <div className="bg-[#0f172a] rounded-2xl p-7 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
 
-            <div className="relative z-10 space-y-6 max-w-xl">
+            <div className="relative z-10 space-y-6 max-w-xl text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                 Need Professional Technical Support?
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Our technicians are available for emergency diagnostics and scheduled infrastructure deployments. Experience the Techlite standard of precision.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Link to="/contact" className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-3 rounded transition-colors shadow-sm">
-                  Contact Us
-                </Link>
-                <Link to="/services" className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
+              <div className="flex flex-wrap justify-center gap-2 pt-3">
+                <a href="tel:9801944800" className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15">
+                  Call Us
+                </a>
+                <Link to="/services" className="bg-transparent border border-slate-500 hover:border-slate-300 text-white font-semibold text-sm px-6 py-4 rounded-full transition-colors">
                   Our Services
                 </Link>
               </div>

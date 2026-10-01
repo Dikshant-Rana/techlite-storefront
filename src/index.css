@@ -30,6 +30,23 @@
     -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
   }
 
+  .service-tag-link {
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .service-tag-link:hover,
+  .service-tag-link:focus-visible,
+  .service-tag-link:active {
+    border-color: #066291;
+    box-shadow: 0 0 0 3px white, 0 0 0 4px #066291, 0 6px 14px rgba(6, 98, 145, 0.14);
+    transform: translateY(-2px);
+  }
+
+  .service-tag-link:focus-visible {
+    outline: 2px solid #066291;
+    outline-offset: 6px;
+  }
+
   /* Fluid, centered container with screen-edge safety padding */
   .content-container {
     width: 100%;
