@@ -1,6 +1,10 @@
 import laptopImg from '../assets/image/laptop.jpg';
-import networkingImg from '../assets/image/router1.jpg';
 import desktopImg from '../assets/image/desktop.jpg';
+import Printer from '../assets/image/epson.jpg';
+import Ap from '../assets/image/AP.jpg';
+import CC_CAM from '../assets/image/dahua_cctv.jpg';
+import Peripheral from '../assets/image/computer.jpg';
+
 
 export interface ProductItem {
   id: string;
@@ -21,7 +25,7 @@ export const productsData: ProductItem[] = [
     name: "Laptops",
     imageUrl: laptopImg,
     description: "Reliable laptops for students, professionals, businesses, and everyday users.",
-    brands: ["Dell", "HP", "ASUS", "Acer"],
+    brands: ["Dell", "HP", "ASUS", "Acer", "Lenovo"],
     specs: ["Student Laptops", "Business Laptops", "Gaming Laptops", "Everyday Use"]
   },
   {
@@ -39,7 +43,7 @@ export const productsData: ProductItem[] = [
     slug: "cctv-security-systems",
     category: "CCTV & Security Systems",
     name: "CCTV & Security Systems",
-    imageUrl: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80",
+    imageUrl: CC_CAM,
     description: "Security cameras and surveillance solutions for homes, offices, shops, schools, and businesses.",
     brands: ["Dahua", "Hikvision", "EZVIZ", "TP-Link Tapo"],
     specs: ["Surveillance Cameras", "NVR & DVR Systems", "Smart Home Security", "Mobile Live View Setup"]
@@ -49,7 +53,7 @@ export const productsData: ProductItem[] = [
     slug: "networking-devices",
     category: "Networking Devices",
     name: "Networking Devices",
-    imageUrl: networkingImg,
+    imageUrl: Ap,
     description: "Networking equipment for fast and reliable internet connectivity.",
     brands: ["LB-LINK", "Ruijie", "D-Link", "Netis", "Alfa Network"],
     specs: ["Wi-Fi Routers", "Access Points", "Network Switches", "Network Cables"]
@@ -59,7 +63,7 @@ export const productsData: ProductItem[] = [
     slug: "printers",
     category: "Printers",
     name: "Printers",
-    imageUrl: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80",
+    imageUrl: Printer,
     description: "Printers for home, office, education, and business use.",
     brands: ["Epson", "Canon", "Brother"],
     specs: ["InkTank Printers", "Laser Printers", "Multifunction Copiers", "All-In-One Wireless Printers"]
@@ -69,7 +73,7 @@ export const productsData: ProductItem[] = [
     slug: "computer-accessories",
     category: "Computer Accessories",
     name: "Computer Accessories",
-    imageUrl: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80",
+    imageUrl: Peripheral,
     description: "Essential computer accessories and peripherals for work, gaming, and everyday use.",
     brands: ["Dell", "HP", "ASUS", "Canon", "Epson"], // General accessories brands supported
     specs: [

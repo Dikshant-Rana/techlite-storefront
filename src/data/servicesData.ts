@@ -2,6 +2,9 @@
 import Upgrade from '../assets/image/upgrade.jpg';
 import Repair from '../assets/image/comp-repair.jpg';
 import Router from '../assets/image/tplink.jpg';
+import CCTV from '../assets/image/dahua_cctv.jpg';
+import PC from '../assets/image/custom_PC.jpg';
+import Data from '../assets/image/data_recover.jpg';
 
 export interface Technician {
   name: string;
@@ -376,7 +379,7 @@ export const servicesData: ServiceItem[] = [
     slug: "cctv-installation-servicing",
     category: "SECURITY",
     title: "CCTV Installation & Servicing",
-    imageUrl: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: CCTV,
     desc: "Complete security camera setup, mobile viewing configuration, repair services, and routine maintenance for homes and businesses.",
     longDesc: "Keeping your family, home, and business safe is a top priority. We install high-definition security camera systems that let you monitor your property 24 hours a day, 7 days a week. Our services include placing cameras in the best viewing spots, running secure wiring, and setting up recording boxes so you can review footage whenever you need to.\n\nWe connect your camera system to the internet, allowing you to watch live video feeds directly on your mobile phone, tablet, or laptop from anywhere in the world. Whether you are at work or traveling outside Nepal, you can check in on your property with a single tap.\n\nIf you have an existing system that has stopped working, has blurry video, or is not recording, our maintenance team can diagnose and repair it. We clean camera lenses, check power supplies, replace damaged cables, and fix recording hard drives to keep your security system running without interruption.",
     seo: {
@@ -486,7 +489,7 @@ export const servicesData: ServiceItem[] = [
     slug: "custom-pc-building",
     category: "CUSTOM BUILDS",
     title: "Custom PC Building",
-    imageUrl: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: PC,
     desc: "Build a computer for gaming, office work, video editing, or studying, tailored exactly to your budget and needs.",
     longDesc: "Standard ready-made computers often come with cheap internal parts or features you do not need. When you choose a custom-built computer, you get to decide exactly where your money goes. We help you design and build a desktop computer that fits your exact needs, whether you are looking for a reliable office workstation, a student desktop, or a high-end gaming system.\n\nOur custom computer service makes the process easy. You do not need to know any technical details; simply tell us what you want to use the computer for and what your budget is. We select compatible, high-quality components and compile them into a balanced system design.\n\nWe assemble your new computer with extreme care, ensuring neat wiring for clean airflow and cooler temperatures. Before we hand over the PC, we install the operating system, update all essential drivers, and run stress tests to ensure everything is stable and ready to go.",
     seo: {
@@ -586,7 +589,7 @@ export const servicesData: ServiceItem[] = [
     slug: "data-recovery-software-installation",
     category: "SOFTWARE",
     title: "Data Recovery & Software Installation",
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    imageUrl: Data,
     desc: "Recover lost files from damaged drives, install Windows, remove viruses, and set up daily office applications securely.",
     longDesc: "Software errors, computer viruses, or accidentally deleted files can cause massive stress. If you have lost important family photos, project documents, or office database files, our data recovery team uses professional tools to restore your files from corrupt hard drives, external disks, and USB drives.\n\nWe also handle complete operating system installations and software setups. If your computer is running slow, showing error messages, or infected with malware, a fresh installation of Windows can make it feel like new. We configure your computer safely, install essential drivers, and set up daily programs like Microsoft Office, web browsers, and antivirus utilities.\n\nOur team is committed to keeping your private information safe. We handle all data recovery and software configurations with strict confidentiality, ensuring your files are never exposed, copied, or lost during the service process.",
     seo: {

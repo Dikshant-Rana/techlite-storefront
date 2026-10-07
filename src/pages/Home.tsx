@@ -9,11 +9,9 @@ import { EmployeeMarquee } from '../components/EmployeeMarquee';
 
 
 
-//2. Imported service images
+//2. Imported home and about images
 import techliteInterior from "../assets/image/techlite_interior.webp";
-import Networking from "../assets/image/router1.jpg";
-import Laptop from "../assets/image/laptop.jpg";
-import collageImg from "../assets/image/collage.webp";
+import collageImg from "../assets/image/collagenew.webp";
 
 //3. Imported team images
 import sushil from "../assets/image/sushil.jpg";
@@ -26,7 +24,7 @@ import ashish from "../assets/image/ashish.jpg";
 import bibek from "../assets/image/bibek.jpg";
 
 
-// 2. IMPORT BRAND LOGOS
+// 4. IMPORT BRAND LOGOS
 import DellLogo from '../assets/brands/dell.svg';
 import HpLogo from '../assets/brands/hp.svg';
 import TapoLogo from '../assets/brands/tapo.webp';
@@ -40,6 +38,21 @@ import Dlink from '../assets/brands/d-link.svg';
 import Lblink from '../assets/brands/lb-link.png';
 import Alhua from '../assets/brands/alhua.svg';
 import Ezviz from '../assets/brands/ezviz.png';
+
+//5. Imported Testimonial images
+import pooja from "../assets/image/pooja_gurung.jpg";
+import rachana from "../assets/image/rachana_ghising.jpg";
+import rajesh from "../assets/image/rajesh_shrestha.jpg";
+import ganesh from "../assets/image/ganesh_kumar.jpg";
+
+//6. Imported products images
+import AP from "../assets/image/AP.jpg";
+import Laptop from "../assets/image/laptop.jpg";
+import Desktop from "../assets/image/desktop.jpg";
+import Printer from "../assets/image/brother.jpg";
+import Cctv from "../assets/image/dahua_cctv.jpg";
+import Peripheral from "../assets/image/computer.jpg";
+
 
 
 interface BrandLogo {
@@ -180,27 +193,27 @@ export default function Home() {
   const testimonials = [
     {
       quote: "Techlite Group installed our entire CCTV system across three floors. The work was clean, professional, and completed on schedule. Their team is knowledgeable and explains everything clearly.",
-      author: "Rajesh Shrestha",
+      author: "Ganesh Kumar Shrestha",
       company: "Shrestha Trading Company",
-      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      img: ganesh
     },
     {
       quote: "We hired Techlite to set up our new corporate network. They handled the structured cabling, router configuration, and firewalls perfectly. Our internet speed and stability have never been better.",
-      author: "Sunita Karki",
+      author: "Pooja Karki",
       company: "Himalayan Tech Solutions",
-      img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
+      img: pooja
     },
     {
       quote: "Their laptop repair service is highly recommended. My computer was running extremely slow, and their technician diagnosed the issue, upgraded the SSD, and cleared malware within a few hours.",
-      author: "Anil Shrestha",
+      author: "Rajesh Shrestha",
       company: "Freelance Designer",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+      img: rajesh
     },
     {
       quote: "Techlite has been managing our office printer maintenance for over a year. Their response time is exceptional, and they always use genuine parts. Highly professional customer service. The Staff are friedly too.",
-      author: "Pooja Gurung",
+      author: "Rachana Ghising",
       company: "Apex Business Hub",
-      img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=150&q=80"
+      img: rachana
     }
   ];
 
@@ -509,12 +522,12 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "Laptops", desc: "HP, Dell, Lenovo, Asus, Acer", img: Laptop },
-                { title: "Desktop Computers", desc: "Custom builds & branded PCs", img: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80" },
-                { title: "Printers", desc: "Canon, Epson, Brother printers", img: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80" },
-                { title: "CCTV Systems", desc: "Dahua, Ezviz, Tapo, Hikvision", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80" },
-                { title: "Networking Equipment", desc: "Routers, switches, cables", img: Networking },
-                { title: "Computer Accessories", desc: "Keyboards, mice, monitors", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80" }
+                { title: "Laptops", desc: "Dell, Lenovo, Asus, Acer", img: Laptop },
+                { title: "Desktop Computers", desc: "Custom builds & branded Dell PCs", img: Desktop },
+                { title: "Printers", desc: " Brother, Canon, Epson, Pantum", img: Printer },
+                { title: "CCTV Systems", desc: "Dahua, Imou, Tapo, Hikvision", img: Cctv },
+                { title: "Networking Equipment", desc: "Routers, switches, Access Points, cables", img: AP },
+                { title: "Computer Accessories", desc: "Keyboard, Mouse, Monitor, speakers", img: Peripheral }
               ].map((prod, idx) => (
                 <div key={idx} className="relative group aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300">
                   <img src={prod.img} alt={prod.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -881,7 +894,7 @@ export default function Home() {
               <p className="text-slate-300 text-sm leading-relaxed">
                 Our technicians are available for emergency diagnostics and scheduled infrastructure deployments. Experience the Techlite standard of precision.
               </p>
-              <div className="flex flex-wrap justify-center gap-2 pt-3">
+              <div className="flex flex-wrap gap-2 pt-3">
                 <a href="tel:9801944800" className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15">
                   Call Us
                 </a>

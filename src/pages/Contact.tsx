@@ -336,7 +336,7 @@ export default function Contact() {
               <p className="text-slate-300 text-sm leading-relaxed">
                 Click below to start a conversation on WhatsApp or call our main hotline directly to connect with our hardware desk coordinators.
               </p>
-              <div className="flex flex-wrap justify-center gap-2 pt-3">
+              <div className="flex flex-wrap gap-2 pt-3">
                 <a
                   href="https://wa.me/9801944800"
                   target="_blank"

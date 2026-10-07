@@ -797,7 +797,7 @@ export default function About() {
               <p className="text-slate-300 text-sm leading-relaxed font-normal">
                 Whether you need desktop upgrades, structured cabling layout designs for your office, or custom smart CCTV configurations, our team is ready to help.
               </p>
-              <div className="flex flex-wrap justify-center gap-2 pt-3">
+              <div className="flex flex-wrap gap-2 pt-3">
                 <Link
                   to="/contact"
                   className="bg-[#066291] hover:bg-[#044e74] text-white font-semibold text-sm px-6 py-4 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm shadow-[#066291]/15"
