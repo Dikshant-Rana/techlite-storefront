@@ -26,7 +26,7 @@ export default function Services() {
     {
       situation: "My computer, laptop, or printer won't turn on or has physical damage.",
       recommendation: "Computer, Laptop & Printer Repair",
-      slug: "computer-laptop-printer-repair",
+      slug: "laptop-desktop-printer-repair",
       icon: <Wrench className="w-5 h-5 text-amber-500" />
     },
     {

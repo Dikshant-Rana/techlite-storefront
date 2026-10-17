@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
-  ArrowLeft,
+  ChevronRight,
   ArrowRight,
   CheckCircle2,
   Phone,
@@ -65,12 +65,78 @@ export default function ServiceDetail() {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
+  // Verified Schema.org Graph for Search Engines
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "TechLite Groups",
+        "image": "https://techlite.com.np/og-image.png",
+        "telephone": "+977 9801944800",
+        "email": "techlitegroups@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "School Road, Hetauda-4",
+          "addressLocality": "Hetauda",
+          "addressRegion": "Makwanpur",
+          "addressCountry": "NP"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 27.428608,
+          "longitude": 85.032705
+        },
+        "url": "https://techlite.com.np"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://techlite.com.np/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://techlite.com.np/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": service.title,
+            "item": `https://techlite.com.np/services/${service.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.seo.description,
+        "serviceType": service.category,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "TechLite Groups",
+          "url": "https://techlite.com.np"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Hetauda, Makwanpur, Nepal"
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEO
         title={service.seo.title}
         description={service.seo.description}
         url={`https://techlite.com.np/services/${service.slug}`}
+        schema={serviceSchema}
       />
       <div className="font-sans text-slate-900 bg-white overflow-x-hidden">
 
@@ -84,12 +150,21 @@ export default function ServiceDetail() {
 
             {/* Left Column */}
             <div className="md:col-span-7 flex flex-col items-start text-left ">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-slate-500 hover:text-[#066291] transition-colors text-xs font-semibold uppercase tracking-wider mb-6"
+              {/* Breadcrumb */}
+              <nav
+                aria-label="Breadcrumb"
+                className="flex items-center flex-wrap gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-6"
               >
-                <ArrowLeft className="w-4 h-4" /> Back to home
-              </Link>
+                <Link to="/" className="hover:text-[#066291] transition-colors">
+                  Home
+                </Link>
+                <ChevronRight className="w-3 h-3" />
+                <Link to="/services" className="hover:text-[#066291] transition-colors">
+                  Our Services
+                </Link>
+                <ChevronRight className="w-3 h-3" />
+                <span className="text-slate-600">{service.title}</span>
+              </nav>
 
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-100 mb-6">
                 <span className="text-[#066291] text-xs">★</span>

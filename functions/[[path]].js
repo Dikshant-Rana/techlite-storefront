@@ -41,7 +41,7 @@ export async function onRequest(context) {
     return env.ASSETS.fetch(indexUrl);
   };
 
-  // 3. Check static valid routes
+  // 3. Static valid routes -> serve root SPA shell
   if (staticValidRoutes.has(normalizedPath)) {
     return serveIndexHtml();
   }
@@ -51,6 +51,11 @@ export async function onRequest(context) {
     const slug = normalizedPath.slice('/services/'.length);
 
     if (validServiceSlugs.has(slug)) {
+      const preRenderedUrl = new URL(`/services/${slug}/index.html`, request.url);
+      const preRenderedResponse = await env.ASSETS.fetch(preRenderedUrl);
+      if (preRenderedResponse && preRenderedResponse.status === 200) {
+        return preRenderedResponse;
+      }
       return serveIndexHtml();
     }
   }

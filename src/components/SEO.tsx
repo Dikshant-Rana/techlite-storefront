@@ -5,6 +5,7 @@ interface SEOProps {
   description: string;
   image?: string;
   url?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export default function SEO({
@@ -12,6 +13,7 @@ export default function SEO({
   description,
   image = "https://techlite.com.np/og-image.png",
   url = "https://techlite.com.np",
+  schema,
 }: SEOProps) {
   return (
     <Helmet>
@@ -31,6 +33,12 @@ export default function SEO({
       <meta name="twitter:image" content={image} />
 
       <link rel="canonical" href={url} />
+
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 }

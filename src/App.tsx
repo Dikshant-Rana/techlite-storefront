@@ -22,7 +22,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="products" element={<Products />} />
-          
+
           {/* Dynamic service route */}
           <Route path="services/:slug" element={<ServiceDetail />} />
 
@@ -32,4 +32,4 @@ export default function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+}
